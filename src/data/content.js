@@ -236,6 +236,160 @@ export const lessons = [
       },
     ],
   },
+
+  {
+    id: 'lesson-4',
+    date: '2026-03-31',
+    title: 'The Filler Word Trap',
+    subtitle: 'Why "um" and "like" are costing you more credibility than you realise.',
+    estimatedMinutes: 5,
+    xp: 50,
+    blocks: [
+      {
+        type: 'text',
+        content: 'Count the filler words in this sentence: "So, um, basically what I\'m trying to say is, like, the results were, you know, actually pretty good."\n\nNine words of content. Six words of noise. That\'s a ratio most people are producing in real time without realising it.\n\nFiller words don\'t just clutter your speech — they actively undermine your credibility. They signal uncertainty, even when you\'re completely sure of what you\'re saying.',
+      },
+      {
+        type: 'text-header',
+        content: 'Why we use them',
+      },
+      {
+        type: 'text',
+        content: 'Filler words are a social reflex, not a thinking problem. We\'ve been conditioned to believe that silence mid-sentence is awkward — that if we stop talking, someone will jump in, or we\'ll lose the floor.\n\nSo we fill the gap with sound. Any sound. "Um." "Uh." "Like." "Basically." "You know?"\n\nThe irony: silence would have been more powerful. A brief pause signals that you\'re thinking carefully, not fumbling.',
+      },
+      {
+        type: 'multiple-choice',
+        question: 'What is the main reason filler words damage how we come across?',
+        options: [
+          { text: 'They make sentences longer and harder to follow', correct: false, explanation: 'Length is a minor issue — the bigger problem is what fillers signal about confidence.' },
+          { text: 'They signal uncertainty even when the speaker is confident', correct: true, explanation: 'Exactly — filler words are a credibility leak. The listener\'s brain reads hesitation whether or not it\'s real.' },
+          { text: 'They are grammatically incorrect', correct: false, explanation: 'Grammar isn\'t the issue — spoken language has always been informal. It\'s the perception of confidence that matters.' },
+          { text: 'They are only a problem in formal settings', correct: false, explanation: 'Filler words cost you in any setting — job interviews, first dates, casual conversations, all of it.' },
+        ],
+      },
+      {
+        type: 'text-header',
+        content: 'The fix: own the silence',
+      },
+      {
+        type: 'text',
+        content: 'The replacement for a filler word is nothing. Just stop.\n\nWhen you feel the urge to say "um" — pause instead. Close your mouth. Take a breath. Let the silence sit for one beat. Then continue.\n\nIt will feel excruciating to you. To everyone else, it sounds like composure. The pause that feels like three seconds to you reads as one second to the room — and as confidence, not hesitation.\n\nBonus: it gives your brain time to actually form the next sentence properly.',
+      },
+      {
+        type: 'spot-mistake',
+        prompt: 'Both people are answering the question: "What do you do for work?" Who came across better?',
+        personA: {
+          lines: [
+            '"So basically, um, I work in, like, product design."',
+            '"We kind of, you know, build tools for, um, remote teams."',
+            '"It\'s, like, actually pretty interesting work."',
+            '"Yeah, so... that\'s kind of the gist of it."',
+          ],
+        },
+        personB: {
+          lines: [
+            '"I\'m a product designer."',
+            '"We build tools for remote teams —" *pauses*',
+            '"— specifically around async communication."',
+            '"It\'s work I find genuinely interesting."',
+          ],
+        },
+        mistakeIs: 'A',
+        explanation: 'Person A used nine filler words in four lines. Person B said the same information more cleanly, used a deliberate pause instead of "um", and came across as measured and confident. Same content, completely different impression.',
+      },
+      {
+        type: 'reflection',
+        prompt: 'When do you notice yourself using filler words most? Is it in certain situations — presenting, meeting new people, being put on the spot? What\'s the feeling right before the filler comes out?',
+        placeholder: 'E.g. I notice it most when someone asks a question I wasn\'t expecting and I panic to fill the silence while I think...',
+      },
+      {
+        type: 'daily-action',
+        headline: "Today's micro-challenge",
+        instruction: 'Record yourself talking for 60 seconds — voice memo on your phone, answering the question "What have you been working on lately?" Play it back and count every filler word. Don\'t judge yourself, just count. Now record it again, replacing every filler with silence. Notice the difference.',
+        timeEstimate: '3 minutes',
+      },
+    ],
+  },
+
+  {
+    id: 'lesson-5',
+    date: '2026-04-01',
+    title: 'The Power of the Pause',
+    subtitle: 'How deliberate silence became the most underused tool in communication.',
+    estimatedMinutes: 6,
+    xp: 60,
+    blocks: [
+      {
+        type: 'text',
+        content: 'Barack Obama does it. Steve Jobs did it at every keynote. The best trial lawyers in the world do it before their most important sentences.\n\nThey pause. On purpose. For longer than feels comfortable.\n\nSilence in conversation isn\'t dead air — it\'s punctuation. It signals that what just happened mattered, and what\'s coming next matters more. Most people are so terrified of silence they never discover what it can do for them.',
+      },
+      {
+        type: 'text-header',
+        content: 'Why silence feels unbearable',
+      },
+      {
+        type: 'text',
+        content: 'The average person tolerates about 1.5 seconds of silence before feeling compelled to fill it. That instinct is social — silence in a tribe historically signalled tension or rejection.\n\nBut in modern conversation, that wiring works against you. When you rush to fill silence, you:\n\n• Cut off the other person before they\'ve finished their full thought\n• Rob your own words of weight — everything comes at the same speed\n• Signal anxiety rather than authority\n\nThe discomfort you feel in the pause? The other person feels it too — and attributes it to you being thoughtful, not awkward.',
+      },
+      {
+        type: 'slider',
+        prompt: 'How comfortable are you sitting in silence mid-conversation right now?',
+        leftLabel: 'Very uncomfortable',
+        rightLabel: 'Completely at ease',
+      },
+      {
+        type: 'text-header',
+        content: 'Three places to deploy it',
+      },
+      {
+        type: 'text',
+        content: '① Before answering an important question — a 2-second pause signals you\'re actually considering it, not just reacting.\n\n② After saying something significant — let it land. Don\'t undercut your own point by immediately moving on.\n\n③ When someone else finishes speaking — waiting one beat before responding signals you were truly listening, not just waiting for your turn.',
+      },
+      {
+        type: 'multiple-choice',
+        question: 'What does a deliberate pause after making a point actually communicate to the listener?',
+        options: [
+          { text: 'That you\'ve forgotten what to say next', correct: false, explanation: 'That\'s how the pause feels to you — not how it reads to the room. To others, it signals composure.' },
+          { text: 'That you are nervous or unprepared', correct: false, explanation: 'Nervous pauses are different — they\'re accompanied by filler words and averted eyes. A clean pause without those signals reads as confidence.' },
+          { text: 'That what you said deserves attention and consideration', correct: true, explanation: 'Correct — a deliberate pause frames your words as worth sitting with. It\'s the difference between a sentence and a statement.' },
+          { text: 'Nothing — listeners don\'t notice pauses', correct: false, explanation: 'Listeners absolutely notice pauses. They\'re one of the most powerful prosodic signals in speech.' },
+        ],
+      },
+      {
+        type: 'spot-mistake',
+        prompt: 'Both people were asked: "What\'s your biggest strength?" in an interview. Who handled it better?',
+        personA: {
+          lines: [
+            '*immediately* "Oh, um, I\'d say I\'m a really hard worker—"',
+            '"—and I care a lot about the team, and also I\'m pretty good at like, problem solving—"',
+            '"—and communication, definitely communication too."',
+            '"Yeah. Those things."',
+          ],
+        },
+        personB: {
+          lines: [
+            '*pauses two seconds*',
+            '"I think it\'s clarity under pressure."',
+            '"When things get complicated, I slow down instead of speeding up."',
+            '"That\'s when I tend to do my best work."',
+          ],
+        },
+        mistakeIs: 'A',
+        explanation: 'Person A answered instantly, listed everything at once, and undercut each point with filler words. Person B used a two-second pause to choose one specific answer, then let it land without rushing. The pause made the answer feel considered — and memorable.',
+      },
+      {
+        type: 'reflection',
+        prompt: 'Think of a conversation where you said something and immediately kept talking — before the other person had a chance to react. What were you afraid would happen in the silence? What might have happened if you\'d let the pause sit?',
+        placeholder: 'E.g. I gave my manager feedback in a 1:1 and then immediately softened it before she could respond — I think I was scared of her reaction...',
+      },
+      {
+        type: 'daily-action',
+        headline: "Today's micro-challenge",
+        instruction: 'In your next conversation — any conversation — after you make your next meaningful point, stop talking. Let there be silence for at least two full seconds before continuing. Count in your head if you need to. Notice what happens in the room when you don\'t rush to fill it.',
+        timeEstimate: 'One conversation',
+      },
+    ],
+  },
 ]
 
 // Returns a YYYY-MM-DD string for today offset by N days (for admin simulation)

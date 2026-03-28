@@ -1,17 +1,19 @@
 import { useApp } from '../context/AppContext'
-import { getVocabForDay } from '../data/vocabData'
-import { getDateStr } from '../data/content'
+import { getVocabForDay, getPastVocab } from '../data/vocabData'
+import { getDateStr, formatDisplayDate } from '../data/content'
 import styles from './Vocab.module.scss'
 
 export default function Vocab() {
   const { state } = useApp()
-  const vocab = getVocabForDay(getDateStr(state.dateOffset))
+  const todayStr = getDateStr(state.dateOffset)
+  const vocab = getVocabForDay(todayStr)
+  const past = getPastVocab(todayStr)
 
   return (
     <div className={styles.wrap}>
       <div className={styles.pageHeader}>
         <div className={styles.pageLabel}>Word of the Day</div>
-        <div className={styles.dayBadge}>Day {state.currentDay}</div>
+        <div className={styles.dayBadge}>{formatDisplayDate(state.dateOffset)}</div>
       </div>
 
       <div className={styles.card}>
@@ -36,9 +38,30 @@ export default function Vocab() {
         </div>
       </div>
 
-      <div className={styles.footer}>
-        Expand your vocabulary — one word at a time.
-      </div>
+      {past.length > 0 && (
+        <>
+          <div className={styles.pastHeader}>Previous Words</div>
+          <div className={styles.pastList}>
+            {past.map(v => (
+              <div key={v.date} className={styles.pastCard}>
+                <div className={styles.pastMeta}>
+                  <span className={styles.pastWord}>{v.word}</span>
+                  <span className={styles.pastPos}>{v.partOfSpeech}</span>
+                </div>
+                <div className={styles.pastDate}>{formatPastDate(v.date)}</div>
+                <div className={styles.pastDef}>{v.definition}</div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
+}
+
+function formatPastDate(dateStr) {
+  const [year, month, day] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+    month: 'long', day: 'numeric'
+  })
 }

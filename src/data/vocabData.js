@@ -23,6 +23,28 @@ const vocabWords = [
     origin: 'Greek — from Mnemosyne, the goddess of memory',
   },
   {
+    date: '2026-03-31',
+    word: 'Equanimity',
+    partOfSpeech: 'noun',
+    pronunciation: 'ee·kwuh·nim·i·tee',
+    definition:
+      'A calm, composed state of mind that remains stable under pressure or stress — not the absence of feeling, but the ability to stay grounded despite it.',
+    example:
+      'She delivered the difficult news with such equanimity that the room felt steadied by her composure rather than unsettled by the situation.',
+    origin: 'Latin — aequanimitas, from aequus ("equal") + animus ("mind")',
+  },
+  {
+    date: '2026-04-01',
+    word: 'Laconic',
+    partOfSpeech: 'adjective',
+    pronunciation: 'luh·kon·ik',
+    definition:
+      'Using very few words to express a great deal — brief, direct, and deliberately spare in language.',
+    example:
+      'When asked how the negotiation went, his laconic reply — "We got what we needed" — told the room everything without explaining anything.',
+    origin: 'Greek — from Lakon, referring to the Spartans of Laconia, famous for their terse speech',
+  },
+  {
     date: '2026-03-30',
     word: 'Heuristic',
     partOfSpeech: 'noun / adjective',
@@ -37,6 +59,12 @@ const vocabWords = [
 
 export function getVocabForDay(dateStr) {
   return vocabWords.find(v => v.date === dateStr) || vocabWords[0]
+}
+
+export function getPastVocab(todayStr) {
+  return vocabWords
+    .filter(v => v.date < todayStr)
+    .sort((a, b) => b.date.localeCompare(a.date))
 }
 
 export default vocabWords

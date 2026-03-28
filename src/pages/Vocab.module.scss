@@ -117,10 +117,59 @@
   color: $color-text-secondary;
 }
 
-.footer {
-  margin-top: $space-6;
-  text-align: center;
-  font-size: 0.82rem;
+.pastHeader {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: $color-text-secondary;
+  margin: $space-6 0 $space-3;
+}
+
+.pastList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.pastCard {
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-4 $space-5;
+  background: $color-surface;
+}
+
+.pastMeta {
+  display: flex;
+  align-items: baseline;
+  gap: $space-2;
+  margin-bottom: $space-1;
+}
+
+.pastWord {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: $color-text;
+}
+
+.pastPos {
+  font-size: 0.78rem;
   font-style: italic;
+  color: $color-text-secondary;
+}
+
+.pastDate {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: $space-2;
+}
+
+.pastDef {
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
 }
