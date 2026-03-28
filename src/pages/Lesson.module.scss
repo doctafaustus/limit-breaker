@@ -1,0 +1,492 @@
+@use '../styles/tokens' as *;
+
+.lessonWrap {
+  min-height: 100vh;
+  background: $color-surface;
+  display: flex;
+  flex-direction: column;
+  max-width: $max-width;
+  margin: 0 auto;
+  position: relative;
+}
+
+.lessonHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-4;
+  position: sticky;
+  top: 0;
+  background: $color-surface;
+  z-index: 10;
+  border-bottom: 1px solid $color-border;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: $color-text-secondary;
+  padding: 4px;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  &:hover { background: $color-bg; }
+}
+
+.progressBarWrap {
+  flex: 1;
+  height: 6px;
+  background: $color-border;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $primary;
+  border-radius: $radius-full;
+  transition: width 0.35s ease;
+}
+
+.stepCount {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.blockWrap {
+  flex: 1;
+  padding: $space-6 $space-4 120px;
+  max-width: 100%;
+}
+
+.blockItem {
+  margin-bottom: $space-6;
+  animation: blockIn 0.3s ease forwards;
+}
+
+@keyframes blockIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.textBlock {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $color-text;
+  white-space: pre-line;
+}
+
+.headerBlock {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: $color-text;
+  margin-top: $space-2;
+  line-height: 1.3;
+}
+
+.fillBlankWrap {
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: $space-5;
+  border: 1.5px solid $color-border;
+}
+
+.fillBlankPrompt {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: $color-text;
+  margin-bottom: $space-4;
+}
+
+.fillBlankField {
+  display: inline-block;
+  border: none;
+  border-bottom: 2px solid $primary;
+  background: transparent;
+  font-size: 0.95rem;
+  font-family: $font-body;
+  color: $color-text;
+  padding: 2px 4px;
+  width: 140px;
+  outline: none;
+  margin: 0 4px;
+
+  &:focus { border-bottom-color: $primary-dark; }
+  &::placeholder { color: $color-text-secondary; opacity: 0.6; }
+}
+
+.fillBlankInputs {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.fillBlankInputRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.fillBlankNumber {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: $primary;
+  min-width: 20px;
+}
+
+.fillInput {
+  flex: 1;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-sm;
+  padding: $space-3 $space-4;
+  font-size: 0.9rem;
+  font-family: $font-body;
+  color: $color-text;
+  background: $color-surface;
+  outline: none;
+  transition: border-color $duration-normal;
+
+  &:focus { border-color: $primary; }
+}
+
+.fillCorrect { border-color: $color-success !important; background: rgba(81, 207, 102, 0.08); }
+.fillWrong { border-color: #ff6b6b !important; background: rgba(255, 107, 107, 0.08); }
+
+.fillSubmitBtn {
+  margin-top: $space-4;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $radius-full;
+  padding: $space-3 $space-6;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background $duration-normal;
+
+  &:hover { background: $primary-dark; }
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}
+
+.fillResult {
+  margin-top: $space-3;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: $space-3 $space-4;
+  border-radius: $radius-sm;
+}
+
+.fillResultCorrect { background: rgba(81, 207, 102, 0.1); color: #2a9d4d; }
+.fillResultWrong { background: rgba(255, 107, 107, 0.1); color: #c94040; }
+
+.mcWrap {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.mcQuestion {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $color-text;
+  margin-bottom: $space-4;
+  line-height: 1.4;
+}
+
+.mcOption {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-4;
+  border: 2px solid $color-border;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $duration-normal;
+  background: $color-surface;
+
+  &:hover { border-color: $primary; background: $primary-light; }
+}
+
+.mcOptionSelected { border-color: $primary; background: $primary-light; }
+.mcOptionCorrect { border-color: $color-success; background: rgba(81, 207, 102, 0.1); }
+.mcOptionIncorrect { border-color: #ff6b6b; background: rgba(255, 107, 107, 0.1); }
+
+.mcOptionDot {
+  width: 20px;
+  height: 20px;
+  border-radius: $radius-full;
+  border: 2px solid $color-border;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+
+.mcOptionDotSelected { border-color: $primary; background: $primary; }
+.mcOptionDotCorrect { border-color: $color-success; background: $color-success; color: white; }
+.mcOptionDotIncorrect { border-color: #ff6b6b; background: #ff6b6b; color: white; }
+
+.mcOptionText { font-size: 0.9rem; color: $color-text; line-height: 1.5; flex: 1; }
+.mcExplanation { margin-top: $space-2; font-size: 0.82rem; color: $color-text-secondary; line-height: 1.5; }
+
+.reflectionWrap {
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: $space-5;
+  border: 1.5px solid $color-border;
+}
+
+.reflectionPrompt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $color-text;
+  margin-bottom: $space-4;
+  font-weight: 500;
+}
+
+.reflection {
+  width: 100%;
+  min-height: 100px;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-sm;
+  padding: $space-3 $space-4;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  color: $color-text;
+  resize: vertical;
+  outline: none;
+  background: $color-surface;
+  transition: border-color $duration-normal;
+  box-sizing: border-box;
+
+  &:focus { border-color: $primary; }
+  &::placeholder { color: $color-text-secondary; opacity: 0.7; }
+}
+
+.sliderWrap {
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: $space-5;
+  border: 1.5px solid $color-border;
+}
+
+.sliderPrompt {
+  font-size: 0.95rem;
+  color: $color-text;
+  margin-bottom: $space-5;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.sliderInput {
+  width: 100%;
+  accent-color: $primary;
+  height: 4px;
+  cursor: pointer;
+}
+
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: $space-3;
+}
+
+.sliderLabel { font-size: 0.78rem; color: $color-text-secondary; font-weight: 600; max-width: 45%; }
+.sliderLabelRight { text-align: right; }
+
+.dailyAction {
+  background: linear-gradient(135deg, $primary-light, rgba(108, 99, 255, 0.05));
+  border: 2px solid rgba(108, 99, 255, 0.2);
+  border-radius: $radius-md;
+  padding: $space-5;
+  position: relative;
+  overflow: hidden;
+}
+
+.dailyActionIcon {
+  font-size: 1.5rem;
+  margin-bottom: $space-3;
+}
+
+.dailyActionHeadline {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: $primary;
+  margin-bottom: $space-2;
+}
+
+.dailyActionInstruction {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: $color-text;
+  margin-bottom: $space-4;
+}
+
+.dailyActionTime {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: $primary;
+  background: rgba(108, 99, 255, 0.1);
+  padding: 3px 10px;
+  border-radius: $radius-full;
+}
+
+.dailyActionCheck {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-4;
+  cursor: pointer;
+  padding: $space-2 0;
+}
+
+.dailyActionCheckbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  background: transparent;
+  transition: all $duration-normal;
+  flex-shrink: 0;
+}
+
+.dailyActionCheckboxChecked {
+  background: $primary;
+  color: white;
+}
+
+.dailyActionCheckLabel {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.nextBtnArea {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: $max-width;
+  padding: $space-4;
+  background: $color-surface;
+  border-top: 1px solid $color-border;
+  z-index: 20;
+}
+
+.nextBtn {
+  width: 100%;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $radius-full;
+  padding: $space-4;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background $duration-normal, transform $duration-normal $ease-spring;
+
+  &:hover { background: $primary-dark; }
+  &:active { transform: scale(0.97); }
+  &:disabled { opacity: 0.45; cursor: not-allowed; }
+}
+
+.completion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $space-8 $space-5;
+  text-align: center;
+  gap: $space-4;
+}
+
+.completionEmoji {
+  font-size: 4rem;
+  animation: pop 0.5s $ease-spring forwards;
+}
+
+@keyframes pop {
+  from { transform: scale(0.3); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.completionTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: $color-text;
+}
+
+.xpBurst {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: $primary-light;
+  border-radius: $radius-full;
+  padding: $space-3 $space-6;
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: $primary;
+}
+
+.streakRow {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-streak;
+  background: rgba(255, 146, 43, 0.1);
+  padding: $space-3 $space-5;
+  border-radius: $radius-full;
+}
+
+.completionSubtext {
+  color: $color-text-secondary;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.completionBtn {
+  width: 100%;
+  max-width: 320px;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $radius-full;
+  padding: $space-4;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: $space-2;
+  transition: background $duration-normal;
+
+  &:hover { background: $primary-dark; }
+}

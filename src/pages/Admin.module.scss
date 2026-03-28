@@ -1,0 +1,121 @@
+@use '../styles/tokens' as *;
+
+.wrap {
+  padding-bottom: $space-10;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: $color-text;
+  margin-bottom: $space-1;
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  color: $color-text-secondary;
+  margin-bottom: $space-6;
+}
+
+.stateCard {
+  background: $color-bg;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-4;
+  margin-bottom: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.stateLine {
+  font-size: 0.88rem;
+  color: $color-text;
+  display: flex;
+  gap: $space-2;
+}
+
+.stateKey {
+  font-weight: 700;
+  color: $primary;
+  min-width: 100px;
+}
+
+.stateVal {
+  color: $color-text-secondary;
+  word-break: break-all;
+}
+
+.sectionTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  margin-bottom: $space-3;
+}
+
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-bottom: $space-6;
+}
+
+.btn {
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  border: 1.5px solid $color-border;
+  background: $color-surface;
+  font-family: $font-body;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: $color-text;
+  cursor: pointer;
+  text-align: left;
+  transition: background $duration-normal, border-color $duration-normal;
+
+  &:hover:not(:disabled) { background: $color-bg; border-color: $primary; }
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+}
+
+.btnPrimary {
+  background: $primary;
+  color: white;
+  border-color: $primary;
+
+  &:hover:not(:disabled) { background: $primary-dark; border-color: $primary-dark; }
+}
+
+.btnDanger {
+  color: #e53e3e;
+  border-color: rgba(229, 62, 62, 0.3);
+
+  &:hover:not(:disabled) { background: rgba(229, 62, 62, 0.05); border-color: #e53e3e; }
+}
+
+.journeyBtns {
+  display: flex;
+  gap: $space-2;
+  flex-wrap: wrap;
+}
+
+.divider {
+  height: 1px;
+  background: $color-border;
+  margin: $space-5 0;
+}
+
+.rawJson {
+  background: #1A1930;
+  color: #a8ff78;
+  border-radius: $radius-md;
+  padding: $space-4;
+  font-size: 0.75rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+}

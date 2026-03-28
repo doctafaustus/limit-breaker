@@ -1,0 +1,40 @@
+@use './tokens' as *;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: $color-bg;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-frame {
+  width: 100%;
+  max-width: $max-width;
+  min-height: 100vh;
+  background: $color-surface;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0,0,0,0.08);
+}
+
+.page {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-5 $space-4 calc(80px + $space-4);
+}
+
+.page--no-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}

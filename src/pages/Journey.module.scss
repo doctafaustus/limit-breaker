@@ -1,0 +1,123 @@
+@use '../styles/tokens' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-6;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: $color-text;
+  padding: $space-2;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover { background: $color-bg; }
+}
+
+.journeyEmoji {
+  font-size: 1.6rem;
+}
+
+.journeyTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: $color-text;
+}
+
+.journeySubtitle {
+  font-size: 0.82rem;
+  color: $color-text-secondary;
+  margin-top: 1px;
+}
+
+.path {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $space-4 0;
+}
+
+.nodeWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.connector {
+  width: 2px;
+  height: 48px;
+  border-left: 2px dashed $color-border;
+  margin: 0;
+}
+
+.nodeRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: $space-4;
+  cursor: pointer;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  transition: background $duration-normal;
+
+  &:hover {
+    background: $color-bg;
+  }
+}
+
+.nodeRowLocked {
+  cursor: not-allowed;
+  opacity: 0.55;
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.nodeCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  font-family: $font-display;
+
+  &--completed { background: $color-success; color: white; }
+  &--current { background: $primary; color: white; animation: pulse 2s infinite; }
+  &--locked { background: $color-border; color: $color-text-secondary; }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(108,99,255,0); }
+}
+
+.nodeInfo { flex: 1; }
+.nodeDay { font-size: 0.75rem; color: $color-text-secondary; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.nodeTitle { font-weight: 700; font-size: 0.95rem; color: $color-text; margin-top: 2px; }
+.nodeModule { font-size: 0.78rem; color: $color-text-secondary; margin-top: 2px; }
+.nodeLockIcon { font-size: 1.1rem; }
+.nodeCheckIcon { font-size: 1.1rem; }
+
+.moduleLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  margin-bottom: $space-4;
+  padding: 0 $space-4;
+}

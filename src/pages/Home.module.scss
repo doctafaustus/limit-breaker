@@ -1,0 +1,204 @@
+@use '../styles/tokens' as *;
+
+.greeting {
+  font-family: $font-display;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: $color-text;
+  margin-bottom: $space-5;
+}
+
+.streakBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  background: rgba(255, 146, 43, 0.12);
+  color: $color-streak;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-left: $space-2;
+}
+
+.heroCard {
+  border-radius: $radius-lg;
+  padding: $space-6;
+  color: white;
+  box-shadow: $shadow-md;
+  margin-bottom: $space-6;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroCardBg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.heroTag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: $radius-full;
+  padding: 3px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: $space-3;
+}
+
+.heroTitle {
+  font-family: $font-display;
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: $space-2;
+}
+
+.heroSubtitle {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  line-height: 1.5;
+  margin-bottom: $space-4;
+}
+
+.heroMeta {
+  display: flex;
+  gap: $space-3;
+  margin-bottom: $space-5;
+}
+
+.heroBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: $radius-full;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.heroCta {
+  background: white;
+  border: none;
+  border-radius: $radius-full;
+  padding: $space-3 $space-6;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform $duration-normal $ease-spring, box-shadow $duration-normal;
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.completedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: rgba(81, 207, 102, 0.2);
+  border: 1.5px solid rgba(81, 207, 102, 0.5);
+  border-radius: $radius-full;
+  padding: $space-2 $space-5;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.sectionTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  margin-bottom: $space-3;
+}
+
+.dayProgress {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-6;
+}
+
+.dayDot {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: $font-display;
+  border: 2px solid $color-border;
+  color: $color-text-secondary;
+  background: $color-surface;
+  flex-shrink: 0;
+}
+
+.dayDotCompleted {
+  background: $color-success;
+  border-color: $color-success;
+  color: white;
+}
+
+.dayDotCurrent {
+  background: $primary;
+  border-color: $primary;
+  color: white;
+}
+
+.dayConnector {
+  flex: 1;
+  height: 2px;
+  background: $color-border;
+  border-radius: $radius-full;
+}
+
+.dayConnectorFilled {
+  background: $color-success;
+}
+
+.tipCard {
+  background: $primary-light;
+  border-radius: $radius-md;
+  padding: $space-4 $space-5;
+  border: 1px solid rgba(108, 99, 255, 0.15);
+}
+
+.tipTitle {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: $primary-dark;
+  margin-bottom: $space-2;
+}
+
+.tipText {
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  line-height: 1.55;
+}
+
+.noJourneyCard {
+  border-radius: $radius-lg;
+  border: 2px dashed $color-border;
+  padding: $space-8;
+  text-align: center;
+  color: $color-text-secondary;
+  margin-bottom: $space-6;
+}

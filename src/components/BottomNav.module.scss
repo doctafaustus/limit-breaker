@@ -1,0 +1,37 @@
+@use '../styles/tokens' as *;
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: $max-width;
+  background: $color-surface;
+  border-top: 1px solid $color-border;
+  display: flex;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 10px 0 8px;
+  cursor: pointer;
+  transition: transform $duration-normal $ease-spring;
+  text-decoration: none;
+  color: $color-text-secondary;
+
+  &:active { transform: scale(0.9); }
+}
+
+.itemActive {
+  color: $primary;
+}
+
+.icon { font-size: 1.4rem; line-height: 1; }
+.label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.02em; font-family: $font-body; }

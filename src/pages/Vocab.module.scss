@@ -1,0 +1,126 @@
+@use '../styles/tokens' as *;
+
+.wrap {
+  padding-top: $space-2;
+}
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-5;
+}
+
+.pageLabel {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: $color-text;
+}
+
+.dayBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $primary;
+  background: $primary-light;
+  padding: 4px 12px;
+  border-radius: $radius-full;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  padding: $space-6;
+  box-shadow: $shadow-md;
+  border: 1px solid $color-border;
+}
+
+.pronunciation {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: $space-1;
+}
+
+.word {
+  font-family: $font-display;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: $primary;
+  line-height: 1.1;
+  margin-bottom: $space-1;
+}
+
+.partOfSpeech {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: $color-text-secondary;
+  margin-bottom: $space-4;
+}
+
+.divider {
+  height: 1px;
+  background: $color-border;
+  margin: $space-4 0;
+}
+
+.sectionLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-text-secondary;
+  margin-bottom: $space-2;
+}
+
+.definition {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $color-text;
+  font-weight: 400;
+}
+
+.example {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: $color-text;
+  font-style: italic;
+  background: $primary-light;
+  border-left: 3px solid $primary;
+  border-radius: 0 $radius-sm $radius-sm 0;
+  padding: $space-4 $space-5;
+  position: relative;
+}
+
+.quoteMarks {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: $primary;
+  font-style: normal;
+}
+
+.origin {
+  margin-top: $space-5;
+  font-size: 0.8rem;
+  color: $color-text-secondary;
+  border-top: 1px solid $color-border;
+  padding-top: $space-4;
+}
+
+.originLabel {
+  font-weight: 700;
+  color: $color-text-secondary;
+}
+
+.footer {
+  margin-top: $space-6;
+  text-align: center;
+  font-size: 0.82rem;
+  color: $color-text-secondary;
+  font-style: italic;
+}

@@ -1,0 +1,271 @@
+@use '../styles/tokens' as *;
+
+.pageTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: $color-text;
+  margin-bottom: $space-6;
+}
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: $space-6;
+  gap: $space-3;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-full;
+  background: linear-gradient(135deg, $primary, $primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+}
+
+.levelBadge {
+  background: $primary-light;
+  color: $primary;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: $radius-full;
+  letter-spacing: 0.04em;
+}
+
+.userName {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: $color-text;
+}
+
+.statsRow {
+  display: flex;
+  gap: $space-3;
+  margin-bottom: $space-6;
+}
+
+.statCard {
+  flex: 1;
+  background: $color-bg;
+  border-radius: $radius-md;
+  padding: $space-4;
+  text-align: center;
+  border: 1px solid $color-border;
+}
+
+.statValue {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: $color-text;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-text-secondary;
+  margin-top: 2px;
+}
+
+.streakDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  background: rgba(255, 146, 43, 0.1);
+  border: 1.5px solid rgba(255, 146, 43, 0.25);
+  border-radius: $radius-md;
+  padding: $space-4;
+  margin-bottom: $space-6;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: $color-streak;
+}
+
+.sectionTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-secondary;
+  margin-bottom: $space-4;
+}
+
+.journeyProgressSection {
+  margin-bottom: $space-6;
+}
+
+.journeyProgressItem {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  margin-bottom: $space-4;
+}
+
+.journeyProgressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.journeyProgressName {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: $color-text;
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+}
+
+.journeyProgressCount {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+}
+
+.progressBarWrap {
+  height: 8px;
+  background: $color-border;
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: $radius-full;
+  transition: width 0.5s ease;
+}
+
+.settingsSection {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-4;
+}
+
+.settingsBtn {
+  width: 100%;
+  padding: $space-4;
+  border-radius: $radius-md;
+  border: 1.5px solid $color-border;
+  background: $color-surface;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $color-text;
+  cursor: pointer;
+  text-align: left;
+  transition: background $duration-normal;
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+
+  &:hover { background: $color-bg; }
+}
+
+.settingsBtnDanger {
+  color: #e53e3e;
+  border-color: rgba(229, 62, 62, 0.25);
+
+  &:hover { background: rgba(229, 62, 62, 0.05); }
+}
+
+.adminBtn {
+  width: 100%;
+  padding: $space-4;
+  border-radius: $radius-md;
+  border: 1px dashed $color-border;
+  background: transparent;
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-text-secondary;
+  cursor: pointer;
+  text-align: center;
+  margin-top: $space-4;
+  transition: all $duration-normal;
+
+  &:hover { border-color: $primary; color: $primary; background: $primary-light; }
+}
+
+.confirmOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+}
+
+.confirmSheet {
+  background: $color-surface;
+  width: 100%;
+  max-width: $max-width;
+  border-radius: $radius-lg $radius-lg 0 0;
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.confirmTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: $color-text;
+}
+
+.confirmText {
+  font-size: 0.88rem;
+  color: $color-text-secondary;
+  line-height: 1.55;
+}
+
+.confirmBtns {
+  display: flex;
+  gap: $space-3;
+}
+
+.confirmCancel {
+  flex: 1;
+  padding: $space-3;
+  border-radius: $radius-full;
+  border: 1.5px solid $color-border;
+  background: $color-surface;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: $font-body;
+  color: $color-text;
+
+  &:hover { background: $color-bg; }
+}
+
+.confirmConfirm {
+  flex: 1;
+  padding: $space-3;
+  border-radius: $radius-full;
+  border: none;
+  background: #e53e3e;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: $font-body;
+
+  &:hover { background: #c53030; }
+}
