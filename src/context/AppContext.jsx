@@ -4,10 +4,11 @@ const STORAGE_KEY = 'lb_state'
 
 const initialState = {
   onboardingComplete: false,
-  currentDay: 1,
+  dateOffset: 0,       // admin-only: simulate N days into the future
   streak: 0,
   completedLessons: [],
   lastCompletedDate: null,
+  reflections: {},     // keyed by `${lessonId}-${blockIndex}`
 }
 
 function isSameDay(dateStr) {
@@ -36,11 +37,22 @@ function reducer(state, action) {
       }
     }
 
-    case 'ADVANCE_DAY':
-      return { ...state, currentDay: Math.min(state.currentDay + 1, 3) }
+    case 'SAVE_REFLECTION':
+      return {
+        ...state,
+        reflections: {
+          ...state.reflections,
+          [action.key]: {
+            lessonId: action.lessonId,
+            prompt: action.prompt,
+            text: action.text,
+            savedAt: new Date().toISOString(),
+          },
+        },
+      }
 
-    case 'RESET_DAY':
-      return { ...state, currentDay: 1, completedLessons: [] }
+    case 'SET_DATE_OFFSET':
+      return { ...state, dateOffset: action.offset }
 
     case 'RESET_ALL':
       return { ...initialState }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { formatDisplayDate } from '../data/content'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import { getLessonById } from '../data/content'
@@ -14,83 +15,48 @@ function HeaderBlock({ block }) {
   return <div className={styles.headerBlock}>{block.content}</div>
 }
 
-function FillBlankBlock({ block, onAnswered }) {
-  const [inputs, setInputs] = useState(block.blanks.map(() => ''))
-  const [submitted, setSubmitted] = useState(false)
-  const [results, setResults] = useState([])
+function SpotMistakeBlock({ block, onAnswered }) {
+  const [selected, setSelected] = useState(null)
 
-  function handleChange(i, val) {
-    const next = [...inputs]
-    next[i] = val
-    setInputs(next)
-  }
-
-  function handleSubmit() {
-    const res = block.blanks.map((answer, i) => {
-      const userVal = inputs[i].trim().toLowerCase()
-      const correctVal = answer.toLowerCase()
-      return userVal === correctVal || correctVal.includes(userVal) || userVal.includes(correctVal.split('/')[0].trim())
-    })
-    setResults(res)
-    setSubmitted(true)
+  function handleSelect(person) {
+    if (selected) return
+    setSelected(person)
     onAnswered()
   }
 
-  const allFilled = inputs.every(v => v.trim().length > 0)
-  const allCorrect = results.length > 0 && results.every(Boolean)
+  const isCorrect = selected === block.mistakeIs
+
+  function cardClass(person) {
+    if (!selected) return styles.spotCard
+    if (selected === person) {
+      return [styles.spotCard, isCorrect ? styles.spotCardCorrect : styles.spotCardWrong].join(' ')
+    }
+    if (person === block.mistakeIs && !isCorrect) return [styles.spotCard, styles.spotCardCorrect].join(' ')
+    return styles.spotCard
+  }
 
   return (
-    <div className={styles.fillBlankWrap}>
-      <div className={styles.fillBlankPrompt}>Fill in the blanks:</div>
-      <div style={{ fontStyle: 'italic', marginBottom: '1rem', fontSize: '0.9rem', color: '#1A1930' }}>
-        {block.prompt}
+    <div className={styles.spotWrap}>
+      <div className={styles.spotHeader}>
+        <span className={styles.spotBadge}>🔍 Spot the Mistake</span>
+        <div className={styles.spotPrompt}>{block.prompt}</div>
+        <div className={styles.spotInstruction}>Tap the person who got it <strong>wrong</strong></div>
       </div>
-      <div className={styles.fillBlankInputs}>
-        {block.blanks.map((_, i) => (
-          <div key={i} className={styles.fillBlankInputRow}>
-            <span className={styles.fillBlankNumber}>#{i + 1}</span>
-            <input
-              type="text"
-              className={[
-                styles.fillInput,
-                submitted ? (results[i] ? styles.fillCorrect : styles.fillWrong) : '',
-              ].join(' ')}
-              value={inputs[i]}
-              onChange={e => handleChange(i, e.target.value)}
-              disabled={submitted && results[i]}
-              placeholder={`Blank ${i + 1}`}
-            />
+      <div className={styles.spotCards}>
+        {['A', 'B'].map(person => (
+          <div key={person} className={cardClass(person)} onClick={() => handleSelect(person)}>
+            <div className={styles.spotPersonLabel}>Person {person}</div>
+            {block['person' + person].lines.map((line, i) => (
+              <div key={i} className={styles.spotLine}>{line}</div>
+            ))}
           </div>
         ))}
       </div>
-      {!submitted && (
-        <button
-          className={styles.fillSubmitBtn}
-          disabled={!allFilled}
-          onClick={handleSubmit}
-        >
-          Check answers
-        </button>
-      )}
-      {submitted && (
-        <div className={[styles.fillResult, allCorrect ? styles.fillResultCorrect : styles.fillResultWrong].join(' ')}>
-          {allCorrect
-            ? '✓ Correct! Great job.'
-            : `Not quite — try again.`}
+      {selected && (
+        <div className={[styles.spotResult, isCorrect ? styles.spotResultCorrect : styles.spotResultWrong].join(' ')}>
+          <div className={styles.spotResultTitle}>{isCorrect ? '✓ Correct' : '✗ Not quite'}</div>
+          <div className={styles.spotResultText}>{block.explanation}</div>
         </div>
-      )}
-      {submitted && !allCorrect && (
-        <button
-          className={styles.fillSubmitBtn}
-          style={{ marginTop: '0.5rem', background: '#6B6880' }}
-          onClick={() => {
-            setSubmitted(false)
-            setResults([])
-            setInputs(inputs.map((v, i) => results[i] ? v : ''))
-          }}
-        >
-          Try again
-        </button>
       )}
     </div>
   )
@@ -147,13 +113,14 @@ function MultipleChoiceBlock({ block, onAnswered }) {
   )
 }
 
-function ReflectionBlock({ block, onAnswered }) {
+function ReflectionBlock({ block, onAnswered, onSave }) {
   const [value, setValue] = useState('')
   const [saved, setSaved] = useState(false)
 
   function handleSave() {
     setSaved(true)
     onAnswered()
+    onSave(value)
   }
 
   return (
@@ -224,15 +191,15 @@ function DailyActionBlock({ block, onAnswered }) {
   )
 }
 
-function BlockRenderer({ block, onAnswered, answered }) {
-  const isInteractive = ['fill-blank', 'multiple-choice', 'reflection', 'slider', 'daily-action'].includes(block.type)
+function BlockRenderer({ block, onAnswered, onSaveReflection }) {
+  const isInteractive = ['spot-mistake', 'multiple-choice', 'reflection', 'slider', 'daily-action'].includes(block.type)
 
   switch (block.type) {
     case 'text': return <TextBlock block={block} />
     case 'text-header': return <HeaderBlock block={block} />
-    case 'fill-blank': return <FillBlankBlock block={block} onAnswered={onAnswered} />
+    case 'spot-mistake': return <SpotMistakeBlock block={block} onAnswered={onAnswered} />
     case 'multiple-choice': return <MultipleChoiceBlock block={block} onAnswered={onAnswered} />
-    case 'reflection': return <ReflectionBlock block={block} onAnswered={onAnswered} />
+    case 'reflection': return <ReflectionBlock block={block} onAnswered={onAnswered} onSave={onSaveReflection} />
     case 'slider': return <SliderBlock block={block} onAnswered={onAnswered} />
     case 'daily-action': return <DailyActionBlock block={block} onAnswered={onAnswered} />
     default: return null
@@ -253,7 +220,7 @@ function CompletionScreen({ lesson, streak, onBack }) {
         You've finished "{lesson.title}". Keep going — every lesson builds on the last.
       </div>
       <button className={styles.completionBtn} onClick={onBack}>
-        ← Back to Path
+        ← Back to Daily Track
       </button>
     </div>
   )
@@ -264,6 +231,7 @@ export default function Lesson() {
   const { lessonId } = useParams()
   const navigate = useNavigate()
   const { state, dispatch } = useApp()
+  const { dateOffset } = state
 
   const lesson = getLessonById(lessonId)
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0)
@@ -290,6 +258,16 @@ export default function Lesson() {
     setAnsweredBlocks(prev => ({ ...prev, [currentBlockIndex]: true }))
   }
 
+  function handleSaveReflection(blockIndex, text) {
+    dispatch({
+      type: 'SAVE_REFLECTION',
+      key: `${lessonId}-${blockIndex}`,
+      lessonId,
+      prompt: blocks[blockIndex].prompt,
+      text,
+    })
+  }
+
   function handleNext() {
     if (currentBlockIndex < totalBlocks - 1) {
       setCurrentBlockIndex(i => i + 1)
@@ -303,7 +281,7 @@ export default function Lesson() {
   }
 
   function handleBack() {
-    navigate('/path')
+    navigate('/daily-track')
   }
 
   if (!lesson) {
@@ -345,12 +323,13 @@ export default function Lesson() {
       </div>
 
       <div className={styles.blockWrap}>
+        <div className={styles.lessonDate}>⚡ Daily Lesson · {formatDisplayDate(dateOffset)}</div>
         {blocks.slice(0, currentBlockIndex + 1).map((block, i) => (
           <div key={i} className={styles.blockItem} ref={el => blockRefs.current[i] = el}>
             <BlockRenderer
               block={block}
               onAnswered={handleAnswered}
-              answered={!!answeredBlocks[i]}
+              onSaveReflection={(text) => handleSaveReflection(i, text)}
             />
           </div>
         ))}

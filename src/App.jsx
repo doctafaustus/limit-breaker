@@ -2,10 +2,10 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { useApp } from './context/AppContext'
 import Onboarding from './pages/Onboarding'
 import Home from './pages/Home'
-import Journey from './pages/Journey'
+import DailyTrack from './pages/DailyTrack'
 import Lesson from './pages/Lesson'
 import Vocab from './pages/Vocab'
-import Explore from './pages/Explore'
+import Reflections from './pages/Reflections'
 import Profile from './pages/Profile'
 import Admin from './pages/Admin'
 import AppShell from './components/AppShell'
@@ -26,9 +26,9 @@ export default function App() {
     <Routes>
       <Route element={<AppShell />}>
         <Route path="/" element={<Home />} />
-        <Route path="/path" element={<Journey />} />
+        <Route path="/daily-track" element={<DailyTrack />} />
         <Route path="/vocab" element={<Vocab />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/reflections" element={<Reflections />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<Admin />} />
       </Route>

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getLessonByDay } from '../data/content'
+import { getTodaysLesson, getDateStr, formatDisplayDate } from '../data/content'
 import styles from './Home.module.scss'
 
 function getGreeting() {
@@ -13,9 +13,10 @@ function getGreeting() {
 export default function Home() {
   const { state } = useApp()
   const navigate = useNavigate()
-  const { currentDay, streak, completedLessons } = state
+  const { dateOffset, streak, completedLessons } = state
 
-  const todayLesson = getLessonByDay(currentDay)
+  const todayStr = getDateStr(dateOffset)
+  const todayLesson = getTodaysLesson(todayStr)
   const isCompleted = todayLesson && completedLessons.includes(todayLesson.id)
 
   return (
@@ -31,7 +32,7 @@ export default function Home() {
         <div className={styles.heroCard}>
           <div className={styles.heroCardBg} />
           <div style={{ position: 'relative' }}>
-            <div className={styles.heroTag}>⚡ Today's Lesson</div>
+            <div className={styles.heroTag}>⚡ Daily Lesson · {formatDisplayDate(dateOffset)}</div>
             <div className={styles.heroTitle}>{todayLesson.title}</div>
             <div className={styles.heroSubtitle}>{todayLesson.subtitle}</div>
             <div className={styles.heroMeta}>
@@ -39,7 +40,15 @@ export default function Home() {
               <div className={styles.heroBadge}>✦ {todayLesson.xp} XP</div>
             </div>
             {isCompleted ? (
-              <div className={styles.completedBadge}>✓ Completed today</div>
+              <div className={styles.completedRow}>
+                <div className={styles.completedBadge}>✓ Completed today</div>
+                <button
+                  className={styles.redoBtn}
+                  onClick={() => navigate(`/lesson/${todayLesson.id}`)}
+                >
+                  Redo →
+                </button>
+              </div>
             ) : (
               <button
                 className={styles.heroCta}
@@ -50,6 +59,12 @@ export default function Home() {
               </button>
             )}
           </div>
+        </div>
+      )}
+
+      {!todayLesson && (
+        <div className={styles.noJourneyCard}>
+          No lesson scheduled for today — check back tomorrow.
         </div>
       )}
 

@@ -1,0 +1,15 @@
+@use '../styles/tokens' as *;
+
+.topBar {
+  display: flex;
+  align-items: center;
+  padding: $space-2 $space-4;
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  display: block;
+}

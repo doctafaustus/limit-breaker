@@ -21,18 +21,18 @@
   &:hover { background: $color-bg; }
 }
 
-.journeyEmoji {
+.trackEmoji {
   font-size: 1.6rem;
 }
 
-.journeyTitle {
+.trackTitle {
   font-family: $font-display;
   font-weight: 800;
   font-size: 1.25rem;
   color: $color-text;
 }
 
-.journeySubtitle {
+.trackSubtitle {
   font-size: 0.82rem;
   color: $color-text-secondary;
   margin-top: 1px;
@@ -103,6 +103,13 @@
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
   50% { box-shadow: 0 0 0 8px rgba(108,99,255,0); }
+}
+
+.redoHint {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: $primary;
+  white-space: nowrap;
 }
 
 .nodeInfo { flex: 1; }

@@ -1,10 +1,11 @@
 import { useApp } from '../context/AppContext'
 import { getVocabForDay } from '../data/vocabData'
+import { getDateStr } from '../data/content'
 import styles from './Vocab.module.scss'
 
 export default function Vocab() {
   const { state } = useApp()
-  const vocab = getVocabForDay(state.currentDay)
+  const vocab = getVocabForDay(getDateStr(state.dateOffset))
 
   return (
     <div className={styles.wrap}>

@@ -1,20 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { lessons } from '../data/content'
+import { lessons, getDateStr, isLessonAvailable } from '../data/content'
 import styles from './Explore.module.scss'
 
 export default function Explore() {
   const { state } = useApp()
   const navigate = useNavigate()
-  const { currentDay, completedLessons } = state
-
-  function isLocked(lesson) {
-    return lesson.day > currentDay
-  }
+  const { dateOffset, completedLessons } = state
+  const todayStr = getDateStr(dateOffset)
 
   function handleTileClick(lesson) {
-    if (isLocked(lesson)) return
+    if (!isLessonAvailable(lesson, todayStr)) return
     navigate(`/lesson/${lesson.id}`)
+  }
+
+  function formatLessonDate(dateStr) {
+    const [year, month, day] = dateStr.split('-').map(Number)
+    return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+      month: 'long', day: 'numeric'
+    })
   }
 
   return (
@@ -22,7 +26,7 @@ export default function Explore() {
       <div className={styles.pageTitle}>All Lessons</div>
       <div className={styles.grid}>
         {lessons.map(lesson => {
-          const locked = isLocked(lesson)
+          const locked = !isLessonAvailable(lesson, todayStr)
           const completed = completedLessons.includes(lesson.id)
           return (
             <div
@@ -33,7 +37,7 @@ export default function Explore() {
               <div className={styles.tileAccent} />
               {locked && <div className={styles.tileLock}>🔒</div>}
               {completed && !locked && <div className={styles.tileCheck}>✓</div>}
-              <div className={styles.tileDay}>Day {lesson.day}</div>
+              <div className={styles.tileDay}>{formatLessonDate(lesson.date)}</div>
               <div className={styles.tileTitle}>{lesson.title}</div>
               <div className={styles.tileMeta}>
                 <span>⏱ {lesson.estimatedMinutes}m</span>

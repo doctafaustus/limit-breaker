@@ -1,11 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
+import { getDateStr } from '../data/content'
 import styles from './Admin.module.scss'
 
 export default function Admin() {
   const { state, dispatch } = useApp()
   const navigate = useNavigate()
-  const { currentDay, streak, completedLessons } = state
+  const { dateOffset, streak, completedLessons } = state
+
+  const simulatedDate = getDateStr(dateOffset)
 
   function handleResetAll() {
     dispatch({ type: 'RESET_ALL' })
@@ -20,8 +23,8 @@ export default function Admin() {
       <div className={styles.sectionTitle}>Current State</div>
       <div className={styles.stateCard}>
         <div className={styles.stateLine}>
-          <span className={styles.stateKey}>Day:</span>
-          <span className={styles.stateVal}>{currentDay} / 3</span>
+          <span className={styles.stateKey}>Simulated date:</span>
+          <span className={styles.stateVal}>{simulatedDate} {dateOffset !== 0 && `(${dateOffset > 0 ? '+' : ''}${dateOffset}d)`}</span>
         </div>
         <div className={styles.stateLine}>
           <span className={styles.stateKey}>Streak:</span>
@@ -35,24 +38,27 @@ export default function Admin() {
         </div>
       </div>
 
-      <div className={styles.sectionTitle}>Day Controls</div>
+      <div className={styles.sectionTitle}>Simulate Date</div>
       <div className={styles.btnGroup}>
         <button
           className={[styles.btn, styles.btnPrimary].join(' ')}
-          disabled={currentDay >= 2}
-          onClick={() => dispatch({ type: 'ADVANCE_DAY' })}
+          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: dateOffset + 1 })}
         >
-          Advance to Day 2
+          +1 Day → {getDateStr(dateOffset + 1)}
         </button>
         <button
           className={[styles.btn, styles.btnPrimary].join(' ')}
-          disabled={currentDay >= 3}
-          onClick={() => dispatch({ type: 'ADVANCE_DAY' })}
+          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: dateOffset + 2 })}
+          disabled={dateOffset >= 1}
         >
-          Advance to Day 3
+          +2 Days → {getDateStr(dateOffset + 2)}
         </button>
-        <button className={styles.btn} onClick={() => dispatch({ type: 'RESET_DAY' })}>
-          ↩ Reset to Day 1
+        <button
+          className={styles.btn}
+          disabled={dateOffset === 0}
+          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: 0 })}
+        >
+          ↩ Back to today ({getDateStr(0)})
         </button>
       </div>
 

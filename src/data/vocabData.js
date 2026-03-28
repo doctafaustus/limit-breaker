@@ -1,7 +1,7 @@
-// One word per day, keyed by currentDay (1, 2, 3)
+// One word per day, keyed by date string (YYYY-MM-DD)
 const vocabWords = [
   {
-    day: 1,
+    date: '2026-03-28',
     word: 'Gravitas',
     partOfSpeech: 'noun',
     pronunciation: 'grav·i·tas',
@@ -12,7 +12,7 @@ const vocabWords = [
     origin: 'Latin — literally "weight" or "heaviness"',
   },
   {
-    day: 2,
+    date: '2026-03-29',
     word: 'Mnemonics',
     partOfSpeech: 'noun',
     pronunciation: 'neh·mon·ics',
@@ -23,7 +23,7 @@ const vocabWords = [
     origin: 'Greek — from Mnemosyne, the goddess of memory',
   },
   {
-    day: 3,
+    date: '2026-03-30',
     word: 'Heuristic',
     partOfSpeech: 'noun / adjective',
     pronunciation: 'hyoo·ris·tic',
@@ -35,8 +35,8 @@ const vocabWords = [
   },
 ]
 
-export function getVocabForDay(day) {
-  return vocabWords.find(v => v.day === day) || vocabWords[0]
+export function getVocabForDay(dateStr) {
+  return vocabWords.find(v => v.date === dateStr) || vocabWords[0]
 }
 
 export default vocabWords

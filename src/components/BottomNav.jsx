@@ -3,9 +3,9 @@ import styles from './BottomNav.module.scss'
 
 const navItems = [
   { label: 'Home', icon: '🏠', to: '/' },
-  { label: 'Path', icon: '🗺️', to: '/path' },
+  { label: 'Daily Track', icon: '🗓️', to: '/daily-track' },
   { label: 'Word', icon: '📖', to: '/vocab' },
-  { label: 'Explore', icon: '🌍', to: '/explore' },
+  { label: 'Reflections', icon: '📝', to: '/reflections' },
   { label: 'Profile', icon: '👤', to: '/profile' },
 ]
 

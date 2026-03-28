@@ -1,64 +1,80 @@
 export const lessons = [
   {
     id: 'lesson-1',
-    day: 1,
-    title: 'The 7-Second Window',
-    subtitle: 'How strangers judge you before you say a word — and what to do about it.',
+    date: '2026-03-28',
+    title: 'The Name Effect',
+    subtitle: 'Why remembering someone\'s name is the most underrated social superpower.',
     estimatedMinutes: 5,
     xp: 50,
     blocks: [
       {
         type: 'text',
-        content: 'In 1992, psychologist Nalini Ambady filmed students being taught by professors — then cut the footage to silent 10-second clips. Strangers rating those clips predicted end-of-semester student evaluations with remarkable accuracy.\n\nWe like to think we\'re rational. We\'re not. The brain makes social judgments in milliseconds — and those judgments stick. The good news: the signals that drive them are entirely within your control.',
+        content: 'Dale Carnegie wrote it in 1936 and neuroscience has confirmed it since: a person\'s own name is the single most important word in any language to them. When you use someone\'s name in conversation, fMRI scans show unique activation in the left hemisphere — the brain literally perks up in a way no other word triggers.\n\nYet most of us forget names within seconds of hearing them. Not because we have bad memories — because we were never actually listening. We were too busy thinking about what to say next.',
       },
       {
         type: 'text-header',
-        content: 'What people actually read in those 7 seconds',
+        content: 'Why we forget (it\'s not your memory)',
       },
       {
         type: 'text',
-        content: 'It\'s not your words. In the first moments of meeting someone, three channels do the work:\n\n① Posture and how you carry yourself\n② The warmth and confidence in your face\n③ The energy you bring into the space\n\nYour words come fourth — long after the impression is already forming.',
+        content: 'The moment someone says their name, your brain is juggling three things at once:\n\n① Evaluating the person in front of you\n② Planning your own introduction\n③ Managing the social anxiety of a new interaction\n\nThe name gets lost because it never made it into memory in the first place. You didn\'t forget it — you never heard it. The fix is embarrassingly simple: you have to actually decide to listen for it.',
       },
       {
         type: 'multiple-choice',
-        question: 'According to Nalini Ambady\'s research, silent 10-second clips of professors were enough to predict what?',
+        question: 'What is the primary reason most people forget names immediately after hearing them?',
         options: [
-          { text: 'The professor\'s years of experience', correct: false, explanation: 'Experience wasn\'t what observers could reliably detect from body language alone.' },
-          { text: 'End-of-semester student evaluations', correct: true, explanation: 'Correct — strangers watching silent clips predicted how students rated professors months later. First impressions are that durable.' },
-          { text: 'Student exam scores', correct: false, explanation: 'The study looked at perception of the professor, not student performance.' },
-          { text: 'Whether the class was difficult', correct: false, explanation: 'Difficulty wasn\'t what the clips revealed — likeability and presence were.' },
+          { text: 'Short-term memory naturally discards names', correct: false, explanation: 'Short-term memory handles names just fine — the problem happens before storage.' },
+          { text: 'Names are too abstract to remember easily', correct: false, explanation: 'Names aren\'t inherently harder than other words — we remember song titles and brand names effortlessly.' },
+          { text: 'Our attention is split and we never truly register the name', correct: true, explanation: 'Exactly — the name never enters memory because our attention is elsewhere during the introduction. It\'s an attention problem, not a memory problem.' },
+          { text: 'We meet too many people to keep track', correct: false, explanation: 'Volume isn\'t the issue — we forget names even when meeting just one new person.' },
         ],
       },
       {
         type: 'text-header',
-        content: 'The one thing to remember',
+        content: 'The three-rep technique',
       },
       {
         type: 'text',
-        content: 'People don\'t remember what you said in a first meeting. They remember how you made them feel.\n\nYour job in the first 7 seconds isn\'t to be impressive — it\'s to be warm and present. Confidence without warmth reads as arrogance. Warmth without confidence reads as anxiety. You want both.',
+        content: 'Once you actually hear the name, lock it in with three repetitions within the first minute:\n\nFirst — say it back immediately: "Nice to meet you, Marco."\nSecond — use it in your next sentence: "So Marco, how do you know the host?"\nThird — use it when you part ways: "Great talking with you, Marco."\n\nThree reps in sixty seconds. That\'s all it takes to move a name from fleeting sound to something you\'ll remember next week. It feels awkward at first. Nobody notices. Everyone appreciates it.',
       },
       {
-        type: 'fill-blank',
-        prompt: 'People don\'t remember what you said — they remember how you made them ___. Your goal in the first 7 seconds is to be both ___ and ___.',
-        blanks: ['feel', 'warm', 'confident'],
+        type: 'spot-mistake',
+        prompt: 'One of these people just met David at a party. Who made the mistake?',
+        personA: {
+          lines: [
+            '"Hey, great to meet you!"',
+            '"So how do you know the host?"',
+            '"I\'m in marketing — been there five years."',
+            '"Anyway, nice chatting — take care!"',
+          ],
+        },
+        personB: {
+          lines: [
+            '"Nice to meet you, David!"',
+            '"So David, how do you know the host?"',
+            '"I\'m in marketing — been there five years."',
+            '"Great talking with you, David — take care!"',
+          ],
+        },
+        mistakeIs: 'A',
+        explanation: 'Person A never used David\'s name once. Person B used the three-rep technique — said it back immediately, once mid-conversation, and again at the close. That\'s what locks a name in.',
       },
       {
         type: 'reflection',
-        prompt: 'Think of someone who made a strong first impression on you. What specifically did they do — something about how they carried themselves, their eye contact, their energy? Write down one concrete detail.',
-        placeholder: 'E.g. He made direct eye contact and didn\'t rush to fill the silence...',
+        prompt: 'Think about the last time someone remembered your name unexpectedly — maybe a barista, a colleague you\'d only met once, or someone at a party. How did it make you feel? Now think about a time you forgot someone\'s name and got caught. What was different about your attention in each moment?',
+        placeholder: 'E.g. When my dentist\'s receptionist called me by name without checking, I felt like I actually mattered there...',
       },
       {
         type: 'daily-action',
         headline: "Today's micro-challenge",
-        instruction: 'The next time you walk into a room today — a meeting, a coffee shop, anywhere — pause for one full second before saying anything. Stand tall, make brief eye contact with whoever is nearest, and let a small smile settle on your face first. Just one second. Notice how it changes the energy.',
-        timeEstimate: '30 seconds',
+        instruction: 'The next time someone introduces themselves to you today — in person, on a call, even in a chat — use the three-rep technique. Say their name back immediately, use it once in conversation, and use it again when you say goodbye. Just three reps. Notice how differently the interaction feels when you anchor it with their name.',
+        timeEstimate: '1 minute',
       },
     ],
   },
-
   {
     id: 'lesson-2',
-    day: 2,
+    date: '2026-03-29',
     title: 'Your Body Speaks First',
     subtitle: 'The silent conversation happening beneath every interaction.',
     estimatedMinutes: 6,
@@ -91,9 +107,26 @@ export const lessons = [
         content: 'You don\'t need to think about a dozen things. Reset three anchors:\n\n① Feet — hip-width apart, weight balanced evenly\n② Shoulders — roll them back and down (not up — up creates tension)\n③ Chin — parallel to the floor, not tucked or jutting forward\n\nHold that for 5 seconds. That\'s the reset. Do it before any important moment.',
       },
       {
-        type: 'fill-blank',
-        prompt: 'The 3-point posture reset covers: ___, shoulders back and ___, and chin ___ to the floor.',
-        blanks: ['feet', 'down', 'parallel'],
+        type: 'spot-mistake',
+        prompt: 'Two people walk into a networking event. Who is sending the wrong signals?',
+        personA: {
+          lines: [
+            'Arms crossed, weight shifted onto one leg.',
+            '"Yeah, I work in tech." *glances toward the door*',
+            '"Mm, cool." *shifts weight again*',
+            '"Sorry — I need to grab a drink." *walks off*',
+          ],
+        },
+        personB: {
+          lines: [
+            'Feet hip-width apart, shoulders back and down.',
+            '"Yeah, I work in tech." *holds eye contact*',
+            '"What kind of work are you in?"',
+            '"That\'s interesting — tell me more about that."',
+          ],
+        },
+        mistakeIs: 'A',
+        explanation: 'Person A is broadcasting every collapse signal — crossed arms, shifting weight, eyes drifting. Person B used the 3-point reset and stayed engaged. The words are almost identical; the body language tells a completely different story.',
       },
       {
         type: 'text-header',
@@ -124,7 +157,7 @@ export const lessons = [
 
   {
     id: 'lesson-3',
-    day: 3,
+    date: '2026-03-30',
     title: 'The Art of Actually Listening',
     subtitle: 'The rarest social skill — and why it makes you magnetic.',
     estimatedMinutes: 5,
@@ -161,9 +194,26 @@ export const lessons = [
         content: 'Most conversations stay surface-level because both people ask surface questions. "How\'s work?" gets "good, busy." And that\'s where it dies.\n\nTry this instead: ask one level deeper than you normally would.\n\n"What\'s been the most interesting part of that?"\n"What made you decide to do it that way?"\n"How are you feeling about it, honestly?"\n\nOne good question opens a door that ten polite ones never would.',
       },
       {
-        type: 'fill-blank',
-        prompt: 'Most conversations stay surface-level because people ask ___ questions. Asking one level ___ opens conversations that polite questions never would.',
-        blanks: ['surface', 'deeper'],
+        type: 'spot-mistake',
+        prompt: 'A friend just said: "I\'ve been really stressed about this big presentation at work." Who responded better?',
+        personA: {
+          lines: [
+            '"Oh man, I had a nightmare presentation last month."',
+            '"Mine was in front of the whole company — 200 people."',
+            '"I barely slept the night before, it was awful."',
+            '"Anyway, what\'s yours about?"',
+          ],
+        },
+        personB: {
+          lines: [
+            '"What\'s making you most anxious about it?"',
+            '"How long have you had to prepare?"',
+            '"What would a good outcome look like for you?"',
+            '"Is there anything I can do to help?"',
+          ],
+        },
+        mistakeIs: 'A',
+        explanation: 'Person A hijacked the moment with their own story — even with good intentions, it signals "I was waiting to talk about myself." Person B stayed entirely curious about the other person. Four questions, zero self-reference. That\'s what makes someone feel genuinely heard.',
       },
       {
         type: 'text-header',
@@ -188,10 +238,28 @@ export const lessons = [
   },
 ]
 
-export function getLessonByDay(day) {
-  return lessons.find(l => l.day === day) || lessons[0]
+// Returns a YYYY-MM-DD string for today offset by N days (for admin simulation)
+export function getDateStr(offsetDays = 0) {
+  const d = new Date()
+  d.setDate(d.getDate() + offsetDays)
+  return d.toISOString().slice(0, 10)
+}
+
+// Returns a human-readable date string like "Saturday, March 28"
+export function formatDisplayDate(offsetDays = 0) {
+  const d = new Date()
+  d.setDate(d.getDate() + offsetDays)
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+}
+
+export function getTodaysLesson(dateStr) {
+  return lessons.find(l => l.date === dateStr) || null
 }
 
 export function getLessonById(id) {
   return lessons.find(l => l.id === id) || null
+}
+
+export function isLessonAvailable(lesson, todayStr) {
+  return lesson.date <= todayStr
 }

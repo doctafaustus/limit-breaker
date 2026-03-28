@@ -106,6 +106,28 @@
   }
 }
 
+.completedRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.redoBtn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: $radius-full;
+  padding: $space-2 $space-4;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: white;
+  cursor: pointer;
+  transition: background $duration-normal;
+
+  &:hover { background: rgba(255, 255, 255, 0.3); }
+}
+
 .completedBadge {
   display: inline-flex;
   align-items: center;
