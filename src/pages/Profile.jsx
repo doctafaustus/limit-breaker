@@ -1,17 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { journeys, lessons } from '../data/content'
+import { lessons } from '../data/content'
 import styles from './Profile.module.scss'
 
 function getTotalXp(completedLessons) {
-  let xp = 0
-  for (const journeyLessons of Object.values(lessons)) {
-    for (const lesson of journeyLessons) {
-      if (completedLessons.includes(lesson.id)) xp += lesson.xp
-    }
-  }
-  return xp
+  return lessons
+    .filter(l => completedLessons.includes(l.id))
+    .reduce((sum, l) => sum + l.xp, 0)
 }
 
 function getLevel(xp) {
@@ -30,26 +26,21 @@ export default function Profile() {
 
   const totalXp = getTotalXp(completedLessons)
   const level = getLevel(totalXp)
+  const done = completedLessons.length
+  const pct = Math.round((done / lessons.length) * 100)
 
   function handleReset() {
     dispatch({ type: 'RESET_ALL' })
     setShowConfirm(false)
   }
 
-  function getJourneyProgress(journeyId) {
-    const journeyLessons = lessons[journeyId] || []
-    const done = journeyLessons.filter(l => completedLessons.includes(l.id)).length
-    return { done, total: journeyLessons.length }
-  }
-
   return (
     <div>
-      <div className={styles.pageTitle}>👤 Profile</div>
+      <div className={styles.pageTitle}>Profile</div>
 
       <div className={styles.avatarSection}>
         <div className={styles.avatar}>LB</div>
         <div className={styles.levelBadge}>Level {level} Learner</div>
-        <div className={styles.userName}>Limit Breaker</div>
       </div>
 
       <div className={styles.statsRow}>
@@ -58,7 +49,7 @@ export default function Profile() {
           <div className={styles.statLabel}>Total XP</div>
         </div>
         <div className={styles.statCard}>
-          <div className={styles.statValue}>{completedLessons.length}</div>
+          <div className={styles.statValue}>{done}</div>
           <div className={styles.statLabel}>Lessons</div>
         </div>
         <div className={styles.statCard}>
@@ -73,29 +64,15 @@ export default function Profile() {
         </div>
       )}
 
-      <div className={styles.sectionTitle}>Journey Progress</div>
-      <div className={styles.journeyProgressSection}>
-        {journeys.map(journey => {
-          const { done, total } = getJourneyProgress(journey.id)
-          const pct = total > 0 ? (done / total) * 100 : 0
-          return (
-            <div key={journey.id} className={styles.journeyProgressItem}>
-              <div className={styles.journeyProgressHeader}>
-                <div className={styles.journeyProgressName}>
-                  <span>{journey.emoji}</span>
-                  <span>{journey.title}</span>
-                </div>
-                <div className={styles.journeyProgressCount}>{done}/{total}</div>
-              </div>
-              <div className={styles.progressBarWrap}>
-                <div
-                  className={styles.progressBarFill}
-                  style={{ width: `${pct}%`, background: journey.color }}
-                />
-              </div>
-            </div>
-          )
-        })}
+      <div className={styles.sectionTitle}>Overall Progress</div>
+      <div className={styles.progressCard}>
+        <div className={styles.progressHeader}>
+          <span>{done} of {lessons.length} lessons complete</span>
+          <span>{pct}%</span>
+        </div>
+        <div className={styles.progressBarWrap}>
+          <div className={styles.progressBarFill} style={{ width: `${pct}%` }} />
+        </div>
       </div>
 
       <div className={styles.sectionTitle}>Settings</div>

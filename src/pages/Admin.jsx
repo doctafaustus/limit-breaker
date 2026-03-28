@@ -1,30 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { journeys } from '../data/content'
 import styles from './Admin.module.scss'
 
 export default function Admin() {
   const { state, dispatch } = useApp()
   const navigate = useNavigate()
-  const { currentDay, activeJourneyId, streak, completedLessons } = state
-
-  function handleAdvance(targetDay) {
-    if (currentDay < targetDay) {
-      dispatch({ type: 'ADVANCE_DAY' })
-    }
-  }
-
-  function handleReset() {
-    dispatch({ type: 'RESET_DAY' })
-  }
+  const { currentDay, streak, completedLessons } = state
 
   function handleResetAll() {
     dispatch({ type: 'RESET_ALL' })
     navigate('/onboarding', { replace: true })
-  }
-
-  function handleSetJourney(journeyId) {
-    dispatch({ type: 'SET_JOURNEY', journeyId })
   }
 
   return (
@@ -37,10 +22,6 @@ export default function Admin() {
         <div className={styles.stateLine}>
           <span className={styles.stateKey}>Day:</span>
           <span className={styles.stateVal}>{currentDay} / 3</span>
-        </div>
-        <div className={styles.stateLine}>
-          <span className={styles.stateKey}>Journey:</span>
-          <span className={styles.stateVal}>{activeJourneyId || 'none'}</span>
         </div>
         <div className={styles.stateLine}>
           <span className={styles.stateKey}>Streak:</span>
@@ -59,33 +40,20 @@ export default function Admin() {
         <button
           className={[styles.btn, styles.btnPrimary].join(' ')}
           disabled={currentDay >= 2}
-          onClick={() => handleAdvance(2)}
+          onClick={() => dispatch({ type: 'ADVANCE_DAY' })}
         >
           Advance to Day 2
         </button>
         <button
           className={[styles.btn, styles.btnPrimary].join(' ')}
           disabled={currentDay >= 3}
-          onClick={() => handleAdvance(3)}
+          onClick={() => dispatch({ type: 'ADVANCE_DAY' })}
         >
           Advance to Day 3
         </button>
-        <button className={styles.btn} onClick={handleReset}>
-          ↩ Reset to Day 1 (clears completedLessons)
+        <button className={styles.btn} onClick={() => dispatch({ type: 'RESET_DAY' })}>
+          ↩ Reset to Day 1
         </button>
-      </div>
-
-      <div className={styles.sectionTitle}>Change Journey</div>
-      <div className={styles.journeyBtns}>
-        {journeys.map(j => (
-          <button
-            key={j.id}
-            className={[styles.btn, activeJourneyId === j.id ? styles.btnPrimary : ''].join(' ')}
-            onClick={() => handleSetJourney(j.id)}
-          >
-            {j.emoji} {j.title}
-          </button>
-        ))}
       </div>
 
       <div className={styles.divider} />

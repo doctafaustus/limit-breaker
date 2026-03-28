@@ -4,7 +4,6 @@ const STORAGE_KEY = 'lb_state'
 
 const initialState = {
   onboardingComplete: false,
-  activeJourneyId: null,
   currentDay: 1,
   streak: 0,
   completedLessons: [],
@@ -23,43 +22,25 @@ function isSameDay(dateStr) {
 function reducer(state, action) {
   switch (action.type) {
     case 'COMPLETE_ONBOARDING':
-      return {
-        ...state,
-        onboardingComplete: true,
-        activeJourneyId: action.journeyId,
-      }
+      return { ...state, onboardingComplete: true }
 
     case 'COMPLETE_LESSON': {
       if (state.completedLessons.includes(action.lessonId)) return state
-      const today = new Date().toISOString()
       const alreadyDoneToday = isSameDay(state.lastCompletedDate)
       const newStreak = alreadyDoneToday ? state.streak : state.streak + 1
       return {
         ...state,
         completedLessons: [...state.completedLessons, action.lessonId],
         streak: newStreak,
-        lastCompletedDate: today,
+        lastCompletedDate: new Date().toISOString(),
       }
     }
 
     case 'ADVANCE_DAY':
-      return {
-        ...state,
-        currentDay: Math.min(state.currentDay + 1, 3),
-      }
+      return { ...state, currentDay: Math.min(state.currentDay + 1, 3) }
 
     case 'RESET_DAY':
-      return {
-        ...state,
-        currentDay: 1,
-        completedLessons: [],
-      }
-
-    case 'SET_JOURNEY':
-      return {
-        ...state,
-        activeJourneyId: action.journeyId,
-      }
+      return { ...state, currentDay: 1, completedLessons: [] }
 
     case 'RESET_ALL':
       return { ...initialState }

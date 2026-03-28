@@ -26,7 +26,7 @@ export default function App() {
     <Routes>
       <Route element={<AppShell />}>
         <Route path="/" element={<Home />} />
-        <Route path="/journey/:journeyId" element={<Journey />} />
+        <Route path="/path" element={<Journey />} />
         <Route path="/vocab" element={<Vocab />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/profile" element={<Profile />} />

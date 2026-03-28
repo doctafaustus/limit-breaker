@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { journeys, getTodayLesson } from '../data/content'
+import { getLessonByDay } from '../data/content'
 import styles from './Home.module.scss'
 
 function getGreeting() {
@@ -13,15 +13,10 @@ function getGreeting() {
 export default function Home() {
   const { state } = useApp()
   const navigate = useNavigate()
-  const { activeJourneyId, currentDay, streak, completedLessons } = state
+  const { currentDay, streak, completedLessons } = state
 
-  const journey = journeys.find(j => j.id === activeJourneyId)
-  const todayLesson = getTodayLesson(activeJourneyId, currentDay)
+  const todayLesson = getLessonByDay(currentDay)
   const isCompleted = todayLesson && completedLessons.includes(todayLesson.id)
-
-  const completedDays = completedLessons
-    .filter(id => activeJourneyId && id.startsWith(activeJourneyId.slice(0, 4)))
-    .length
 
   return (
     <div>
@@ -32,32 +27,23 @@ export default function Home() {
         )}
       </div>
 
-      {journey && todayLesson ? (
-        <div
-          className={styles.heroCard}
-          style={{ background: `linear-gradient(135deg, ${journey.color}, ${journey.color}cc)` }}
-        >
+      {todayLesson && (
+        <div className={styles.heroCard}>
           <div className={styles.heroCardBg} />
           <div style={{ position: 'relative' }}>
-            <div className={styles.heroTag}>{journey.emoji} {journey.title}</div>
+            <div className={styles.heroTag}>⚡ Today's Lesson</div>
             <div className={styles.heroTitle}>{todayLesson.title}</div>
             <div className={styles.heroSubtitle}>{todayLesson.subtitle}</div>
             <div className={styles.heroMeta}>
-              <div className={styles.heroBadge}>
-                ⏱ {todayLesson.estimatedMinutes} min
-              </div>
-              <div className={styles.heroBadge}>
-                ✦ {todayLesson.xp} XP
-              </div>
+              <div className={styles.heroBadge}>⏱ {todayLesson.estimatedMinutes} min</div>
+              <div className={styles.heroBadge}>✦ {todayLesson.xp} XP</div>
             </div>
             {isCompleted ? (
-              <div className={styles.completedBadge}>
-                ✓ Completed
-              </div>
+              <div className={styles.completedBadge}>✓ Completed today</div>
             ) : (
               <button
                 className={styles.heroCta}
-                style={{ color: journey.color }}
+                style={{ color: '#4A42CC' }}
                 onClick={() => navigate(`/lesson/${todayLesson.id}`)}
               >
                 Start Today's Lesson →
@@ -65,46 +51,9 @@ export default function Home() {
             )}
           </div>
         </div>
-      ) : (
-        <div className={styles.noJourneyCard}>
-          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📚</div>
-          <div style={{ fontWeight: 600 }}>No lesson available today</div>
-          <div style={{ fontSize: '0.85rem', marginTop: '0.25rem' }}>Check back after advancing to the next day</div>
-        </div>
       )}
 
-      <div className={styles.sectionTitle}>Your Progress</div>
-      <div className={styles.dayProgress}>
-        {[1, 2, 3].map((day, i) => {
-          const isCurrentDay = day === currentDay
-          const isDone = day < currentDay || (day === currentDay && isCompleted)
-          return (
-            <>
-              {i > 0 && (
-                <div
-                  key={`conn-${i}`}
-                  className={[
-                    styles.dayConnector,
-                    day <= currentDay && isDone ? styles.dayConnectorFilled : '',
-                  ].join(' ')}
-                />
-              )}
-              <div
-                key={day}
-                className={[
-                  styles.dayDot,
-                  isDone ? styles.dayDotCompleted : '',
-                  isCurrentDay && !isDone ? styles.dayDotCurrent : '',
-                ].join(' ')}
-              >
-                {isDone ? '✓' : day}
-              </div>
-            </>
-          )
-        })}
-      </div>
-
-      <div className={styles.sectionTitle}>Quick Tip</div>
+      <div className={styles.sectionTitle}>Today's Thought</div>
       <div className={styles.tipCard}>
         <div className={styles.tipTitle}>Consistency beats intensity</div>
         <div className={styles.tipText}>

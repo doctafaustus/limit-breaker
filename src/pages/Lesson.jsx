@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getLessonById, getJourneyById } from '../data/content'
+import { getLessonById } from '../data/content'
 import styles from './Lesson.module.scss'
 
 // ---- Block renderers ----
@@ -33,7 +33,7 @@ function FillBlankBlock({ block, onAnswered }) {
     })
     setResults(res)
     setSubmitted(true)
-    if (res.every(Boolean)) onAnswered()
+    onAnswered()
   }
 
   const allFilled = inputs.every(v => v.trim().length > 0)
@@ -253,7 +253,7 @@ function CompletionScreen({ lesson, streak, onBack }) {
         You've finished "{lesson.title}". Keep going — every lesson builds on the last.
       </div>
       <button className={styles.completionBtn} onClick={onBack}>
-        ← Back to Journey
+        ← Back to Path
       </button>
     </div>
   )
@@ -270,6 +270,7 @@ export default function Lesson() {
   const [answeredBlocks, setAnsweredBlocks] = useState({})
   const [showCompletion, setShowCompletion] = useState(false)
   const [completionFired, setCompletionFired] = useState(false)
+  const blockRefs = useRef([])
 
   const blocks = lesson?.blocks || []
   const totalBlocks = blocks.length
@@ -278,6 +279,12 @@ export default function Lesson() {
   const isInteractive = currentBlock && ['fill-blank', 'multiple-choice', 'reflection', 'slider', 'daily-action'].includes(currentBlock.type)
   const isAnswered = answeredBlocks[currentBlockIndex]
   const canAdvance = !isInteractive || isAnswered
+
+  useEffect(() => {
+    if (currentBlockIndex === 0) return
+    const el = blockRefs.current[currentBlockIndex]
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [currentBlockIndex])
 
   function handleAnswered() {
     setAnsweredBlocks(prev => ({ ...prev, [currentBlockIndex]: true }))
@@ -296,12 +303,7 @@ export default function Lesson() {
   }
 
   function handleBack() {
-    const journey = lesson ? lesson.id.split('-')[0] : null
-    if (journey) {
-      navigate(`/journey/${journey}`)
-    } else {
-      navigate('/')
-    }
+    navigate('/path')
   }
 
   if (!lesson) {
@@ -344,7 +346,7 @@ export default function Lesson() {
 
       <div className={styles.blockWrap}>
         {blocks.slice(0, currentBlockIndex + 1).map((block, i) => (
-          <div key={i} className={styles.blockItem}>
+          <div key={i} className={styles.blockItem} ref={el => blockRefs.current[i] = el}>
             <BlockRenderer
               block={block}
               onAnswered={handleAnswered}
