@@ -1,7 +1,7 @@
 export const lessons = [
   {
     id: 'lesson-1',
-    date: '2026-03-29',
+    date: '2026-03-28',
     title: 'The Name Effect',
     subtitle: 'Why remembering someone\'s name is the most underrated social superpower.',
     estimatedMinutes: 5,
@@ -74,7 +74,7 @@ export const lessons = [
   },
   {
     id: 'lesson-2',
-    date: '2026-03-28',
+    date: '2026-03-29',
     title: 'Your Body Speaks First',
     subtitle: 'The silent conversation happening beneath every interaction.',
     estimatedMinutes: 6,
@@ -396,7 +396,10 @@ export const lessons = [
 export function getDateStr(offsetDays = 0) {
   const d = new Date()
   d.setDate(d.getDate() + offsetDays)
-  return d.toISOString().slice(0, 10)
+  const year = d.getFullYear()
+  const month = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
 }
 
 // Returns a human-readable date string like "Saturday, March 28"

@@ -1,7 +1,7 @@
 // One word per day, keyed by date string (YYYY-MM-DD)
 const vocabWords = [
   {
-    date: '2026-03-29',
+    date: '2026-03-28',
     word: 'Gravitas',
     partOfSpeech: 'noun',
     pronunciation: 'grav·i·tas',
@@ -12,7 +12,7 @@ const vocabWords = [
     origin: 'Latin — literally "weight" or "heaviness"',
   },
   {
-    date: '2026-03-28',
+    date: '2026-03-29',
     word: 'Mnemonics',
     partOfSpeech: 'noun',
     pronunciation: 'neh·mon·ics',
