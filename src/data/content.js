@@ -1,7 +1,7 @@
 export const lessons = [
   {
     id: 'lesson-1',
-    date: '2026-03-28',
+    date: '2026-03-29',
     title: 'The Name Effect',
     subtitle: 'Why remembering someone\'s name is the most underrated social superpower.',
     estimatedMinutes: 5,
@@ -74,7 +74,7 @@ export const lessons = [
   },
   {
     id: 'lesson-2',
-    date: '2026-03-29',
+    date: '2026-03-28',
     title: 'Your Body Speaks First',
     subtitle: 'The silent conversation happening beneath every interaction.',
     estimatedMinutes: 6,
