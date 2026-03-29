@@ -3,7 +3,6 @@ import { createContext, useContext, useReducer, useEffect } from 'react'
 const STORAGE_KEY = 'lb_state'
 
 const initialState = {
-  onboardingComplete: false,
   dateOffset: 0,       // admin-only: simulate N days into the future
   streak: 0,
   completedLessons: [],
@@ -22,9 +21,6 @@ function isSameDay(dateStr) {
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'COMPLETE_ONBOARDING':
-      return { ...state, onboardingComplete: true }
-
     case 'COMPLETE_LESSON': {
       if (state.completedLessons.includes(action.lessonId)) return state
       const alreadyDoneToday = isSameDay(state.lastCompletedDate)

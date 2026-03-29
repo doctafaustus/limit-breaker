@@ -1,18 +1,15 @@
-import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import { getDateStr } from '../data/content'
 import styles from './Admin.module.scss'
 
 export default function Admin() {
   const { state, dispatch } = useApp()
-  const navigate = useNavigate()
   const { dateOffset, streak, completedLessons } = state
 
   const simulatedDate = getDateStr(dateOffset)
 
   function handleResetAll() {
     dispatch({ type: 'RESET_ALL' })
-    navigate('/onboarding', { replace: true })
   }
 
   return (
@@ -67,7 +64,7 @@ export default function Admin() {
       <div className={styles.sectionTitle}>Danger Zone</div>
       <div className={styles.btnGroup}>
         <button className={[styles.btn, styles.btnDanger].join(' ')} onClick={handleResetAll}>
-          🗑️ Reset Everything — return to onboarding
+          🗑️ Reset Everything
         </button>
       </div>
 

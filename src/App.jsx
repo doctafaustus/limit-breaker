@@ -1,6 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { useApp } from './context/AppContext'
-import Onboarding from './pages/Onboarding'
 import Home from './pages/Home'
 import DailyTrack from './pages/DailyTrack'
 import Lesson from './pages/Lesson'
@@ -11,17 +9,6 @@ import Admin from './pages/Admin'
 import AppShell from './components/AppShell'
 
 export default function App() {
-  const { state } = useApp()
-
-  if (!state.onboardingComplete) {
-    return (
-      <Routes>
-        <Route path="/onboarding" element={<Onboarding />} />
-        <Route path="*" element={<Navigate to="/onboarding" replace />} />
-      </Routes>
-    )
-  }
-
   return (
     <Routes>
       <Route element={<AppShell />}>
