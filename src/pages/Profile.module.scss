@@ -201,6 +201,28 @@
   &:hover { border-color: $primary; color: $primary; background: $primary-light; }
 }
 
+@media (min-width: $bp-md) {
+  .contentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-8;
+    align-items: start;
+  }
+
+  .avatarSection {
+    margin-bottom: $space-5;
+  }
+
+  .confirmOverlay {
+    align-items: center;
+  }
+
+  .confirmSheet {
+    max-width: 420px;
+    border-radius: $radius-lg;
+  }
+}
+
 .confirmOverlay {
   position: fixed;
   inset: 0;

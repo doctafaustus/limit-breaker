@@ -35,3 +35,7 @@
 
 .icon { font-size: 1.4rem; line-height: 1; }
 .label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.02em; font-family: $font-body; }
+
+@media (min-width: $bp-md) {
+  .nav { display: none; }
+}

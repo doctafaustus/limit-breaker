@@ -28,53 +28,59 @@ export default function Home() {
         )}
       </div>
 
-      {todayLesson && (
-        <div className={styles.heroCard}>
-          <div className={styles.heroCardBg} />
-          <div style={{ position: 'relative' }}>
-            <div className={styles.heroTag}>⚡ Daily Lesson · {formatDisplayDate(dateOffset)}</div>
-            <div className={styles.heroTitle}>{todayLesson.title}</div>
-            <div className={styles.heroSubtitle}>{todayLesson.subtitle}</div>
-            <div className={styles.heroMeta}>
-              <div className={styles.heroBadge}>⏱ {todayLesson.estimatedMinutes} min</div>
-              <div className={styles.heroBadge}>✦ {todayLesson.xp} XP</div>
-            </div>
-            {isCompleted ? (
-              <div className={styles.completedRow}>
-                <div className={styles.completedBadge}>✓ Completed today</div>
-                <button
-                  className={styles.redoBtn}
-                  onClick={() => navigate(`/lesson/${todayLesson.id}`)}
-                >
-                  Redo →
-                </button>
+      <div className={styles.contentGrid}>
+        <div>
+          {todayLesson && (
+            <div className={styles.heroCard}>
+              <div className={styles.heroCardBg} />
+              <div style={{ position: 'relative' }}>
+                <div className={styles.heroTag}>⚡ Daily Lesson · {formatDisplayDate(dateOffset)}</div>
+                <div className={styles.heroTitle}>{todayLesson.title}</div>
+                <div className={styles.heroSubtitle}>{todayLesson.subtitle}</div>
+                <div className={styles.heroMeta}>
+                  <div className={styles.heroBadge}>⏱ {todayLesson.estimatedMinutes} min</div>
+                  <div className={styles.heroBadge}>✦ {todayLesson.xp} XP</div>
+                </div>
+                {isCompleted ? (
+                  <div className={styles.completedRow}>
+                    <div className={styles.completedBadge}>✓ Completed today</div>
+                    <button
+                      className={styles.redoBtn}
+                      onClick={() => navigate(`/lesson/${todayLesson.id}`)}
+                    >
+                      Redo →
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    className={styles.heroCta}
+                    style={{ color: '#4A42CC' }}
+                    onClick={() => navigate(`/lesson/${todayLesson.id}`)}
+                  >
+                    Start Today's Lesson →
+                  </button>
+                )}
               </div>
-            ) : (
-              <button
-                className={styles.heroCta}
-                style={{ color: '#4A42CC' }}
-                onClick={() => navigate(`/lesson/${todayLesson.id}`)}
-              >
-                Start Today's Lesson →
-              </button>
-            )}
+            </div>
+          )}
+
+          {!todayLesson && (
+            <div className={styles.noJourneyCard}>
+              No lesson scheduled for today — check back tomorrow.
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div className={styles.sectionTitle}>Today's Thought</div>
+          <div className={styles.tipCard}>
+            <div className={styles.tipTitle}>Consistency beats intensity</div>
+            <div className={styles.tipText}>
+              5 minutes every day builds stronger habits than 2 hours once a week.
+              Your brain learns through repetition, not cramming. Keep your streak alive —
+              even a tiny session counts.
+            </div>
           </div>
-        </div>
-      )}
-
-      {!todayLesson && (
-        <div className={styles.noJourneyCard}>
-          No lesson scheduled for today — check back tomorrow.
-        </div>
-      )}
-
-      <div className={styles.sectionTitle}>Today's Thought</div>
-      <div className={styles.tipCard}>
-        <div className={styles.tipTitle}>Consistency beats intensity</div>
-        <div className={styles.tipText}>
-          5 minutes every day builds stronger habits than 2 hours once a week.
-          Your brain learns through repetition, not cramming. Keep your streak alive —
-          even a tiny session counts.
         </div>
       </div>
     </div>

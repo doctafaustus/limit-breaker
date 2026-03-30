@@ -61,6 +61,21 @@
   white-space: nowrap;
 }
 
+@media (min-width: $bp-md) {
+  .lessonWrap {
+    max-width: 680px;
+    box-shadow: none;
+  }
+
+  .nextBtnArea {
+    position: sticky;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: none;
+  }
+}
+
 .lessonDate {
   font-size: 0.72rem;
   font-weight: 700;

@@ -1,15 +1,97 @@
 @use '../styles/tokens' as *;
 
+// Mobile: sidebar hidden, standard top bar
+.sidebar {
+  display: none;
+}
+
+.mainArea {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
 .topBar {
   display: flex;
   align-items: center;
   padding: $space-2 $space-4;
   border-bottom: 1px solid $color-border;
   background: $color-surface;
+  flex-shrink: 0;
 }
 
 .logo {
   height: 44px;
   width: auto;
   display: block;
+}
+
+// Desktop: left sidebar, top bar hidden
+@media (min-width: $bp-md) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-right: 1px solid $color-border;
+    background: $color-surface;
+    padding: $space-6 $space-4;
+    overflow-y: auto;
+  }
+
+  .sidebarLogo {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin-bottom: $space-6;
+  }
+
+  .sidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebarItem {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: $space-3 $space-4;
+    border-radius: $radius-md;
+    text-decoration: none;
+    color: $color-text-secondary;
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background $duration-normal, color $duration-normal;
+
+    &:hover {
+      background: $primary-light;
+      color: $primary;
+    }
+  }
+
+  .sidebarItemActive {
+    background: $primary-light;
+    color: $primary;
+  }
+
+  .sidebarIcon {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .topBar {
+    display: none;
+  }
+
+  .mainArea {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+  }
 }

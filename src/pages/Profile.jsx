@@ -38,56 +38,62 @@ export default function Profile() {
     <div>
       <div className={styles.pageTitle}>Profile</div>
 
-      <div className={styles.avatarSection}>
-        <div className={styles.avatar}>LB</div>
-        <div className={styles.levelBadge}>Level {level} Learner</div>
+      <div className={styles.contentGrid}>
+        <div>
+          <div className={styles.avatarSection}>
+            <div className={styles.avatar}>LB</div>
+            <div className={styles.levelBadge}>Level {level} Learner</div>
+          </div>
+
+          <div className={styles.statsRow}>
+            <div className={styles.statCard}>
+              <div className={styles.statValue}>{totalXp}</div>
+              <div className={styles.statLabel}>Total XP</div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statValue}>{done}</div>
+              <div className={styles.statLabel}>Lessons</div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statValue}>{streak}</div>
+              <div className={styles.statLabel}>Day Streak</div>
+            </div>
+          </div>
+
+          {streak > 0 && (
+            <div className={styles.streakDisplay}>
+              🔥 {streak} day streak — keep it going!
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div className={styles.sectionTitle}>Overall Progress</div>
+          <div className={styles.progressCard}>
+            <div className={styles.progressHeader}>
+              <span>{done} of {lessons.length} lessons complete</span>
+              <span>{pct}%</span>
+            </div>
+            <div className={styles.progressBarWrap}>
+              <div className={styles.progressBarFill} style={{ width: `${pct}%` }} />
+            </div>
+          </div>
+
+          <div className={styles.sectionTitle} style={{ marginTop: '1.5rem' }}>Settings</div>
+          <div className={styles.settingsSection}>
+            <button
+              className={[styles.settingsBtn, styles.settingsBtnDanger].join(' ')}
+              onClick={() => setShowConfirm(true)}
+            >
+              🗑️ Reset all progress
+            </button>
+          </div>
+
+          <button className={styles.adminBtn} onClick={() => navigate('/admin')}>
+            ⚙️ Admin Panel
+          </button>
+        </div>
       </div>
-
-      <div className={styles.statsRow}>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{totalXp}</div>
-          <div className={styles.statLabel}>Total XP</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{done}</div>
-          <div className={styles.statLabel}>Lessons</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.statValue}>{streak}</div>
-          <div className={styles.statLabel}>Day Streak</div>
-        </div>
-      </div>
-
-      {streak > 0 && (
-        <div className={styles.streakDisplay}>
-          🔥 {streak} day streak — keep it going!
-        </div>
-      )}
-
-      <div className={styles.sectionTitle}>Overall Progress</div>
-      <div className={styles.progressCard}>
-        <div className={styles.progressHeader}>
-          <span>{done} of {lessons.length} lessons complete</span>
-          <span>{pct}%</span>
-        </div>
-        <div className={styles.progressBarWrap}>
-          <div className={styles.progressBarFill} style={{ width: `${pct}%` }} />
-        </div>
-      </div>
-
-      <div className={styles.sectionTitle}>Settings</div>
-      <div className={styles.settingsSection}>
-        <button
-          className={[styles.settingsBtn, styles.settingsBtnDanger].join(' ')}
-          onClick={() => setShowConfirm(true)}
-        >
-          🗑️ Reset all progress
-        </button>
-      </div>
-
-      <button className={styles.adminBtn} onClick={() => navigate('/admin')}>
-        ⚙️ Admin Panel
-      </button>
 
       {showConfirm && (
         <div className={styles.confirmOverlay} onClick={() => setShowConfirm(false)}>

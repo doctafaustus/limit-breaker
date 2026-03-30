@@ -119,6 +119,13 @@
 .nodeLockIcon { font-size: 1.1rem; }
 .nodeCheckIcon { font-size: 1.1rem; }
 
+@media (min-width: $bp-md) {
+  .path {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
 .moduleLabel {
   font-size: 0.72rem;
   font-weight: 700;
