@@ -47,6 +47,11 @@ function reducer(state, action) {
         },
       }
 
+    case 'DELETE_REFLECTION': {
+      const { [action.key]: _, ...rest } = state.reflections
+      return { ...state, reflections: rest }
+    }
+
     case 'SET_DATE_OFFSET':
       return { ...state, dateOffset: action.offset }
 

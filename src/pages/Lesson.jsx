@@ -117,9 +117,10 @@ function ReflectionBlock({ block, onAnswered, onSave }) {
   const [value, setValue] = useState('')
   const [saved, setSaved] = useState(false)
 
+  useEffect(() => { onAnswered() }, [])
+
   function handleSave() {
     setSaved(true)
-    onAnswered()
     onSave(value)
   }
 

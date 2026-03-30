@@ -10,7 +10,7 @@ function formatDate(isoString) {
 }
 
 export default function Reflections() {
-  const { state } = useApp()
+  const { state, dispatch } = useApp()
   const navigate = useNavigate()
   const { reflections } = state
 
@@ -42,7 +42,16 @@ export default function Reflections() {
                 >
                   {r.lesson.title} →
                 </button>
-                <span className={styles.cardDate}>{formatDate(r.savedAt)}</span>
+                <div className={styles.cardMetaRight}>
+                  <span className={styles.cardDate}>{formatDate(r.savedAt)}</span>
+                  <button
+                    className={styles.deleteBtn}
+                    onClick={() => dispatch({ type: 'DELETE_REFLECTION', key: r.key })}
+                    aria-label="Delete reflection"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
               <div className={styles.cardPrompt}>{r.prompt}</div>
               <div className={styles.cardText}>{r.text}</div>

@@ -71,10 +71,28 @@
   &:hover { text-decoration: underline; }
 }
 
+.cardMetaRight {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
 .cardDate {
   font-size: 0.72rem;
   color: $color-text-secondary;
   white-space: nowrap;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.72rem;
+  color: $color-text-secondary;
+  cursor: pointer;
+  font-family: $font-body;
+
+  &:hover { color: #e53935; }
 }
 
 .cardPrompt {
