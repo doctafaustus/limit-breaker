@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { lessons, getDateStr, isLessonAvailable } from '../data/content'
+import { getDateStr, isLessonAvailable } from '../utils/dateUtils'
 import styles from './DailyTrack.module.scss'
 
 export default function DailyTrack() {
   const navigate = useNavigate()
   const { state } = useApp()
-  const { dateOffset, completedLessons } = state
+  const { dateOffset, completedLessons, lessons } = state
   const todayStr = getDateStr(dateOffset)
 
   function getNodeState(lesson) {

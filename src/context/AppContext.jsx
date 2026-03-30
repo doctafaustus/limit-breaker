@@ -3,11 +3,13 @@ import { createContext, useContext, useReducer, useEffect } from 'react'
 const STORAGE_KEY = 'lb_state'
 
 const initialState = {
-  dateOffset: 0,       // admin-only: simulate N days into the future
+  dateOffset: 0,
   streak: 0,
   completedLessons: [],
   lastCompletedDate: null,
-  reflections: {},     // keyed by `${lessonId}-${blockIndex}`
+  reflections: {},
+  lessons: [],
+  lessonsLoading: true,
 }
 
 function isSameDay(dateStr) {
@@ -55,8 +57,11 @@ function reducer(state, action) {
     case 'SET_DATE_OFFSET':
       return { ...state, dateOffset: action.offset }
 
+    case 'SET_LESSONS':
+      return { ...state, lessons: action.lessons, lessonsLoading: false }
+
     case 'RESET_ALL':
-      return { ...initialState }
+      return { ...initialState, lessons: state.lessons, lessonsLoading: false }
 
     default:
       return state
@@ -67,7 +72,9 @@ function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return initialState
-    return { ...initialState, ...JSON.parse(raw) }
+    // lessons come from the DB, never from localStorage
+    const { lessons, lessonsLoading, ...persisted } = JSON.parse(raw)
+    return { ...initialState, ...persisted }
   } catch {
     return initialState
   }
@@ -78,13 +85,27 @@ const AppContext = createContext(null)
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, undefined, loadState)
 
+  // Persist user state only — lessons come from the DB
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+      const { lessons, lessonsLoading, ...persistable } = state
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(persistable))
     } catch {
       // ignore storage errors
     }
   }, [state])
+
+  // Fetch lessons from the API on mount
+  useEffect(() => {
+    fetch('/api/lessons')
+      .then(r => r.json())
+      .then(data => dispatch({
+        type: 'SET_LESSONS',
+        // normalize lessonId → id to match existing component code
+        lessons: data.map(l => ({ ...l, id: l.lessonId })),
+      }))
+      .catch(() => dispatch({ type: 'SET_LESSONS', lessons: [] }))
+  }, [])
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

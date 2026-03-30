@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { lessons, getDateStr, isLessonAvailable } from '../data/content'
+import { getDateStr, isLessonAvailable } from '../utils/dateUtils'
 import styles from './Explore.module.scss'
 
 export default function Explore() {
   const { state } = useApp()
   const navigate = useNavigate()
-  const { dateOffset, completedLessons } = state
+  const { dateOffset, completedLessons, lessons } = state
   const todayStr = getDateStr(dateOffset)
 
   function handleTileClick(lesson) {

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getLessonById } from '../data/content'
+import { getLessonById } from '../utils/dateUtils'
 import styles from './Reflections.module.scss'
 
 function formatDate(isoString) {
@@ -12,10 +12,10 @@ function formatDate(isoString) {
 export default function Reflections() {
   const { state, dispatch } = useApp()
   const navigate = useNavigate()
-  const { reflections } = state
+  const { reflections, lessons } = state
 
   const saved = Object.entries(reflections)
-    .map(([key, r]) => ({ key, ...r, lesson: getLessonById(r.lessonId) }))
+    .map(([key, r]) => ({ key, ...r, lesson: getLessonById(lessons, r.lessonId) }))
     .filter(r => r.lesson)
     .sort((a, b) => new Date(b.savedAt) - new Date(a.savedAt))
 

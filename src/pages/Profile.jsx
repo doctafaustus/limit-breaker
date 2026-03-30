@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { lessons } from '../data/content'
 import styles from './Profile.module.scss'
 
 function getTotalXp(completedLessons) {
@@ -22,7 +21,7 @@ export default function Profile() {
   const { state, dispatch } = useApp()
   const navigate = useNavigate()
   const [showConfirm, setShowConfirm] = useState(false)
-  const { streak, completedLessons } = state
+  const { streak, completedLessons, lessons } = state
 
   const totalXp = getTotalXp(completedLessons)
   const level = getLevel(totalXp)

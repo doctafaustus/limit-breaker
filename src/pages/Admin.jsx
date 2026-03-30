@@ -1,5 +1,5 @@
 import { useApp } from '../context/AppContext'
-import { getDateStr } from '../data/content'
+import { getDateStr } from '../utils/dateUtils'
 import styles from './Admin.module.scss'
 
 export default function Admin() {

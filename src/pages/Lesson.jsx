@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
-import { formatDisplayDate } from '../data/content'
+import { formatDisplayDate } from '../utils/dateUtils'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getLessonById } from '../data/content'
+import { getLessonById } from '../utils/dateUtils'
 import styles from './Lesson.module.scss'
 
 // ---- Block renderers ----
@@ -232,9 +232,9 @@ export default function Lesson() {
   const { lessonId } = useParams()
   const navigate = useNavigate()
   const { state, dispatch } = useApp()
-  const { dateOffset } = state
+  const { dateOffset, lessons } = state
 
-  const lesson = getLessonById(lessonId)
+  const lesson = getLessonById(lessons, lessonId)
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0)
   const [answeredBlocks, setAnsweredBlocks] = useState({})
   const [showCompletion, setShowCompletion] = useState(false)

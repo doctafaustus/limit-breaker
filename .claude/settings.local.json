@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(node server/seed.js)",
+      "Bash(npm i:*)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getTodaysLesson, getDateStr, formatDisplayDate } from '../data/content'
+import { getTodaysLesson, getDateStr, formatDisplayDate } from '../utils/dateUtils'
 import styles from './Home.module.scss'
 
 function getGreeting() {
@@ -13,10 +13,10 @@ function getGreeting() {
 export default function Home() {
   const { state } = useApp()
   const navigate = useNavigate()
-  const { dateOffset, streak, completedLessons } = state
+  const { dateOffset, streak, completedLessons, lessons } = state
 
   const todayStr = getDateStr(dateOffset)
-  const todayLesson = getTodaysLesson(todayStr)
+  const todayLesson = getTodaysLesson(lessons, todayStr)
   const isCompleted = todayLesson && completedLessons.includes(todayLesson.id)
 
   return (

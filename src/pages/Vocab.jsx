@@ -1,13 +1,28 @@
+import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
-import { getVocabForDay, getPastVocab } from '../data/vocabData'
-import { getDateStr, formatDisplayDate } from '../data/content'
+import { getDateStr, formatDisplayDate } from '../utils/dateUtils'
 import styles from './Vocab.module.scss'
 
 export default function Vocab() {
   const { state } = useApp()
   const todayStr = getDateStr(state.dateOffset)
-  const vocab = getVocabForDay(todayStr)
-  const past = getPastVocab(todayStr)
+
+  const [vocab, setVocab] = useState(null)
+  const [past, setPast] = useState([])
+
+  useEffect(() => {
+    fetch(`/api/vocab?date=${todayStr}`)
+      .then(r => r.json())
+      .then(setVocab)
+      .catch(() => setVocab(null))
+
+    fetch(`/api/vocab/past?date=${todayStr}`)
+      .then(r => r.json())
+      .then(setPast)
+      .catch(() => setPast([]))
+  }, [todayStr])
+
+  if (!vocab) return null
 
   return (
     <div className={styles.wrap}>
