@@ -15,6 +15,8 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@stytch/react": "^20.0.5",
+    "@stytch/vanilla-js": "^6.0.5",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -22,7 +24,8 @@
     "mongoose": "^8.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.1",
+    "stytch": "^10.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",

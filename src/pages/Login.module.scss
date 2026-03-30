@@ -1,0 +1,127 @@
+@use '../styles/tokens' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-bg;
+  padding: $space-4;
+}
+
+.card {
+  background: $color-surface;
+  border-radius: $radius-lg;
+  padding: $space-8;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: $shadow-md;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-5;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+}
+
+.heading {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: $color-text;
+  text-align: center;
+}
+
+.subheading {
+  font-size: 0.88rem;
+  color: $color-text-secondary;
+  text-align: center;
+  margin-top: -$space-3;
+  line-height: 1.55;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  font-family: $font-body;
+  font-size: 0.95rem;
+  color: $color-text;
+  background: $color-surface;
+  outline: none;
+  transition: border-color $duration-normal;
+
+  &:focus { border-color: $primary; }
+  &::placeholder { color: $color-text-secondary; opacity: 0.7; }
+}
+
+.error {
+  font-size: 0.83rem;
+  color: #e53935;
+}
+
+.btn {
+  width: 100%;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: $radius-full;
+  padding: $space-3 $space-6;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background $duration-normal;
+
+  &:hover { background: $primary-dark; }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  text-align: center;
+}
+
+.sentIcon { font-size: 2.5rem; }
+
+.sentTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: $color-text;
+}
+
+.sentText {
+  font-size: 0.88rem;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  max-width: 280px;
+}
+
+.resend {
+  background: none;
+  border: none;
+  color: $primary;
+  font-family: $font-body;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: $space-2;
+
+  &:hover { text-decoration: underline; }
+}
