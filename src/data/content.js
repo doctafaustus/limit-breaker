@@ -1,7 +1,7 @@
 export const lessons = [
   {
     id: 'lesson-1',
-    date: '2026-03-28',
+    date: '2026-03-30',
     title: 'The Name Effect',
     subtitle: 'Why remembering someone\'s name is the most underrated social superpower.',
     estimatedMinutes: 5,
@@ -74,7 +74,7 @@ export const lessons = [
   },
   {
     id: 'lesson-2',
-    date: '2026-03-29',
+    date: '2026-03-31',
     title: 'Your Body Speaks First',
     subtitle: 'The silent conversation happening beneath every interaction.',
     estimatedMinutes: 6,
@@ -157,7 +157,7 @@ export const lessons = [
 
   {
     id: 'lesson-3',
-    date: '2026-03-30',
+    date: '2026-04-01',
     title: 'The Art of Actually Listening',
     subtitle: 'The rarest social skill — and why it makes you magnetic.',
     estimatedMinutes: 5,
@@ -239,7 +239,7 @@ export const lessons = [
 
   {
     id: 'lesson-4',
-    date: '2026-03-31',
+    date: '2026-04-02',
     title: 'The Filler Word Trap',
     subtitle: 'Why "um" and "like" are costing you more credibility than you realise.',
     estimatedMinutes: 5,
@@ -313,7 +313,7 @@ export const lessons = [
 
   {
     id: 'lesson-5',
-    date: '2026-04-01',
+    date: '2026-04-03',
     title: 'The Power of the Pause',
     subtitle: 'How deliberate silence became the most underused tool in communication.',
     estimatedMinutes: 6,
