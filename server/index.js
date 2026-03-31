@@ -6,6 +6,7 @@ import usersRouter from './routes/users.js'
 import lessonsRouter from './routes/lessons.js'
 import vocabRouter from './routes/vocab.js'
 import reflectionsRouter from './routes/reflections.js'
+import thoughtsRouter from './routes/thoughts.js'
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -17,6 +18,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/lessons', lessonsRouter)
 app.use('/api/vocab', vocabRouter)
 app.use('/api/reflections', reflectionsRouter)
+app.use('/api/thoughts', thoughtsRouter)
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
 

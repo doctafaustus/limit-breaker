@@ -24,12 +24,12 @@ function isSameDay(dateStr) {
 function reducer(state, action) {
   switch (action.type) {
     case 'COMPLETE_LESSON': {
-      if (state.completedLessons.includes(action.lessonId)) return state
+      if (state.completedLessons.some(c => c.lessonId === action.lessonId)) return state
       const alreadyDoneToday = isSameDay(state.lastCompletedDate)
       const newStreak = alreadyDoneToday ? state.streak : state.streak + 1
       return {
         ...state,
-        completedLessons: [...state.completedLessons, action.lessonId],
+        completedLessons: [...state.completedLessons, { lessonId: action.lessonId, completedAt: new Date().toISOString() }],
         streak: newStreak,
         lastCompletedDate: new Date().toISOString(),
       }

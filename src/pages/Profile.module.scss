@@ -141,17 +141,28 @@
   color: $color-text-secondary;
 }
 
-.progressBarWrap {
-  height: 8px;
-  background: $color-border;
-  border-radius: $radius-full;
-  overflow: hidden;
+.progressCard {
+  background: $color-bg;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-5;
+  margin-bottom: $space-6;
+  text-align: center;
 }
 
-.progressBarFill {
-  height: 100%;
-  border-radius: $radius-full;
-  transition: width 0.5s ease;
+.monthCount {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 3rem;
+  color: $primary;
+  line-height: 1;
+  margin-bottom: $space-2;
+}
+
+.monthSub {
+  font-size: 0.85rem;
+  color: $color-text-secondary;
+  font-weight: 500;
 }
 
 .settingsSection {

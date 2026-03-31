@@ -38,7 +38,7 @@ export default function Reflections() {
               <div className={styles.cardMeta}>
                 <button
                   className={styles.lessonLink}
-                  onClick={() => navigate(`/lesson/${r.lesson.id}`)}
+                  onClick={() => navigate(`/lesson/${r.lesson.date}`)}
                 >
                   {r.lesson.title} →
                 </button>

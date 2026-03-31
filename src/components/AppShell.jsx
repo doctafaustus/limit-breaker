@@ -1,4 +1,4 @@
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, Link } from 'react-router-dom'
 import BottomNav from './BottomNav'
 import styles from './AppShell.module.scss'
 
@@ -14,7 +14,7 @@ export default function AppShell() {
   return (
     <div className="app-frame">
       <aside className={styles.sidebar}>
-        <img src="/logo.png" alt="Limit Breaker" className={styles.sidebarLogo} />
+        <Link to="/"><img src="/logo.png" alt="Limit Breaker" className={styles.sidebarLogo} /></Link>
         <nav className={styles.sidebarNav}>
           {navItems.map(item => (
             <NavLink
@@ -33,7 +33,7 @@ export default function AppShell() {
       </aside>
       <div className={styles.mainArea}>
         <header className={styles.topBar}>
-          <img src="/logo.png" alt="Limit Breaker" className={styles.logo} />
+          <Link to="/"><img src="/logo.png" alt="Limit Breaker" className={styles.logo} /></Link>
         </header>
         <div className="page">
           <Outlet />

@@ -30,26 +30,22 @@ export default function Admin() {
         <div className={styles.stateLine}>
           <span className={styles.stateKey}>Completed:</span>
           <span className={styles.stateVal}>
-            {completedLessons.length > 0 ? completedLessons.join(', ') : 'none'}
+            {completedLessons.length > 0 ? completedLessons.map(c => c.lessonId).join(', ') : 'none'}
           </span>
         </div>
       </div>
 
       <div className={styles.sectionTitle}>Simulate Date</div>
       <div className={styles.btnGroup}>
-        <button
-          className={[styles.btn, styles.btnPrimary].join(' ')}
-          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: dateOffset + 1 })}
-        >
-          +1 Day → {getDateStr(dateOffset + 1)}
-        </button>
-        <button
-          className={[styles.btn, styles.btnPrimary].join(' ')}
-          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: dateOffset + 2 })}
-          disabled={dateOffset >= 1}
-        >
-          +2 Days → {getDateStr(dateOffset + 2)}
-        </button>
+        {[1, 2, 3, 4, 5].map(n => (
+          <button
+            key={n}
+            className={[styles.btn, dateOffset === n ? styles.btnActive : styles.btnPrimary].join(' ')}
+            onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: n })}
+          >
+            +{n} Day{n > 1 ? 's' : ''} → {getDateStr(n)}
+          </button>
+        ))}
         <button
           className={styles.btn}
           disabled={dateOffset === 0}

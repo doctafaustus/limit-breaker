@@ -25,7 +25,7 @@
   border-radius: $radius-lg;
   padding: $space-6;
   color: white;
-  background: linear-gradient(135deg, #6C63FF, #4A42CC);
+  background: linear-gradient(135deg, #30b661, #5a5e9d);
   box-shadow: $shadow-md;
   margin-bottom: $space-6;
   position: relative;
@@ -93,7 +93,9 @@
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform $duration-normal $ease-spring, box-shadow $duration-normal;
+  transition:
+    transform $duration-normal $ease-spring,
+    box-shadow $duration-normal;
   display: inline-block;
 
   &:hover {
@@ -125,7 +127,9 @@
   cursor: pointer;
   transition: background $duration-normal;
 
-  &:hover { background: rgba(255, 255, 255, 0.3); }
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .completedBadge {

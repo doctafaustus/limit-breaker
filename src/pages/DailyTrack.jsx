@@ -10,7 +10,7 @@ export default function DailyTrack() {
   const todayStr = getDateStr(dateOffset)
 
   function getNodeState(lesson) {
-    if (completedLessons.includes(lesson.id)) return 'completed'
+    if (completedLessons.some(c => c.lessonId === lesson.id)) return 'completed'
     if (lesson.date === todayStr) return 'current'
     if (isLessonAvailable(lesson, todayStr)) return 'current'
     return 'locked'
@@ -18,7 +18,7 @@ export default function DailyTrack() {
 
   function handleNodeClick(lesson) {
     if (!isLessonAvailable(lesson, todayStr)) return
-    navigate(`/lesson/${lesson.id}`)
+    navigate(`/lesson/${lesson.date}`)
   }
 
   function formatLessonDate(dateStr) {

@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { formatDisplayDate } from '../utils/dateUtils'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
-import { getLessonById } from '../utils/dateUtils'
+import { getDateStr, getLessonByDate, formatDateFromStr } from '../utils/dateUtils'
 import styles from './Lesson.module.scss'
 
 // ---- Block renderers ----
@@ -18,10 +17,11 @@ function HeaderBlock({ block }) {
 function SpotMistakeBlock({ block, onAnswered }) {
   const [selected, setSelected] = useState(null)
 
+  useEffect(() => { onAnswered() }, [])
+
   function handleSelect(person) {
     if (selected) return
     setSelected(person)
-    onAnswered()
   }
 
   const isCorrect = selected === block.mistakeIs
@@ -66,11 +66,12 @@ function MultipleChoiceBlock({ block, onAnswered }) {
   const [selected, setSelected] = useState(null)
   const [confirmed, setConfirmed] = useState(false)
 
+  useEffect(() => { onAnswered() }, [])
+
   function handleSelect(i) {
     if (confirmed) return
     setSelected(i)
     setConfirmed(true)
-    onAnswered()
   }
 
   return (
@@ -150,14 +151,11 @@ function ReflectionBlock({ block, onAnswered, onSave }) {
 
 function SliderBlock({ block, onAnswered }) {
   const [value, setValue] = useState(5)
-  const [interacted, setInteracted] = useState(false)
+
+  useEffect(() => { onAnswered() }, [])
 
   function handleChange(e) {
     setValue(Number(e.target.value))
-    if (!interacted) {
-      setInteracted(true)
-      onAnswered()
-    }
   }
 
   return (
@@ -229,12 +227,22 @@ function CompletionScreen({ lesson, streak, onBack }) {
 
 // ---- Main Lesson page ----
 export default function Lesson() {
-  const { lessonId } = useParams()
+  const { date } = useParams()
   const navigate = useNavigate()
   const { state, dispatch } = useApp()
   const { dateOffset, lessons } = state
 
-  const lesson = getLessonById(lessons, lessonId)
+  const realToday = getDateStr(0)
+  const resolvedDate = date === 'today' ? getDateStr(dateOffset) : date
+
+  // Block future dates — use real date, not offset, so it can't be bypassed
+  useEffect(() => {
+    if (date !== 'today' && date > realToday) {
+      navigate('/', { replace: true })
+    }
+  }, [date, realToday])
+
+  const lesson = getLessonByDate(lessons, resolvedDate)
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0)
   const [answeredBlocks, setAnsweredBlocks] = useState({})
   const [showCompletion, setShowCompletion] = useState(false)
@@ -262,8 +270,8 @@ export default function Lesson() {
   function handleSaveReflection(blockIndex, text) {
     dispatch({
       type: 'SAVE_REFLECTION',
-      key: `${lessonId}-${blockIndex}`,
-      lessonId,
+      key: `${lesson.id}-${blockIndex}`,
+      lessonId: lesson.id,
       prompt: blocks[blockIndex].prompt,
       text,
     })
@@ -274,7 +282,7 @@ export default function Lesson() {
       setCurrentBlockIndex(i => i + 1)
     } else {
       if (!completionFired) {
-        dispatch({ type: 'COMPLETE_LESSON', lessonId })
+        dispatch({ type: 'COMPLETE_LESSON', lessonId: lesson.id })
         setCompletionFired(true)
       }
       setShowCompletion(true)
@@ -324,7 +332,7 @@ export default function Lesson() {
       </div>
 
       <div className={styles.blockWrap}>
-        <div className={styles.lessonDate}>⚡ Daily Lesson · {formatDisplayDate(dateOffset)}</div>
+        <div className={styles.lessonDate}>⚡ Daily Lesson · {formatDateFromStr(resolvedDate)}</div>
         {blocks.slice(0, currentBlockIndex + 1).map((block, i) => (
           <div key={i} className={styles.blockItem} ref={el => blockRefs.current[i] = el}>
             <BlockRenderer

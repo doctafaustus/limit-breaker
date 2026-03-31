@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useStytch, useStytchUser } from '@stytch/react'
 import { useApp } from '../context/AppContext'
@@ -6,8 +5,26 @@ import styles from './Profile.module.scss'
 
 function getTotalXp(lessons, completedLessons) {
   return lessons
-    .filter(l => completedLessons.includes(l.id))
+    .filter(l => completedLessons.some(c => c.lessonId === l.id))
     .reduce((sum, l) => sum + l.xp, 0)
+}
+
+function getLessonsThisMonth(completedLessons) {
+  const now = new Date()
+  return completedLessons.filter(c => {
+    const d = new Date(c.completedAt)
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()
+  }).length
+}
+
+function getBestMonth(completedLessons) {
+  const counts = {}
+  completedLessons.forEach(c => {
+    const d = new Date(c.completedAt)
+    const key = `${d.getFullYear()}-${d.getMonth()}`
+    counts[key] = (counts[key] || 0) + 1
+  })
+  return Math.max(0, ...Object.values(counts))
 }
 
 function getLevel(xp) {
@@ -19,28 +36,23 @@ function getLevel(xp) {
 }
 
 export default function Profile() {
-  const { state, dispatch } = useApp()
+  const { state } = useApp()
   const navigate = useNavigate()
   const stytch = useStytch()
   const { user } = useStytchUser()
-  const [showConfirm, setShowConfirm] = useState(false)
   const { streak, completedLessons, lessons } = state
 
   const email = user?.emails?.[0]?.email ?? ''
   const initials = email ? email[0].toUpperCase() : 'LB'
   const totalXp = getTotalXp(lessons, completedLessons)
   const level = getLevel(totalXp)
-  const done = completedLessons.length
-  const pct = lessons.length > 0 ? Math.round((done / lessons.length) * 100) : 0
+  const thisMonth = getLessonsThisMonth(completedLessons)
+  const bestMonth = getBestMonth(completedLessons)
+  const monthName = new Date().toLocaleDateString('en-US', { month: 'long' })
 
   async function handleLogout() {
     await stytch.session.revoke()
     navigate('/login', { replace: true })
-  }
-
-  function handleReset() {
-    dispatch({ type: 'RESET_ALL' })
-    setShowConfirm(false)
   }
 
   return (
@@ -61,7 +73,7 @@ export default function Profile() {
               <div className={styles.statLabel}>Total XP</div>
             </div>
             <div className={styles.statCard}>
-              <div className={styles.statValue}>{done}</div>
+              <div className={styles.statValue}>{completedLessons.length}</div>
               <div className={styles.statLabel}>Lessons</div>
             </div>
             <div className={styles.statCard}>
@@ -78,53 +90,32 @@ export default function Profile() {
         </div>
 
         <div>
-          <div className={styles.sectionTitle}>Overall Progress</div>
+          <div className={styles.sectionTitle}>Lessons in {monthName}</div>
           <div className={styles.progressCard}>
-            <div className={styles.progressHeader}>
-              <span>{done} of {lessons.length} lessons complete</span>
-              <span>{pct}%</span>
-            </div>
-            <div className={styles.progressBarWrap}>
-              <div className={styles.progressBarFill} style={{ width: `${pct}%` }} />
+            <div className={styles.monthCount}>{thisMonth}</div>
+            <div className={styles.monthSub}>
+              {bestMonth > 0 && thisMonth >= bestMonth
+                ? '🏆 Best month yet!'
+                : bestMonth > 0
+                  ? `Best month: ${bestMonth}`
+                  : 'Start building your streak this month'}
             </div>
           </div>
 
           <div className={styles.sectionTitle} style={{ marginTop: '1.5rem' }}>Settings</div>
           <div className={styles.settingsSection}>
-            <button
-              className={styles.settingsBtn}
-              onClick={handleLogout}
-            >
+            <button className={styles.settingsBtn} onClick={handleLogout}>
               🚪 Sign out
             </button>
-            <button
-              className={[styles.settingsBtn, styles.settingsBtnDanger].join(' ')}
-              onClick={() => setShowConfirm(true)}
-            >
-              🗑️ Reset all progress
-            </button>
           </div>
 
-          <button className={styles.adminBtn} onClick={() => navigate('/admin')}>
-            ⚙️ Admin Panel
-          </button>
+          {email === import.meta.env.VITE_ADMIN_EMAIL && (
+            <button className={styles.adminBtn} onClick={() => navigate('/admin')}>
+              ⚙️ Admin Panel
+            </button>
+          )}
         </div>
       </div>
-
-      {showConfirm && (
-        <div className={styles.confirmOverlay} onClick={() => setShowConfirm(false)}>
-          <div className={styles.confirmSheet} onClick={e => e.stopPropagation()}>
-            <div className={styles.confirmTitle}>Reset all progress?</div>
-            <div className={styles.confirmText}>
-              This will clear all completed lessons, XP, streaks, and reflections. This cannot be undone.
-            </div>
-            <div className={styles.confirmBtns}>
-              <button className={styles.confirmCancel} onClick={() => setShowConfirm(false)}>Cancel</button>
-              <button className={styles.confirmConfirm} onClick={handleReset}>Reset everything</button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }

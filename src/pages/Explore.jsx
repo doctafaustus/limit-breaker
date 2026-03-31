@@ -11,7 +11,7 @@ export default function Explore() {
 
   function handleTileClick(lesson) {
     if (!isLessonAvailable(lesson, todayStr)) return
-    navigate(`/lesson/${lesson.id}`)
+    navigate(`/lesson/${lesson.date}`)
   }
 
   function formatLessonDate(dateStr) {
@@ -27,7 +27,7 @@ export default function Explore() {
       <div className={styles.grid}>
         {lessons.map(lesson => {
           const locked = !isLessonAvailable(lesson, todayStr)
-          const completed = completedLessons.includes(lesson.id)
+          const completed = completedLessons.some(c => c.lessonId === lesson.id)
           return (
             <div
               key={lesson.id}

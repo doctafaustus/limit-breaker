@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import { getTodaysLesson, getDateStr, formatDisplayDate } from '../utils/dateUtils'
@@ -17,7 +18,15 @@ export default function Home() {
 
   const todayStr = getDateStr(dateOffset)
   const todayLesson = getTodaysLesson(lessons, todayStr)
-  const isCompleted = todayLesson && completedLessons.includes(todayLesson.id)
+  const isCompleted = todayLesson && completedLessons.some(c => c.lessonId === todayLesson.id)
+
+  const [thought, setThought] = useState(null)
+  useEffect(() => {
+    fetch(`/api/thoughts?date=${todayStr}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(setThought)
+      .catch(() => {})
+  }, [todayStr])
 
   return (
     <div>
@@ -46,7 +55,7 @@ export default function Home() {
                     <div className={styles.completedBadge}>✓ Completed today</div>
                     <button
                       className={styles.redoBtn}
-                      onClick={() => navigate(`/lesson/${todayLesson.id}`)}
+                      onClick={() => navigate('/lesson/today')}
                     >
                       Redo →
                     </button>
@@ -55,7 +64,7 @@ export default function Home() {
                   <button
                     className={styles.heroCta}
                     style={{ color: '#4A42CC' }}
-                    onClick={() => navigate(`/lesson/${todayLesson.id}`)}
+                    onClick={() => navigate('/lesson/today')}
                   >
                     Start Today's Lesson →
                   </button>
@@ -71,17 +80,15 @@ export default function Home() {
           )}
         </div>
 
-        <div>
-          <div className={styles.sectionTitle}>Today's Thought</div>
-          <div className={styles.tipCard}>
-            <div className={styles.tipTitle}>Consistency beats intensity</div>
-            <div className={styles.tipText}>
-              5 minutes every day builds stronger habits than 2 hours once a week.
-              Your brain learns through repetition, not cramming. Keep your streak alive —
-              even a tiny session counts.
+        {thought && (
+          <div>
+            <div className={styles.sectionTitle}>Today's Thought</div>
+            <div className={styles.tipCard}>
+              <div className={styles.tipTitle}>{thought.title}</div>
+              <div className={styles.tipText}>{thought.text}</div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

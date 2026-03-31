@@ -23,6 +23,17 @@ export function getLessonById(lessons, id) {
   return lessons.find(l => l.id === id || l.lessonId === id) || null
 }
 
+export function getLessonByDate(lessons, dateStr) {
+  return lessons.find(l => l.date === dateStr) || null
+}
+
+export function formatDateFromStr(dateStr) {
+  const [year, month, day] = dateStr.split('-').map(Number)
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
+    weekday: 'long', month: 'long', day: 'numeric'
+  })
+}
+
 export function isLessonAvailable(lesson, todayStr) {
   return lesson.date <= todayStr
 }
