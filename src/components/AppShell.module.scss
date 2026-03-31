@@ -15,10 +15,80 @@
 .topBar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: $space-2 $space-4;
   border-bottom: 1px solid $color-border;
   background: $color-surface;
   flex-shrink: 0;
+}
+
+.weekDotsWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.weekDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.weekDate {
+  font-family: $font-display;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  letter-spacing: 0.04em;
+}
+
+.weekDotCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.weekDot {
+  width: 7px;
+  height: 7px;
+  border-radius: $radius-full;
+  background: $color-border;
+}
+
+.weekDotPast {
+  background: $color-success;
+  opacity: 0.7;
+}
+
+.weekDotTodaySize {
+  width: 9px;
+  height: 9px;
+}
+
+.weekDotToday {
+  background: $primary;
+  opacity: 1;
+}
+
+.weekDotLabel {
+  font-family: $font-display;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  opacity: 0.5;
+  letter-spacing: 0.02em;
+}
+
+.weekDotLabelToday {
+  color: $primary;
+  opacity: 1;
+}
+
+.weekDotLabelCompleted {
+  color: $color-success;
+  opacity: 1;
 }
 
 .logo {
@@ -88,6 +158,12 @@
 
   .topBar {
     display: none;
+  }
+
+  .sidebarWeekDots {
+    margin-top: auto;
+    padding-top: $space-4;
+    border-top: 1px solid $color-border;
   }
 
   .mainArea {
