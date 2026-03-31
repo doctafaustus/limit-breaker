@@ -40,12 +40,9 @@ export default function App() {
         <Route path="/vocab" element={<Vocab />} />
         <Route path="/reflections" element={<Reflections />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/lesson/:date" element={<Lesson />} />
         <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>} />
       </Route>
-
-      <Route path="/lesson/:date" element={
-        <ProtectedRoute><Lesson /></ProtectedRoute>
-      } />
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
