@@ -55,7 +55,7 @@ export default function DailyTrack() {
                   <div className={styles.nodeModule}>{lesson.subtitle}</div>
                 </div>
                 {available && nodeState !== 'completed' && (
-                  <div style={{ fontSize: '1rem', color: '#6B6880' }}>→</div>
+                  <div style={{ fontSize: '1rem', color: '#5E6A82' }}>→</div>
                 )}
                 {nodeState === 'completed' && (
                   <div className={styles.redoHint}>↺ Redo</div>

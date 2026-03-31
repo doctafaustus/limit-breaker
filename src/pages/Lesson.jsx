@@ -298,7 +298,7 @@ export default function Lesson() {
       <div className={styles.lessonWrap}>
         <div className={styles.lessonHeader}>
           <button className={styles.closeBtn} onClick={() => navigate(-1)}>✕</button>
-          <div style={{ flex: 1, textAlign: 'center', fontSize: '0.9rem', color: '#6B6880' }}>Lesson not found</div>
+          <div style={{ flex: 1, textAlign: 'center', fontSize: '0.9rem', color: '#5E6A82' }}>Lesson not found</div>
         </div>
       </div>
     )

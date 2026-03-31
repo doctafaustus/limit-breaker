@@ -63,7 +63,7 @@ export default function Home() {
                 ) : (
                   <button
                     className={styles.heroCta}
-                    style={{ color: '#4A42CC' }}
+                    style={{ color: '#1A3EB8' }}
                     onClick={() => navigate('/lesson/today')}
                   >
                     Start Today's Lesson →

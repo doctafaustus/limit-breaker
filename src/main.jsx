@@ -22,8 +22,8 @@ const theme = extendTheme({
   },
   colors: {
     brand: {
-      500: '#6C63FF',
-      600: '#4A42CC',
+      500: '#2C5FDC',
+      600: '#1A3EB8',
     },
     comm: { 500: '#FF6B6B', 100: '#FFE5E5' },
     intel: { 500: '#4ECDC4', 100: '#E0F7F6' },
@@ -32,8 +32,8 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: '#F8F7FF',
-        color: '#1A1930',
+        bg: '#F4F7FD',
+        color: '#0F1B35',
       },
     },
   },
