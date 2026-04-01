@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Check, Lock, ArrowRight, ArrowCounterClockwise } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
@@ -9,11 +10,37 @@ export default function DailyTrack() {
   const { state } = useApp()
   const { dateOffset, completedLessons, lessons } = state
   const todayStr = getDateStr(dateOffset)
+  const todayRef = useRef(null)
+
+  useEffect(() => {
+    if (!todayRef.current || !lessons.length) return
+    const timer = setTimeout(() => {
+      const el = todayRef.current
+      if (!el) return
+      let parent = el.parentElement
+      let found = false
+      while (parent && parent !== document.body) {
+        const { overflowY } = window.getComputedStyle(parent)
+        if (overflowY === 'auto' || overflowY === 'scroll') {
+          found = true
+          const elRect = el.getBoundingClientRect()
+          const parentRect = parent.getBoundingClientRect()
+          const absoluteTop = elRect.top - parentRect.top + parent.scrollTop
+          const scrollTarget = absoluteTop - parent.clientHeight / 2 + elRect.height / 2
+          parent.scrollTo({ top: Math.max(0, scrollTarget), behavior: 'smooth' })
+          break
+        }
+        parent = parent.parentElement
+      }
+      if (!found) el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [lessons])
 
   function getNodeState(lesson) {
     if (completedLessons.some(c => c.lessonId === lesson.id)) return 'completed'
     if (lesson.date === todayStr) return 'current'
-    if (isLessonAvailable(lesson, todayStr)) return 'current'
+    if (isLessonAvailable(lesson, todayStr)) return 'available'
     return 'locked'
   }
 
@@ -41,7 +68,7 @@ export default function DailyTrack() {
           const nodeState = getNodeState(lesson)
           const available = isLessonAvailable(lesson, todayStr)
           return (
-            <div key={lesson.id} className={styles.nodeWrap}>
+            <div key={lesson.id} className={styles.nodeWrap} ref={lesson.date === todayStr ? todayRef : null}>
               {i > 0 && <div className={styles.connector} />}
               <div
                 className={[styles.nodeRow, !available ? styles.nodeRowLocked : ''].join(' ')}
@@ -55,7 +82,7 @@ export default function DailyTrack() {
                   <div className={styles.nodeTitle}>{lesson.title}</div>
                   <div className={styles.nodeModule}>{lesson.subtitle}</div>
                 </div>
-                {available && nodeState !== 'completed' && (
+                {available && nodeState !== 'completed' && nodeState !== 'current' && (
                   <ArrowRight size={18} color="#5E6A82" />
                 )}
                 {nodeState === 'completed' && (

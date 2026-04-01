@@ -96,13 +96,22 @@
   font-family: $font-display;
 
   &--completed { background: $color-success; color: white; }
-  &--current { background: $primary; color: white; animation: pulse 2s infinite; }
+  &--available { background: $primary-light; color: $primary; border: 2px solid rgba(44, 95, 220, 0.2); }
+  &--current {
+    background: $primary;
+    color: white;
+    width: 60px;
+    height: 60px;
+    font-size: 1.25rem;
+    box-shadow: 0 0 0 4px $primary-light, 0 0 0 7px rgba(44, 95, 220, 0.2);
+    animation: pulse 2.5s infinite;
+  }
   &--locked { background: $color-border; color: $color-text-secondary; }
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(108,99,255,0); }
+  0%, 100% { box-shadow: 0 0 0 4px $primary-light, 0 0 0 7px rgba(44, 95, 220, 0.15); }
+  50% { box-shadow: 0 0 0 4px $primary-light, 0 0 0 12px rgba(44, 95, 220, 0); }
 }
 
 .redoHint {

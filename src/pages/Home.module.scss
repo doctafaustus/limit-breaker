@@ -85,6 +85,10 @@
 }
 
 .heroCta {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  white-space: nowrap;
   background: white;
   border: none;
   border-radius: $radius-full;

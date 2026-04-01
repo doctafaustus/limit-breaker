@@ -76,7 +76,7 @@ export default function Home() {
                     style={{ color: '#1A3EB8' }}
                     onClick={() => navigate('/lesson/today')}
                   >
-                    Start Today's Lesson <ArrowRight size={16} weight="bold" />
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>Start Today's Lesson <ArrowRight size={16} weight="bold" /></span>
                   </button>
                 )}
               </div>
