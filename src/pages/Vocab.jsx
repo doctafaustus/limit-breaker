@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useApp } from '../context/AppContext'
-import { getDateStr, formatDisplayDate } from '../utils/dateUtils'
+import { getDateStr } from '../utils/dateUtils'
 import styles from './Vocab.module.scss'
 
 export default function Vocab() {
@@ -28,7 +28,7 @@ export default function Vocab() {
     <div className={styles.wrap}>
       <div className={styles.pageHeader}>
         <div className={styles.pageLabel}>Word of the Day</div>
-        <div className={styles.dayBadge}>{formatDisplayDate(state.dateOffset)}</div>
+        <div className={styles.dayBadge}>{new Date(new Date().setDate(new Date().getDate() + state.dateOffset)).toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric' })}</div>
       </div>
 
       <div className={styles.contentGrid}>

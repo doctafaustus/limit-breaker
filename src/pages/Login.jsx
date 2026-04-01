@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useStytch } from '@stytch/react'
 import { Link } from 'react-router-dom'
-import { EnvelopeSimple, ArrowRight } from '@phosphor-icons/react'
+import { EnvelopeSimple, ArrowRight, Lightning, BookOpen, Fire } from '@phosphor-icons/react'
 import styles from './Login.module.scss'
 
 export default function Login() {
@@ -30,8 +30,27 @@ export default function Login() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.card}>
+      <div className={styles.hero}>
         <img src="/logo.png" alt="Limit Breaker" className={styles.logo} />
+        <div className={styles.heroTagline}>5 minutes a day. Real results.</div>
+        <h1 className={styles.heroTitle}>Break the limits holding you back socially.</h1>
+        <div className={styles.heroBullets}>
+          <div className={styles.heroBullet}>
+            <Lightning size={16} weight="fill" color="#2C5FDC" />
+            Daily lessons that build real social confidence
+          </div>
+          <div className={styles.heroBullet}>
+            <BookOpen size={16} weight="fill" color="#2C5FDC" />
+            Expand your vocabulary with one powerful word a day
+          </div>
+          <div className={styles.heroBullet}>
+            <Fire size={16} weight="fill" color="#FF922B" />
+            Build a streak and watch your skills compound
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.card}>
 
         {sent ? (
           <div className={styles.sent}>

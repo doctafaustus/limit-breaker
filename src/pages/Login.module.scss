@@ -11,6 +11,50 @@
   gap: $space-4;
 }
 
+.hero {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+}
+
+.heroTagline {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $primary;
+}
+
+.heroTitle {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: $color-text;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.heroBullets {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  width: 100%;
+  margin-top: $space-1;
+}
+
+.heroBullet {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 0.88rem;
+  color: $color-text-secondary;
+  text-align: left;
+}
+
 .card {
   background: $color-surface;
   border-radius: $radius-lg;
