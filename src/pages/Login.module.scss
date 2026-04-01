@@ -10,13 +10,12 @@
 
 .imageBanner {
   width: 100%;
-  height: 280px;
-  position: relative;
+  height: 200px;
   overflow: hidden;
   flex-shrink: 0;
 
   @media (min-width: $bp-md) {
-    height: 340px;
+    height: 240px;
   }
 }
 
@@ -28,12 +27,12 @@
 }
 
 .bannerFade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
+  width: 100%;
+  height: 80px;
+  margin-top: -80px;
   background: linear-gradient(to bottom, transparent, $color-bg);
+  flex-shrink: 0;
+  pointer-events: none;
 }
 
 .formPanel {

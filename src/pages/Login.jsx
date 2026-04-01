@@ -32,8 +32,8 @@ export default function Login() {
     <div className={styles.page}>
       <div className={styles.imageBanner}>
         <img src="/limit-breaker-lifestyle-1.webp" alt="" className={styles.bannerImage} />
-        <div className={styles.bannerFade} />
       </div>
+      <div className={styles.bannerFade} />
 
       <div className={styles.formPanel}>
         <div className={styles.hero}>
