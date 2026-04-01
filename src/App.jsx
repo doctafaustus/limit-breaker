@@ -10,6 +10,7 @@ import Admin from './pages/Admin'
 import Login from './pages/Login'
 import Authenticate from './pages/Authenticate'
 import AppShell from './components/AppShell'
+import Privacy from './pages/Privacy'
 
 function ProtectedRoute({ children }) {
   const { session } = useStytchSession()
@@ -33,6 +34,7 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/authenticate" element={<Authenticate />} />
+      <Route path="/privacy" element={<Privacy />} />
 
       <Route element={<ProtectedRoute><AppShell /></ProtectedRoute>}>
         <Route path="/" element={<Home />} />

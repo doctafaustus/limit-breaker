@@ -40,7 +40,9 @@
 }
 
 .heroTag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   border-radius: $radius-full;

@@ -1,0 +1,81 @@
+@use '../styles/tokens' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg;
+  padding: $space-6 $space-4;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.back {
+  background: none;
+  border: none;
+  color: $color-text-secondary;
+  font-family: $font-body;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: $space-6;
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+
+  &:hover { color: $color-text; }
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: $color-text;
+  margin-bottom: $space-2;
+}
+
+.updated {
+  font-size: 0.83rem;
+  color: $color-text-secondary;
+  margin-bottom: $space-8;
+}
+
+.section {
+  margin-bottom: $space-6;
+}
+
+.heading {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: $color-text;
+  margin-bottom: $space-3;
+}
+
+.list {
+  padding-left: $space-5;
+  margin: $space-3 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  li {
+    font-size: 0.9rem;
+    color: $color-text-secondary;
+    line-height: 1.6;
+  }
+}
+
+p {
+  font-size: 0.9rem;
+  color: $color-text-secondary;
+  line-height: 1.7;
+}
+
+.link {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}

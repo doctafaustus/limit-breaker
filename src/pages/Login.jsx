@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useStytch } from '@stytch/react'
+import { Link } from 'react-router-dom'
 import { EnvelopeSimple, ArrowRight } from '@phosphor-icons/react'
 import styles from './Login.module.scss'
 
@@ -65,6 +66,9 @@ export default function Login() {
           </>
         )}
       </div>
+      <p className={styles.footer}>
+        By signing in, you agree to our <Link to="/privacy" className={styles.footerLink}>Privacy Policy</Link>.
+      </p>
     </div>
   )
 }
