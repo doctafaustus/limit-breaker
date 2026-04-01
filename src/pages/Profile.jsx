@@ -104,7 +104,7 @@ export default function Profile() {
             <div className={styles.monthCount}>{thisMonth}</div>
             <div className={styles.monthSub}>
               {bestMonth > 0 && thisMonth >= bestMonth
-                ? <><Trophy size={14} weight="fill" color="#F59E0B" /> Best month yet!</>
+                ? <><Trophy size={16} weight="fill" color="#F59E0B" /> Best month yet!</>
                 : bestMonth > 0
                   ? `Best month: ${bestMonth}`
                   : 'Start building your streak this month'}

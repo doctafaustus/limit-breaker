@@ -163,6 +163,10 @@
   font-size: 0.85rem;
   color: $color-text-secondary;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-1;
 }
 
 .settingsSection {
