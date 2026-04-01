@@ -19,6 +19,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const allowedOrigins = [
   'http://limitbreakerapp.com',
   'https://limitbreakerapp.com',
+  'http://www.limitbreakerapp.com',
+  'https://www.limitbreakerapp.com',
   'http://localhost:5173',
 ]
 
@@ -26,7 +28,7 @@ app.use(favicon(path.join(__dirname, '../public/favicon.ico')))
 app.use(cors({
   origin: (origin, cb) => {
     if (!origin || allowedOrigins.includes(origin)) return cb(null, true)
-    cb(new Error('Not allowed by CORS'))
+    cb(null, false)
   }
 }))
 app.use(express.json())
