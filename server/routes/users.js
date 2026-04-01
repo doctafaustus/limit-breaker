@@ -1,5 +1,11 @@
 import { Router } from 'express'
+import * as stytch from 'stytch'
 import User from '../models/User.js'
+
+const stytchClient = new stytch.Client({
+  project_id: process.env.STYTCH_PROJECT_ID,
+  secret: process.env.STYTCH_SECRET,
+})
 
 const router = Router()
 
@@ -39,6 +45,17 @@ router.patch('/:identifier', async (req, res) => {
     )
     if (!user) return res.status(404).json({ error: 'User not found' })
     res.json(user)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
+// DELETE /api/users/:identifier — delete from MongoDB and Stytch
+router.delete('/:identifier', async (req, res) => {
+  try {
+    await User.deleteOne({ identifier: req.params.identifier })
+    await stytchClient.users.delete({ user_id: req.params.identifier })
+    res.json({ success: true })
   } catch (err) {
     res.status(500).json({ error: err.message })
   }

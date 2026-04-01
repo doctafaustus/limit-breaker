@@ -28,6 +28,15 @@ export default function Home() {
       .catch(() => {})
   }, [todayStr])
 
+  const [showOnboarding, setShowOnboarding] = useState(
+    () => localStorage.getItem('lb_onboarding_dismissed') !== 'true'
+  )
+
+  function dismissOnboarding() {
+    localStorage.setItem('lb_onboarding_dismissed', 'true')
+    setShowOnboarding(false)
+  }
+
   return (
     <div>
       <div className={styles.greeting}>
@@ -90,6 +99,37 @@ export default function Home() {
           </div>
         )}
       </div>
+
+      {showOnboarding && (
+        <div className={styles.onboarding}>
+          <div className={styles.onboardingHeader}>
+            <div className={styles.onboardingTitle}>Welcome to Limit Breaker</div>
+            <button className={styles.onboardingDismiss} onClick={dismissOnboarding}>✕ Dismiss</button>
+          </div>
+          <div className={styles.onboardingGrid}>
+            <div className={styles.onboardingItem}>
+              <div className={styles.onboardingIcon}>⚡</div>
+              <div className={styles.onboardingItemTitle}>Daily Lessons</div>
+              <div className={styles.onboardingItemText}>A new 5-minute lesson unlocks each day. Work through real social scenarios, spot mistakes, and build skills that stick.</div>
+            </div>
+            <div className={styles.onboardingItem}>
+              <div className={styles.onboardingIcon}>📖</div>
+              <div className={styles.onboardingItemTitle}>Word of the Day</div>
+              <div className={styles.onboardingItemText}>Expand your vocabulary with one high-value word daily — with pronunciation, definition, and example usage.</div>
+            </div>
+            <div className={styles.onboardingItem}>
+              <div className={styles.onboardingIcon}>📝</div>
+              <div className={styles.onboardingItemTitle}>Reflections</div>
+              <div className={styles.onboardingItemText}>Each lesson has optional reflection prompts. Your answers are saved here so you can revisit your thinking over time.</div>
+            </div>
+            <div className={styles.onboardingItem}>
+              <div className={styles.onboardingIcon}>🔥</div>
+              <div className={styles.onboardingItemTitle}>Build a Streak</div>
+              <div className={styles.onboardingItemText}>Consistency beats intensity. Aim for 3–5 lessons a week — small daily effort compounds into real change.</div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

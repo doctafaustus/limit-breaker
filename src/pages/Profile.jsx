@@ -55,6 +55,14 @@ export default function Profile() {
     navigate('/login', { replace: true })
   }
 
+  async function handleDeleteAccount() {
+    const confirmed = window.confirm('Are you sure you want to delete your account? This is permanent and cannot be undone.')
+    if (!confirmed) return
+    await fetch(`/api/users/${user.user_id}`, { method: 'DELETE' })
+    await stytch.session.revoke()
+    navigate('/login', { replace: true })
+  }
+
   return (
     <div>
       <div className={styles.pageTitle}>Profile</div>
@@ -106,6 +114,12 @@ export default function Profile() {
           <div className={styles.settingsSection}>
             <button className={styles.settingsBtn} onClick={handleLogout}>
               🚪 Sign out
+            </button>
+            <button
+              className={[styles.settingsBtn, styles.settingsBtnDanger].join(' ')}
+              onClick={handleDeleteAccount}
+            >
+              🗑️ Delete account
             </button>
           </div>
 
