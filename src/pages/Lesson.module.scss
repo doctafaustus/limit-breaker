@@ -630,6 +630,10 @@
   cursor: pointer;
   margin-top: $space-2;
   transition: background $duration-normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
 
   &:hover { background: $primary-dark; }
 }
