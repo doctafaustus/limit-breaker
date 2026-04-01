@@ -3,7 +3,8 @@
     "allow": [
       "Bash(grep:*)",
       "Bash(node server/seed.js)",
-      "Bash(npm i:*)"
+      "Bash(npm i:*)",
+      "Bash(python3:*)"
     ]
   }
 }
