@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useStytch } from '@stytch/react'
+import { EnvelopeSimple, ArrowRight } from '@phosphor-icons/react'
 import styles from './Login.module.scss'
 
 export default function Login() {
@@ -33,7 +34,7 @@ export default function Login() {
 
         {sent ? (
           <div className={styles.sent}>
-            <div className={styles.sentIcon}>📬</div>
+            <div className={styles.sentIcon}><EnvelopeSimple size={40} weight="duotone" color="#2C5FDC" /></div>
             <div className={styles.sentTitle}>Check your inbox</div>
             <div className={styles.sentText}>
               We sent a magic link to <strong>{email}</strong>. Click it to sign in — no password needed.
@@ -58,7 +59,7 @@ export default function Login() {
               />
               {error && <div className={styles.error}>{error}</div>}
               <button className={styles.btn} type="submit" disabled={loading}>
-                {loading ? 'Sending…' : 'Send magic link →'}
+                {loading ? 'Sending…' : <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>Send magic link <ArrowRight size={16} weight="bold" /></span>}
               </button>
             </form>
           </>

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useStytch, useStytchUser } from '@stytch/react'
+import { Fire, Trophy, SignOut, Trash, Gear } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import styles from './Profile.module.scss'
 
@@ -92,7 +93,7 @@ export default function Profile() {
 
           {streak > 0 && (
             <div className={styles.streakDisplay}>
-              🔥 {streak} day streak — keep it going!
+              <Fire size={18} weight="fill" color="#FF922B" /> {streak} day streak — keep it going!
             </div>
           )}
         </div>
@@ -103,7 +104,7 @@ export default function Profile() {
             <div className={styles.monthCount}>{thisMonth}</div>
             <div className={styles.monthSub}>
               {bestMonth > 0 && thisMonth >= bestMonth
-                ? '🏆 Best month yet!'
+                ? <><Trophy size={14} weight="fill" color="#F59E0B" /> Best month yet!</>
                 : bestMonth > 0
                   ? `Best month: ${bestMonth}`
                   : 'Start building your streak this month'}
@@ -113,19 +114,19 @@ export default function Profile() {
           <div className={styles.sectionTitle} style={{ marginTop: '1.5rem' }}>Settings</div>
           <div className={styles.settingsSection}>
             <button className={styles.settingsBtn} onClick={handleLogout}>
-              🚪 Sign out
+              <SignOut size={18} /> Sign out
             </button>
             <button
               className={[styles.settingsBtn, styles.settingsBtnDanger].join(' ')}
               onClick={handleDeleteAccount}
             >
-              🗑️ Delete account
+              <Trash size={18} /> Delete account
             </button>
           </div>
 
           {email === import.meta.env.VITE_ADMIN_EMAIL && (
             <button className={styles.adminBtn} onClick={() => navigate('/admin')}>
-              ⚙️ Admin Panel
+              <Gear size={16} /> Admin Panel
             </button>
           )}
         </div>

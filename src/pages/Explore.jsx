@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { Lock, Check, Clock } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import { getDateStr, isLessonAvailable } from '../utils/dateUtils'
 import styles from './Explore.module.scss'
@@ -35,12 +36,12 @@ export default function Explore() {
               onClick={() => handleTileClick(lesson)}
             >
               <div className={styles.tileAccent} />
-              {locked && <div className={styles.tileLock}>🔒</div>}
-              {completed && !locked && <div className={styles.tileCheck}>✓</div>}
+              {locked && <div className={styles.tileLock}><Lock size={18} weight="fill" color="#5E6A82" /></div>}
+              {completed && !locked && <div className={styles.tileCheck}><Check size={18} weight="bold" color="#51CF66" /></div>}
               <div className={styles.tileDay}>{formatLessonDate(lesson.date)}</div>
               <div className={styles.tileTitle}>{lesson.title}</div>
               <div className={styles.tileMeta}>
-                <span>⏱ {lesson.estimatedMinutes}m</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px' }}><Clock size={12} color="#5E6A82" /> {lesson.estimatedMinutes}m</span>
                 <span className={styles.tileXp}>+{lesson.xp} XP</span>
               </div>
             </div>

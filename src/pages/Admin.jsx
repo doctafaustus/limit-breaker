@@ -1,5 +1,6 @@
 import { useApp } from '../context/AppContext'
 import { getDateStr } from '../utils/dateUtils'
+import { Gear, Trash, ArrowUUpLeft } from '@phosphor-icons/react'
 import styles from './Admin.module.scss'
 
 export default function Admin() {
@@ -14,7 +15,7 @@ export default function Admin() {
 
   return (
     <div className={styles.wrap}>
-      <div className={styles.title}>⚙️ Admin Panel</div>
+      <div className={styles.title}><Gear size={20} /> Admin Panel</div>
       <div className={styles.subtitle}>Dev tools — not visible to users</div>
 
       <div className={styles.sectionTitle}>Current State</div>
@@ -61,7 +62,7 @@ export default function Admin() {
         disabled={dateOffset === 0}
         onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: 0 })}
       >
-        ↩ Back to today ({getDateStr(0)})
+        <ArrowUUpLeft size={16} /> Back to today ({getDateStr(0)})
       </button>
 
       <div className={styles.divider} />
@@ -69,7 +70,7 @@ export default function Admin() {
       <div className={styles.sectionTitle}>Danger Zone</div>
       <div className={styles.btnGroup}>
         <button className={[styles.btn, styles.btnDanger].join(' ')} onClick={handleResetAll}>
-          🗑️ Reset Everything
+          <Trash size={16} /> Reset Everything
         </button>
       </div>
 

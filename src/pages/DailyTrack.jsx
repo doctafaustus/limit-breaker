@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { Check, Lock, ArrowRight, ArrowCounterClockwise } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import { getDateStr, isLessonAvailable } from '../utils/dateUtils'
 import styles from './DailyTrack.module.scss'
@@ -47,7 +48,7 @@ export default function DailyTrack() {
                 onClick={() => handleNodeClick(lesson)}
               >
                 <div className={`${styles.nodeCircle} ${styles['nodeCircle--' + nodeState]}`}>
-                  {nodeState === 'completed' ? '✓' : !available ? '🔒' : Number(lesson.date.split('-')[2])}
+                  {nodeState === 'completed' ? <Check size={16} weight="bold" /> : !available ? <Lock size={16} weight="fill" /> : Number(lesson.date.split('-')[2])}
                 </div>
                 <div className={styles.nodeInfo}>
                   <div className={styles.nodeDay}>{formatLessonDate(lesson.date)}</div>
@@ -55,10 +56,10 @@ export default function DailyTrack() {
                   <div className={styles.nodeModule}>{lesson.subtitle}</div>
                 </div>
                 {available && nodeState !== 'completed' && (
-                  <div style={{ fontSize: '1rem', color: '#5E6A82' }}>→</div>
+                  <ArrowRight size={18} color="#5E6A82" />
                 )}
                 {nodeState === 'completed' && (
-                  <div className={styles.redoHint}>↺ Redo</div>
+                  <div className={styles.redoHint}><ArrowCounterClockwise size={13} color="#5E6A82" /> Redo</div>
                 )}
               </div>
             </div>

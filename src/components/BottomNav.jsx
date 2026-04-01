@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom'
+import { House, CalendarDots, BookOpen, NotePencil, User } from '@phosphor-icons/react'
 import styles from './BottomNav.module.scss'
 
 const navItems = [
-  { label: 'Home', icon: '🏠', to: '/' },
-  { label: 'Daily Track', icon: '🗓️', to: '/daily-track' },
-  { label: 'Word', icon: '📖', to: '/vocab' },
-  { label: 'Reflections', icon: '📝', to: '/reflections' },
-  { label: 'Profile', icon: '👤', to: '/profile' },
+  { label: 'Home', Icon: House, to: '/' },
+  { label: 'Daily Track', Icon: CalendarDots, to: '/daily-track' },
+  { label: 'Word', Icon: BookOpen, to: '/vocab' },
+  { label: 'Reflections', Icon: NotePencil, to: '/reflections' },
+  { label: 'Profile', Icon: User, to: '/profile' },
 ]
 
 export default function BottomNav() {
@@ -21,8 +22,14 @@ export default function BottomNav() {
             [styles.item, isActive ? styles.itemActive : ''].join(' ')
           }
         >
-          <span className={styles.icon}>{item.icon}</span>
-          <span className={styles.label}>{item.label}</span>
+          {({ isActive }) => (
+            <>
+              <span className={styles.icon}>
+                <item.Icon size={22} weight={isActive ? 'fill' : 'regular'} />
+              </span>
+              <span className={styles.label}>{item.label}</span>
+            </>
+          )}
         </NavLink>
       ))}
     </nav>

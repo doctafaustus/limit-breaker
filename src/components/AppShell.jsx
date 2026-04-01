@@ -1,4 +1,5 @@
 import { Outlet, NavLink, Link } from 'react-router-dom'
+import { House, CalendarDots, BookOpen, NotePencil, User } from '@phosphor-icons/react'
 import BottomNav from './BottomNav'
 import styles from './AppShell.module.scss'
 import { useApp } from '../context/AppContext'
@@ -55,11 +56,11 @@ function WeekDots() {
 }
 
 const navItems = [
-  { label: 'Home', icon: '🏠', to: '/' },
-  { label: 'Daily Track', icon: '🗓️', to: '/daily-track' },
-  { label: 'Word', icon: '📖', to: '/vocab' },
-  { label: 'Reflections', icon: '📝', to: '/reflections' },
-  { label: 'Profile', icon: '👤', to: '/profile' },
+  { label: 'Home', Icon: House, to: '/' },
+  { label: 'Daily Track', Icon: CalendarDots, to: '/daily-track' },
+  { label: 'Word', Icon: BookOpen, to: '/vocab' },
+  { label: 'Reflections', Icon: NotePencil, to: '/reflections' },
+  { label: 'Profile', Icon: User, to: '/profile' },
 ]
 
 export default function AppShell() {
@@ -77,8 +78,14 @@ export default function AppShell() {
                 [styles.sidebarItem, isActive ? styles.sidebarItemActive : ''].join(' ')
               }
             >
-              <span className={styles.sidebarIcon}>{item.icon}</span>
-              {item.label}
+              {({ isActive }) => (
+                <>
+                  <span className={styles.sidebarIcon}>
+                    <item.Icon size={18} weight={isActive ? 'fill' : 'regular'} />
+                  </span>
+                  {item.label}
+                </>
+              )}
             </NavLink>
           ))}
         </nav>

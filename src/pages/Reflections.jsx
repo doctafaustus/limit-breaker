@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { NotePencil, ArrowRight } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import { getLessonById } from '../utils/dateUtils'
 import styles from './Reflections.module.scss'
@@ -25,7 +26,7 @@ export default function Reflections() {
 
       {saved.length === 0 ? (
         <div className={styles.empty}>
-          <div className={styles.emptyIcon}>📝</div>
+          <div className={styles.emptyIcon}><NotePencil size={40} weight="duotone" color="#2C5FDC" /></div>
           <div className={styles.emptyTitle}>Nothing here yet</div>
           <div className={styles.emptyText}>
             Complete a lesson and save a reflection — it'll show up here.
@@ -40,7 +41,7 @@ export default function Reflections() {
                   className={styles.lessonLink}
                   onClick={() => navigate(`/lesson/${r.lesson.date}`)}
                 >
-                  {r.lesson.title} →
+                  {r.lesson.title} <ArrowRight size={14} />
                 </button>
                 <div className={styles.cardMetaRight}>
                   <span className={styles.cardDate}>{formatDate(r.savedAt)}</span>

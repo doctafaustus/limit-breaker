@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import { MagnifyingGlass, Check, X, Lightning, Clock, Fire, ArrowLeft, Confetti } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import { getDateStr, getLessonByDate, formatDateFromStr } from '../utils/dateUtils'
 import styles from './Lesson.module.scss'
@@ -38,7 +39,7 @@ function SpotMistakeBlock({ block, onAnswered }) {
   return (
     <div className={styles.spotWrap}>
       <div className={styles.spotHeader}>
-        <span className={styles.spotBadge}>🔍 Spot the Mistake</span>
+        <span className={styles.spotBadge}><MagnifyingGlass size={13} weight="bold" color="#2C5FDC" /> Spot the Mistake</span>
         <div className={styles.spotPrompt}>{block.prompt}</div>
         <div className={styles.spotInstruction}>Tap the person who got it <strong>wrong</strong></div>
       </div>
@@ -99,7 +100,7 @@ function MultipleChoiceBlock({ block, onAnswered }) {
         return (
           <div key={i} className={optClass} onClick={() => handleSelect(i)}>
             <div className={dotClass}>
-              {confirmed && isCorrect ? '✓' : confirmed && isSelected && !isCorrect ? '✗' : ''}
+              {confirmed && isCorrect ? <Check size={12} weight="bold" color="#51CF66" /> : confirmed && isSelected && !isCorrect ? <X size={12} weight="bold" color="#E53E3E" /> : null}
             </div>
             <div style={{ flex: 1 }}>
               <div className={styles.mcOptionText}>{opt.text}</div>
@@ -182,10 +183,10 @@ function DailyActionBlock({ block, onAnswered }) {
 
   return (
     <div className={styles.dailyAction}>
-      <div className={styles.dailyActionIcon}>⚡</div>
+      <div className={styles.dailyActionIcon}><Lightning size={28} weight="duotone" color="#2C5FDC" /></div>
       <div className={styles.dailyActionHeadline}>{block.headline}</div>
       <div className={styles.dailyActionInstruction}>{block.instruction}</div>
-      <div className={styles.dailyActionTime}>⏱ {block.timeEstimate}</div>
+      <div className={styles.dailyActionTime}><Clock size={13} color="#5E6A82" /> {block.timeEstimate}</div>
     </div>
   )
 }
@@ -209,17 +210,17 @@ function BlockRenderer({ block, onAnswered, onSaveReflection }) {
 function CompletionScreen({ lesson, streak, onBack }) {
   return (
     <div className={styles.completion}>
-      <div className={styles.completionEmoji}>🎉</div>
+      <div className={styles.completionEmoji}><Confetti size={52} weight="duotone" color="#2C5FDC" /></div>
       <div className={styles.completionTitle}>Lesson Complete!</div>
       <div className={styles.xpBurst}>+{lesson.xp} XP</div>
       {streak > 0 && (
-        <div className={styles.streakRow}>🔥 {streak} day streak</div>
+        <div className={styles.streakRow}><Fire size={16} weight="fill" color="#FF922B" /> {streak} day streak</div>
       )}
       <div className={styles.completionSubtext}>
         You've finished "{lesson.title}". Keep going — every lesson builds on the last.
       </div>
       <button className={styles.completionBtn} onClick={onBack}>
-        ← Back to Daily Track
+        <ArrowLeft size={16} /> Back to Daily Track
       </button>
     </div>
   )
@@ -297,7 +298,7 @@ export default function Lesson() {
     return (
       <div className={styles.lessonWrap}>
         <div className={styles.lessonHeader}>
-          <button className={styles.closeBtn} onClick={() => navigate(-1)}>✕</button>
+          <button className={styles.closeBtn} onClick={() => navigate(-1)}><X size={18} /></button>
           <div style={{ flex: 1, textAlign: 'center', fontSize: '0.9rem', color: '#5E6A82' }}>Lesson not found</div>
         </div>
       </div>
@@ -310,7 +311,7 @@ export default function Lesson() {
     return (
       <div className={styles.lessonWrap}>
         <div className={styles.lessonHeader}>
-          <button className={styles.closeBtn} onClick={handleBack}>✕</button>
+          <button className={styles.closeBtn} onClick={handleBack}><X size={18} /></button>
           <div className={styles.progressBarWrap}>
             <div className={styles.progressFill} style={{ width: '100%' }} />
           </div>
@@ -324,7 +325,7 @@ export default function Lesson() {
   return (
     <div className={styles.lessonWrap}>
       <div className={styles.lessonHeader}>
-        <button className={styles.closeBtn} onClick={handleBack}>✕</button>
+        <button className={styles.closeBtn} onClick={handleBack}><X size={18} /></button>
         <div className={styles.progressBarWrap}>
           <div className={styles.progressFill} style={{ width: `${progress}%` }} />
         </div>
@@ -332,7 +333,7 @@ export default function Lesson() {
       </div>
 
       <div className={styles.blockWrap}>
-        <div className={styles.lessonDate}>⚡ Daily Lesson · {formatDateFromStr(resolvedDate)}</div>
+        <div className={styles.lessonDate}><Lightning size={13} weight="fill" color="#2C5FDC" /> Daily Lesson · {formatDateFromStr(resolvedDate)}</div>
         {blocks.slice(0, currentBlockIndex + 1).map((block, i) => (
           <div key={i} className={styles.blockItem} ref={el => blockRefs.current[i] = el}>
             <BlockRenderer
