@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import favicon from 'serve-favicon'
 import { connectDB } from './db.js'
 import usersRouter from './routes/users.js'
 import lessonsRouter from './routes/lessons.js'
@@ -14,6 +15,7 @@ const app = express()
 const PORT = process.env.PORT || 5000
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
+app.use(favicon(path.join(__dirname, '../public/favicon.ico')))
 app.use(cors())
 app.use(express.json())
 
