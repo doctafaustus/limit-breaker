@@ -1,26 +1,25 @@
 import { Router } from 'express'
 import Lesson from '../models/Lesson.js'
+import { requireAuth } from '../middleware/auth.js'
 
 const router = Router()
 
-// GET /api/lessons
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   try {
     const lessons = await Lesson.find().sort({ date: 1 })
     res.json(lessons)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch {
+    res.status(500).json({ error: 'Server error' })
   }
 })
 
-// GET /api/lessons/:lessonId
-router.get('/:lessonId', async (req, res) => {
+router.get('/:lessonId', requireAuth, async (req, res) => {
   try {
     const lesson = await Lesson.findOne({ lessonId: req.params.lessonId })
     if (!lesson) return res.status(404).json({ error: 'Lesson not found' })
     res.json(lesson)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch {
+    res.status(500).json({ error: 'Server error' })
   }
 })
 

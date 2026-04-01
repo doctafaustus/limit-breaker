@@ -1,37 +1,44 @@
 import { Router } from 'express'
 import Reflection from '../models/Reflection.js'
+import { requireAuth } from '../middleware/auth.js'
 
 const router = Router()
 
 // GET /api/reflections?userId=...
-router.get('/', async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
+  if (req.stytchUser.user_id !== req.query.userId)
+    return res.status(403).json({ error: 'Forbidden' })
   try {
-    const { userId } = req.query
-    if (!userId) return res.status(400).json({ error: 'userId query param required' })
-    const reflections = await Reflection.find({ userId }).sort({ savedAt: -1 })
+    const reflections = await Reflection.find({ userId: req.query.userId }).sort({ savedAt: -1 })
     res.json(reflections)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch {
+    res.status(500).json({ error: 'Server error' })
   }
 })
 
 // POST /api/reflections
-router.post('/', async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
+  if (req.stytchUser.user_id !== req.body.userId)
+    return res.status(403).json({ error: 'Forbidden' })
   try {
     const reflection = await Reflection.create(req.body)
     res.status(201).json(reflection)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch {
+    res.status(500).json({ error: 'Server error' })
   }
 })
 
 // DELETE /api/reflections/:id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
   try {
-    await Reflection.findByIdAndDelete(req.params.id)
+    const reflection = await Reflection.findById(req.params.id)
+    if (!reflection) return res.status(404).json({ error: 'Not found' })
+    if (reflection.userId !== req.stytchUser.user_id)
+      return res.status(403).json({ error: 'Forbidden' })
+    await reflection.deleteOne()
     res.json({ success: true })
-  } catch (err) {
-    res.status(500).json({ error: err.message })
+  } catch {
+    res.status(500).json({ error: 'Server error' })
   }
 })
 
