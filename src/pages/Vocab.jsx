@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react'
+import { useStytch } from '@stytch/react'
 import { useApp } from '../context/AppContext'
 import { getDateStr } from '../utils/dateUtils'
+import { authFetch } from '../utils/authFetch'
 import styles from './Vocab.module.scss'
 
 export default function Vocab() {
   const { state } = useApp()
+  const stytch = useStytch()
   const todayStr = getDateStr(state.dateOffset)
 
   const [vocab, setVocab] = useState(null)
   const [past, setPast] = useState([])
 
   useEffect(() => {
-    fetch(`/api/vocab?date=${todayStr}`)
+    const token = stytch.session.getTokens()?.session_token
+    authFetch(`/api/vocab?date=${todayStr}`, {}, token)
       .then(r => r.json())
       .then(setVocab)
       .catch(() => setVocab(null))
 
-    fetch(`/api/vocab/past?date=${todayStr}`)
+    authFetch(`/api/vocab/past?date=${todayStr}`, {}, token)
       .then(r => r.json())
       .then(setPast)
       .catch(() => setPast([]))

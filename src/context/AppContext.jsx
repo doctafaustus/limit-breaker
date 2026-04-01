@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer, useEffect, useRef } from 'react'
-import { useStytchUser } from '@stytch/react'
+import { useStytch, useStytchUser } from '@stytch/react'
+import { authFetch } from '../utils/authFetch'
 
 const STORAGE_KEY = 'lb_state'
 
@@ -94,8 +95,13 @@ const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, undefined, loadState)
+  const stytch = useStytch()
   const { user } = useStytchUser()
   const hydratedRef = useRef(false)
+
+  function getToken() {
+    return stytch.session.getTokens()?.session_token
+  }
 
   // Persist only dateOffset to localStorage
   useEffect(() => {
@@ -110,7 +116,7 @@ export function AppProvider({ children }) {
   useEffect(() => {
     if (!user?.user_id) return
     hydratedRef.current = false
-    fetch(`/api/users/${user.user_id}`)
+    authFetch(`/api/users/${user.user_id}`, {}, getToken())
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         dispatch({ type: 'SET_USER', user: data || {} })
@@ -125,7 +131,7 @@ export function AppProvider({ children }) {
   // Sync progress to DB after lesson completion or reset
   useEffect(() => {
     if (!user?.user_id || !hydratedRef.current) return
-    fetch(`/api/users/${user.user_id}`, {
+    authFetch(`/api/users/${user.user_id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -133,12 +139,13 @@ export function AppProvider({ children }) {
         completedLessons: state.completedLessons,
         lastCompletedDate: state.lastCompletedDate,
       }),
-    }).catch(() => {}) // non-fatal
+    }, getToken()).catch(() => {}) // non-fatal
   }, [state.completedLessons, state.streak])
 
-  // Fetch lessons from the API on mount
+  // Fetch lessons once user token is available
   useEffect(() => {
-    fetch('/api/lessons')
+    if (!user?.user_id) return
+    authFetch('/api/lessons', {}, getToken())
       .then(r => r.json())
       .then(data => dispatch({
         type: 'SET_LESSONS',
@@ -146,7 +153,7 @@ export function AppProvider({ children }) {
         lessons: data.map(l => ({ ...l, id: l.lessonId })),
       }))
       .catch(() => dispatch({ type: 'SET_LESSONS', lessons: [] }))
-  }, [])
+  }, [user?.user_id])
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

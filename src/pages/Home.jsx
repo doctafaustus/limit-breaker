@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useStytch } from '@stytch/react'
 import { Fire, Lightning, Clock, Sparkle, Check, X, BookOpen, NotePencil, ArrowRight } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
 import { getTodaysLesson, getDateStr, formatDisplayDate } from '../utils/dateUtils'
+import { authFetch } from '../utils/authFetch'
 import styles from './Home.module.scss'
 
 function getGreeting() {
@@ -15,6 +17,7 @@ function getGreeting() {
 export default function Home() {
   const { state } = useApp()
   const navigate = useNavigate()
+  const stytch = useStytch()
   const { dateOffset, streak, completedLessons, lessons } = state
 
   const todayStr = getDateStr(dateOffset)
@@ -23,7 +26,8 @@ export default function Home() {
 
   const [thought, setThought] = useState(null)
   useEffect(() => {
-    fetch(`/api/thoughts?date=${todayStr}`)
+    const token = stytch.session.getTokens()?.session_token
+    authFetch(`/api/thoughts?date=${todayStr}`, {}, token)
       .then(r => r.ok ? r.json() : null)
       .then(setThought)
       .catch(() => {})

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useStytch, useStytchUser } from '@stytch/react'
 import { Fire, Trophy, SignOut, Trash, Gear } from '@phosphor-icons/react'
 import { useApp } from '../context/AppContext'
+import { authFetch } from '../utils/authFetch'
 import styles from './Profile.module.scss'
 
 function getTotalXp(lessons, completedLessons) {
@@ -59,7 +60,7 @@ export default function Profile() {
   async function handleDeleteAccount() {
     const confirmed = window.confirm('Are you sure you want to delete your account? This is permanent and cannot be undone.')
     if (!confirmed) return
-    await fetch(`/api/users/${user.user_id}`, { method: 'DELETE' })
+    await authFetch(`/api/users/${user.user_id}`, { method: 'DELETE' }, stytch.session.getTokens()?.session_token)
     await stytch.session.revoke()
     navigate('/login', { replace: true })
   }

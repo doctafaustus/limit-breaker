@@ -24,10 +24,14 @@ export default function Authenticate() {
     })
       .then(async (resp) => {
         const userId = resp.user?.user_id || resp.user_id
+        const sessionToken = resp.session_token
         if (userId) {
           await fetch('/api/users', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${sessionToken}`,
+            },
             body: JSON.stringify({ identifier: userId }),
           }).catch(() => {}) // non-fatal if this fails
         }
