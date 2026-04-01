@@ -47,7 +47,7 @@ export default function DailyTrack() {
                 onClick={() => handleNodeClick(lesson)}
               >
                 <div className={`${styles.nodeCircle} ${styles['nodeCircle--' + nodeState]}`}>
-                  {nodeState === 'completed' ? '✓' : !available ? '🔒' : i + 1}
+                  {nodeState === 'completed' ? '✓' : !available ? '🔒' : Number(lesson.date.split('-')[2])}
                 </div>
                 <div className={styles.nodeInfo}>
                   <div className={styles.nodeDay}>{formatLessonDate(lesson.date)}</div>

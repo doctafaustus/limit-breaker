@@ -201,7 +201,7 @@
     "blocks": [
       {
         "type": "text",
-        "content": "Most people aren't listening. They're waiting to talk.\n\nWhile you're speaking, they're composing their response, thinking of their related story, planning their next point. You can feel it — and it's deflating. Real listening is so rare that when someone does it, it feels like a gift."
+        "content": "Most people aren't listening. They're waiting to talk.\n\nWhile you're speaking, they're composing their response, thinking of their related story, planning their next point. You can feel it, and it's deflating. Real listening is so rare that when someone does it, it feels like a gift."
       },
       {
         "type": "text-header",
@@ -209,7 +209,7 @@
       },
       {
         "type": "text",
-        "content": "Active listening isn't nodding aggressively. It's:\n\n• Letting people finish without interruption — even when there's a pause\n• Asking one follow-up question about what they just said, not pivoting to yourself\n• Reflecting back what you heard before adding your perspective\n• Tolerating silence without rushing to fill it\n\nThe goal isn't to respond well. It's to make the other person feel genuinely heard."
+        "content": "Active listening isn't nodding aggressively. It's:\n\n• Letting people finish without interruption, even when there's a pause\n• Asking one follow-up question about what they just said, not pivoting to yourself\n• Reflecting back what you heard before adding your perspective\n• Tolerating silence without rushing to fill it\n\nThe goal isn't to respond well. It's to make the other person feel genuinely heard."
       },
       {
         "type": "multiple-choice",
@@ -218,22 +218,22 @@
           {
             "text": "Share a similar experience of your own to show you relate",
             "correct": false,
-            "explanation": "This pivots the conversation back to you — even with good intentions, it signals you were waiting to talk about yourself."
+            "explanation": "This pivots the conversation back to you. Even with good intentions, it signals you were waiting to talk about yourself."
           },
           {
             "text": "Ask a follow-up question about what they just said",
             "correct": true,
-            "explanation": "Correct — a question about their specific experience signals you were actually listening, not just waiting to respond."
+            "explanation": "Correct. A question about their specific experience signals you were actually listening, not just waiting to respond."
           },
           {
             "text": "Offer advice on how to handle the situation",
             "correct": false,
-            "explanation": "Advice is often unwanted — most people want to be heard first, helped second. Ask before advising."
+            "explanation": "Advice is often unwanted. Most people want to be heard first, helped second. Ask before advising."
           },
           {
             "text": "Change the subject to keep things from getting heavy",
             "correct": false,
-            "explanation": "Changing the subject signals discomfort or disinterest — the opposite of genuine listening."
+            "explanation": "Changing the subject signals discomfort or disinterest, the opposite of genuine listening."
           }
         ]
       },
@@ -251,7 +251,7 @@
         "personA": {
           "lines": [
             "\"Oh man, I had a nightmare presentation last month.\"",
-            "\"Mine was in front of the whole company — 200 people.\"",
+            "\"Mine was in front of the whole company, 200 people.\"",
             "\"I barely slept the night before, it was awful.\"",
             "\"Anyway, what's yours about?\""
           ]
@@ -265,7 +265,7 @@
           ]
         },
         "mistakeIs": "A",
-        "explanation": "Person A hijacked the moment with their own story — even with good intentions, it signals \"I was waiting to talk about myself.\" Person B stayed entirely curious about the other person. Four questions, zero self-reference. That's what makes someone feel genuinely heard."
+        "explanation": "Person A hijacked the moment with their own story. Even with good intentions, it signals \"I was waiting to talk about myself.\" Person B stayed entirely curious about the other person. Four questions, zero self-reference. That's what makes someone feel genuinely heard."
       },
       {
         "type": "text-header",
@@ -290,9 +290,9 @@
     "createdAt": "2026-03-30T20:57:01.309Z",
     "date": "2026-04-01",
     "estimatedMinutes": 5,
-    "subtitle": "The rarest social skill — and why it makes you magnetic.",
+    "subtitle": "The rarest social skill, and why it makes you magnetic.",
     "title": "The Art of Actually Listening",
-    "updatedAt": "2026-03-30T20:57:01.309Z",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
     "xp": 50
   },
   {
@@ -302,7 +302,7 @@
     "blocks": [
       {
         "type": "text",
-        "content": "Count the filler words in this sentence: \"So, um, basically what I'm trying to say is, like, the results were, you know, actually pretty good.\"\n\nNine words of content. Six words of noise. That's a ratio most people are producing in real time without realising it.\n\nFiller words don't just clutter your speech — they actively undermine your credibility. They signal uncertainty, even when you're completely sure of what you're saying."
+        "content": "Count the filler words in this sentence: \"So, um, basically what I'm trying to say is, like, the results were, you know, actually pretty good.\"\n\nNine words of content. Six words of noise. That's a ratio most people are producing in real time without realising it.\n\nFiller words don't just clutter your speech. They actively undermine your credibility. They signal uncertainty, even when you're completely sure of what you're saying."
       },
       {
         "type": "text-header",
@@ -310,7 +310,7 @@
       },
       {
         "type": "text",
-        "content": "Filler words are a social reflex, not a thinking problem. We've been conditioned to believe that silence mid-sentence is awkward — that if we stop talking, someone will jump in, or we'll lose the floor.\n\nSo we fill the gap with sound. Any sound. \"Um.\" \"Uh.\" \"Like.\" \"Basically.\" \"You know?\"\n\nThe irony: silence would have been more powerful. A brief pause signals that you're thinking carefully, not fumbling."
+        "content": "Filler words are a social reflex, not a thinking problem. We've been conditioned to believe that silence mid-sentence is awkward, that if we stop talking, someone will jump in, or we'll lose the floor.\n\nSo we fill the gap with sound. Any sound. \"Um.\" \"Uh.\" \"Like.\" \"Basically.\" \"You know?\"\n\nThe irony: silence would have been more powerful. A brief pause signals that you're thinking carefully, not fumbling."
       },
       {
         "type": "multiple-choice",
@@ -319,22 +319,22 @@
           {
             "text": "They make sentences longer and harder to follow",
             "correct": false,
-            "explanation": "Length is a minor issue — the bigger problem is what fillers signal about confidence."
+            "explanation": "Length is a minor issue. The bigger problem is what fillers signal about confidence."
           },
           {
             "text": "They signal uncertainty even when the speaker is confident",
             "correct": true,
-            "explanation": "Exactly — filler words are a credibility leak. The listener's brain reads hesitation whether or not it's real."
+            "explanation": "Exactly. Filler words are a credibility leak. The listener's brain reads hesitation whether or not it's real."
           },
           {
             "text": "They are grammatically incorrect",
             "correct": false,
-            "explanation": "Grammar isn't the issue — spoken language has always been informal. It's the perception of confidence that matters."
+            "explanation": "Grammar isn't the issue. Spoken language has always been informal. It's the perception of confidence that matters."
           },
           {
             "text": "They are only a problem in formal settings",
             "correct": false,
-            "explanation": "Filler words cost you in any setting — job interviews, first dates, casual conversations, all of it."
+            "explanation": "Filler words cost you in any setting: job interviews, first dates, casual conversations, all of it."
           }
         ]
       },
@@ -344,7 +344,7 @@
       },
       {
         "type": "text",
-        "content": "The replacement for a filler word is nothing. Just stop.\n\nWhen you feel the urge to say \"um\" — pause instead. Close your mouth. Take a breath. Let the silence sit for one beat. Then continue.\n\nIt will feel excruciating to you. To everyone else, it sounds like composure. The pause that feels like three seconds to you reads as one second to the room — and as confidence, not hesitation.\n\nBonus: it gives your brain time to actually form the next sentence properly."
+        "content": "The replacement for a filler word is nothing. Just stop.\n\nWhen you feel the urge to say \"um\", pause instead. Close your mouth. Take a breath. Let the silence sit for one beat. Then continue.\n\nIt will feel excruciating to you. To everyone else, it sounds like composure. The pause that feels like three seconds to you reads as one second to the room, and as confidence, not hesitation.\n\nBonus: it gives your brain time to actually form the next sentence properly."
       },
       {
         "type": "spot-mistake",
@@ -360,8 +360,8 @@
         "personB": {
           "lines": [
             "\"I'm a product designer.\"",
-            "\"We build tools for remote teams —\" *pauses*",
-            "\"— specifically around async communication.\"",
+            "\"We build tools for remote teams,\" *pauses*",
+            "\"specifically around async communication.\"",
             "\"It's work I find genuinely interesting.\""
           ]
         },
@@ -370,13 +370,13 @@
       },
       {
         "type": "reflection",
-        "prompt": "When do you notice yourself using filler words most? Is it in certain situations — presenting, meeting new people, being put on the spot? What's the feeling right before the filler comes out?",
+        "prompt": "When do you notice yourself using filler words most? Is it in certain situations, like presenting, meeting new people, or being put on the spot? What's the feeling right before the filler comes out?",
         "placeholder": "E.g. I notice it most when someone asks a question I wasn't expecting and I panic to fill the silence while I think..."
       },
       {
         "type": "daily-action",
         "headline": "Today's micro-challenge",
-        "instruction": "Record yourself talking for 60 seconds — voice memo on your phone, answering the question \"What have you been working on lately?\" Play it back and count every filler word. Don't judge yourself, just count. Now record it again, replacing every filler with silence. Notice the difference.",
+        "instruction": "Record yourself talking for 60 seconds, voice memo on your phone, answering the question \"What have you been working on lately?\" Play it back and count every filler word. Don't judge yourself, just count. Now record it again, replacing every filler with silence. Notice the difference.",
         "timeEstimate": "3 minutes"
       }
     ],
@@ -385,7 +385,7 @@
     "estimatedMinutes": 5,
     "subtitle": "Why \"um\" and \"like\" are costing you more credibility than you realise.",
     "title": "The Filler Word Trap",
-    "updatedAt": "2026-03-30T20:57:01.309Z",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
     "xp": 50
   },
   {
@@ -395,7 +395,7 @@
     "blocks": [
       {
         "type": "text",
-        "content": "Barack Obama does it. Steve Jobs did it at every keynote. The best trial lawyers in the world do it before their most important sentences.\n\nThey pause. On purpose. For longer than feels comfortable.\n\nSilence in conversation isn't dead air — it's punctuation. It signals that what just happened mattered, and what's coming next matters more. Most people are so terrified of silence they never discover what it can do for them."
+        "content": "Barack Obama does it. Steve Jobs did it at every keynote. The best trial lawyers in the world do it before their most important sentences.\n\nThey pause. On purpose. For longer than feels comfortable.\n\nSilence in conversation isn't dead air. It's punctuation. It signals that what just happened mattered, and what's coming next matters more. Most people are so terrified of silence they never discover what it can do for them."
       },
       {
         "type": "text-header",
@@ -403,7 +403,7 @@
       },
       {
         "type": "text",
-        "content": "The average person tolerates about 1.5 seconds of silence before feeling compelled to fill it. That instinct is social — silence in a tribe historically signalled tension or rejection.\n\nBut in modern conversation, that wiring works against you. When you rush to fill silence, you:\n\n• Cut off the other person before they've finished their full thought\n• Rob your own words of weight — everything comes at the same speed\n• Signal anxiety rather than authority\n\nThe discomfort you feel in the pause? The other person feels it too — and attributes it to you being thoughtful, not awkward."
+        "content": "The average person tolerates about 1.5 seconds of silence before feeling compelled to fill it. That instinct is social. Silence in a tribe historically signalled tension or rejection.\n\nBut in modern conversation, that wiring works against you. When you rush to fill silence, you:\n\n• Cut off the other person before they've finished their full thought\n• Rob your own words of weight, as everything comes at the same speed\n• Signal anxiety rather than authority\n\nThe discomfort you feel in the pause? The other person feels it too, and attributes it to you being thoughtful, not awkward."
       },
       {
         "type": "slider",
@@ -417,7 +417,7 @@
       },
       {
         "type": "text",
-        "content": "① Before answering an important question — a 2-second pause signals you're actually considering it, not just reacting.\n\n② After saying something significant — let it land. Don't undercut your own point by immediately moving on.\n\n③ When someone else finishes speaking — waiting one beat before responding signals you were truly listening, not just waiting for your turn."
+        "content": "① Before answering an important question: a 2-second pause signals you're actually considering it, not just reacting.\n\n② After saying something significant: let it land. Don't undercut your own point by immediately moving on.\n\n③ When someone else finishes speaking: waiting one beat before responding signals you were truly listening, not just waiting for your turn."
       },
       {
         "type": "multiple-choice",
@@ -426,20 +426,20 @@
           {
             "text": "That you've forgotten what to say next",
             "correct": false,
-            "explanation": "That's how the pause feels to you — not how it reads to the room. To others, it signals composure."
+            "explanation": "That's how the pause feels to you, not how it reads to the room. To others, it signals composure."
           },
           {
             "text": "That you are nervous or unprepared",
             "correct": false,
-            "explanation": "Nervous pauses are different — they're accompanied by filler words and averted eyes. A clean pause without those signals reads as confidence."
+            "explanation": "Nervous pauses are different. They're accompanied by filler words and averted eyes. A clean pause without those signals reads as confidence."
           },
           {
             "text": "That what you said deserves attention and consideration",
             "correct": true,
-            "explanation": "Correct — a deliberate pause frames your words as worth sitting with. It's the difference between a sentence and a statement."
+            "explanation": "Correct. A deliberate pause frames your words as worth sitting with. It's the difference between a sentence and a statement."
           },
           {
-            "text": "Nothing — listeners don't notice pauses",
+            "text": "Nothing, listeners don't notice pauses",
             "correct": false,
             "explanation": "Listeners absolutely notice pauses. They're one of the most powerful prosodic signals in speech."
           }
@@ -450,9 +450,9 @@
         "prompt": "Both people were asked: \"What's your biggest strength?\" in an interview. Who handled it better?",
         "personA": {
           "lines": [
-            "*immediately* \"Oh, um, I'd say I'm a really hard worker—\"",
-            "\"—and I care a lot about the team, and also I'm pretty good at like, problem solving—\"",
-            "\"—and communication, definitely communication too.\"",
+            "*immediately* \"Oh, um, I'd say I'm a really hard worker\"",
+            "\"and I care a lot about the team, and also I'm pretty good at like, problem solving\"",
+            "\"and communication, definitely communication too.\"",
             "\"Yeah. Those things.\""
           ]
         },
@@ -465,17 +465,17 @@
           ]
         },
         "mistakeIs": "A",
-        "explanation": "Person A answered instantly, listed everything at once, and undercut each point with filler words. Person B used a two-second pause to choose one specific answer, then let it land without rushing. The pause made the answer feel considered — and memorable."
+        "explanation": "Person A answered instantly, listed everything at once, and undercut each point with filler words. Person B used a two-second pause to choose one specific answer, then let it land without rushing. The pause made the answer feel considered and memorable."
       },
       {
         "type": "reflection",
-        "prompt": "Think of a conversation where you said something and immediately kept talking — before the other person had a chance to react. What were you afraid would happen in the silence? What might have happened if you'd let the pause sit?",
-        "placeholder": "E.g. I gave my manager feedback in a 1:1 and then immediately softened it before she could respond — I think I was scared of her reaction..."
+        "prompt": "Think of a conversation where you said something and immediately kept talking, before the other person had a chance to react. What were you afraid would happen in the silence? What might have happened if you'd let the pause sit?",
+        "placeholder": "E.g. I gave my manager feedback in a 1:1 and then immediately softened it before she could respond. I think I was scared of her reaction..."
       },
       {
         "type": "daily-action",
         "headline": "Today's micro-challenge",
-        "instruction": "In your next conversation — any conversation — after you make your next meaningful point, stop talking. Let there be silence for at least two full seconds before continuing. Count in your head if you need to. Notice what happens in the room when you don't rush to fill it.",
+        "instruction": "In your next conversation, any conversation, after you make your next meaningful point, stop talking. Let there be silence for at least two full seconds before continuing. Count in your head if you need to. Notice what happens in the room when you don't rush to fill it.",
         "timeEstimate": "One conversation"
       }
     ],
@@ -484,7 +484,387 @@
     "estimatedMinutes": 6,
     "subtitle": "How deliberate silence became the most underused tool in communication.",
     "title": "The Power of the Pause",
-    "updatedAt": "2026-03-30T20:57:01.309Z",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
     "xp": 60
+  },
+  {
+    "_id": "69cc4b7f8c3f7cfe910cb5ec",
+    "lessonId": "lesson-6",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "Jim Rohn put it plainly: \"You are the average of the five people you spend the most time with.\"\n\nIt sounds like a motivational poster. It's actually a neurological fact. The brain has mirror neurons that physically synchronise your mood, habits, and energy levels with the people around you. Spend enough time with someone and you start to match their pace, their vocabulary, their ambitions, and their limits."
+      },
+      {
+        "type": "text-header",
+        "content": "The slow drift nobody notices"
+      },
+      {
+        "type": "text",
+        "content": "Nobody wakes up one day and decides to lower their standards. It happens across hundreds of small moments: skipping a workout because a friend doesn't feel like going, staying in a job you hate because your circle normalises it, shrinking your goals to fit the comfort zone of people around you.\n\nThe drift is slow. That's what makes it dangerous.\n\nWho you become over the next five years will look a lot like the people you spend the most time with over the next five years."
+      },
+      {
+        "type": "multiple-choice",
+        "question": "According to the research on social influence, what is the most accurate description of how the people around us affect us?",
+        "options": [
+          {
+            "text": "Their influence is mostly limited to our professional decisions",
+            "correct": false,
+            "explanation": "Social influence runs much deeper, shaping habits, emotional patterns, and even physical health outcomes."
+          },
+          {
+            "text": "Their moods, habits, and energy levels gradually synchronise with ours at a neurological level",
+            "correct": true,
+            "explanation": "Correct. Mirror neurons create involuntary synchronisation. This is why environment is often more powerful than willpower."
+          },
+          {
+            "text": "We are only affected by people we actively admire",
+            "correct": false,
+            "explanation": "The effect is not filtered by conscious admiration. Proximity and time are the key variables."
+          },
+          {
+            "text": "Strong-willed people are mostly immune to social influence",
+            "correct": false,
+            "explanation": "Willpower is a finite resource. Environment reshapes us whether we notice it or not, regardless of character strength."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "You don't need to drop anyone"
+      },
+      {
+        "type": "text",
+        "content": "This isn't about cutting people out. It's about being intentional with your proximity.\n\nThink of it as a volume dial, not an on/off switch. Turn up time with people who challenge you, energise you, and operate at the level you're aiming for. Turn down the volume on relationships that consistently drain you, shrink you, or pull you backward.\n\nAnd actively seek what Rohn called \"good books and good mentors\" — people don't have to be in your physical life to influence it. The right books, podcasts, and communities count."
+      },
+      {
+        "type": "text-header",
+        "content": "A useful audit"
+      },
+      {
+        "type": "text",
+        "content": "Think about the five people you spend the most time with. For each one, ask:\n\n• Do I feel more capable and energised after spending time with them, or less?\n• Are their habits ones I'd be comfortable adopting as my own?\n• Do they challenge my thinking, or do they mostly confirm it?\n\nYou don't need to answer these out loud to anyone. But honesty here matters."
+      },
+      {
+        "type": "slider",
+        "prompt": "How intentional are you currently being about the people you spend your time with?",
+        "leftLabel": "Completely reactive",
+        "rightLabel": "Fully intentional"
+      },
+      {
+        "type": "reflection",
+        "prompt": "Think of one person in your life who consistently raises your energy, thinking, or standards when you spend time with them. Now think of one context (work, social, family) where you feel consistently smaller or less ambitious. What's one small shift you could make?",
+        "placeholder": "E.g. I always leave coffee with my old colleague feeling fired up and full of ideas. But Sunday dinners with a certain group leave me feeling stuck and cynical for days after..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "Write down the five people you've spent the most time with in the last month. Next to each name, write one word that describes the dominant energy they bring into your life. Don't overthink it, just the first word that comes. Look at the list. Is it the list you'd have chosen?",
+        "timeEstimate": "5 minutes"
+      }
+    ],
+    "createdAt": "2026-03-31T22:32:29.842Z",
+    "date": "2026-04-04",
+    "estimatedMinutes": 6,
+    "subtitle": "Why the people around you shape you more than you think, and what to do about it.",
+    "title": "The Five People Rule",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
+    "xp": 60
+  },
+  {
+    "_id": "69cc4b7f8c3f7cfe910cb5ed",
+    "lessonId": "lesson-7",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "Most people spend their mornings reacting. The alarm goes off, the phone comes out, and within sixty seconds you're already swimming in other people's priorities: emails, news, notifications, messages.\n\nYou haven't had a single thought of your own yet. And your brain, still in its most plastic and impressionable state of the day, has just been handed straight to the world."
+      },
+      {
+        "type": "text-header",
+        "content": "Why mornings are different"
+      },
+      {
+        "type": "text",
+        "content": "In the first 20 minutes after waking, your brain is transitioning out of the theta wave state, the same state associated with deep creativity, learning, and suggestion. It's the closest your waking mind gets to the openness of sleep.\n\nWhat you put into it during this window sets the emotional and cognitive tone for the rest of the day. Not just your mood, but your focus, your patience, and your sense of what's possible.\n\nAs Robin Sharma writes: \"Own your morning. Elevate your life.\""
+      },
+      {
+        "type": "multiple-choice",
+        "question": "What is the main risk of checking your phone within the first few minutes of waking up?",
+        "options": [
+          {
+            "text": "It uses up your screen time allowance early in the day",
+            "correct": false,
+            "explanation": "Screen time is a symptom, not the core problem here."
+          },
+          {
+            "text": "It hands your most cognitively open mental state over to external inputs and other people's priorities",
+            "correct": true,
+            "explanation": "Correct. The early-morning theta state is uniquely receptive. Flooding it with reactive inputs forfeits the most valuable mental window of your day."
+          },
+          {
+            "text": "It makes you more productive because you can get a head start on messages",
+            "correct": false,
+            "explanation": "Research consistently shows the opposite: reactive starts fragment attention and increase stress throughout the day."
+          },
+          {
+            "text": "It disrupts sleep patterns if done too quickly",
+            "correct": false,
+            "explanation": "Sleep quality is a separate issue. The key problem here is cognitive, not circadian."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "The minimum viable morning"
+      },
+      {
+        "type": "text",
+        "content": "You don't need a two-hour routine. You need a protected window, however small, before you hand your attention to the world.\n\nHere are three things that take under ten minutes and have solid evidence behind them:\n\n① Move your body: even five minutes of movement raises cortisol in a healthy, energising way and clears brain fog faster than coffee.\n\n② Write three intentions: not a to-do list. Three things you want to feel or accomplish by the end of the day. This primes your brain to notice relevant opportunities.\n\n③ No phone for the first 20 minutes: this single habit, more than any other, changes the texture of the whole day."
+      },
+      {
+        "type": "spot-mistake",
+        "prompt": "Two people start their day. Who is setting themselves up better?",
+        "personA": {
+          "lines": [
+            "Alarm goes off. Reaches for phone immediately.",
+            "Spends 12 minutes scrolling news and checking messages in bed.",
+            "Gets up feeling vaguely anxious and behind.",
+            "Sits down to work still thinking about something they read online."
+          ]
+        },
+        "personB": {
+          "lines": [
+            "Alarm goes off. Phone stays face-down for 20 minutes.",
+            "Drinks a glass of water, does five minutes of stretching.",
+            "Writes three intentions for the day in a notebook.",
+            "Opens their laptop with a clear sense of what matters today."
+          ]
+        },
+        "mistakeIs": "A",
+        "explanation": "Person A handed their most receptive mental window straight to external inputs and arrived at their day already reactive and scattered. Person B protected the window, used it to move and set direction, and began work with intention rather than anxiety. The difference in output across a full day is significant."
+      },
+      {
+        "type": "reflection",
+        "prompt": "What does your current morning actually look like, honestly? What's the first thing you reach for, and how do you feel 30 minutes after waking? What's one thing you'd change if you were designing your morning from scratch?",
+        "placeholder": "E.g. My morning is basically just a slow panic. Phone first, then scramble. I feel behind before I've done anything..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "Tomorrow morning, before you touch your phone, do just one thing intentionally: drink a glass of water, write down three things you want from the day, or spend five minutes moving. Just one. Keep the phone face-down until it's done. Notice how different the first hour feels.",
+        "timeEstimate": "5 to 10 minutes"
+      }
+    ],
+    "createdAt": "2026-03-31T22:32:29.842Z",
+    "date": "2026-04-05",
+    "estimatedMinutes": 6,
+    "subtitle": "What you do in the first 20 minutes sets the tone for everything that follows.",
+    "title": "Own Your Morning",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
+    "xp": 60
+  },
+  {
+    "_id": "69cc4b7f8c3f7cfe910cb5ee",
+    "lessonId": "lesson-8",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "There's a version of you that never sends the difficult email, never has the uncomfortable conversation, never says the thing that needs to be said.\n\nThat version of you thinks they're being kind. They're actually being conflict-avoidant. And the cost of that avoidance, paid in resentment, missed opportunities, and relationships that slowly corrode, is far higher than the discomfort of the conversation itself."
+      },
+      {
+        "type": "text-header",
+        "content": "What we actually avoid"
+      },
+      {
+        "type": "text",
+        "content": "We don't avoid conflict because we're cowards. We avoid it because our brains predict social pain with the same neural circuitry as physical pain. Rejection, disapproval, and confrontation genuinely hurt, at a biological level.\n\nBut here's what matters: the anticipation of the conversation is almost always worse than the conversation itself. We rehearse the worst version in our heads for days, while the real exchange usually takes three minutes and ends in understanding."
+      },
+      {
+        "type": "text-header",
+        "content": "The difference between conflict and cruelty"
+      },
+      {
+        "type": "text",
+        "content": "Avoiding difficult conversations isn't neutral. Every time you don't say the thing:\n\n• The other person doesn't get the chance to change or respond\n• Resentment builds silently on your side\n• The relationship operates on a false premise\n• The issue compounds\n\nAs Brad Blanton writes: \"Radical honesty is not cruelty. It's the foundation of genuine connection.\"\n\nThe goal isn't to win. It's to be real. Real conversations, even hard ones, build trust in a way that polite avoidance never can."
+      },
+      {
+        "type": "multiple-choice",
+        "question": "Why do most people avoid difficult conversations, according to neuroscience?",
+        "options": [
+          {
+            "text": "They lack the vocabulary to express complex emotions",
+            "correct": false,
+            "explanation": "Language is rarely the barrier. The inhibition runs deeper than word choice."
+          },
+          {
+            "text": "The brain processes social rejection using the same circuitry as physical pain",
+            "correct": true,
+            "explanation": "Correct. fMRI studies show that social threat activates the same regions as physical hurt. Avoidance is a pain-avoidance behaviour, not a character flaw."
+          },
+          {
+            "text": "Most conflicts resolve themselves if you wait long enough",
+            "correct": false,
+            "explanation": "Unaddressed conflict rarely resolves on its own. It typically compounds or creates distance."
+          },
+          {
+            "text": "Difficult conversations usually make things worse",
+            "correct": false,
+            "explanation": "Research shows the opposite. Well-handled difficult conversations consistently improve relationships and outcomes."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "A framework for the hard conversation"
+      },
+      {
+        "type": "text",
+        "content": "When you need to say something difficult, use this three-part structure:\n\n① Observation, not accusation: \"I noticed that...\" rather than \"You always...\"\n② Impact: \"When that happens, I feel...\" or \"The effect on me is...\"\n③ Request: \"What I'd like is...\" or \"Can we talk about how to handle this differently?\"\n\nThis keeps you honest without being aggressive. You're describing your experience, not prosecuting someone else's."
+      },
+      {
+        "type": "spot-mistake",
+        "prompt": "Both people need to tell a colleague that their lateness to meetings is affecting the team. Who handles it better?",
+        "personA": {
+          "lines": [
+            "Says nothing for three weeks, gets more frustrated.",
+            "Finally snaps: \"You're always late, it's disrespectful.\"",
+            "Colleague gets defensive, meeting ends badly.",
+            "Relationship becomes awkward. Issue continues."
+          ]
+        },
+        "personB": {
+          "lines": [
+            "Asks for five minutes privately after the next meeting.",
+            "\"I've noticed you've been joining late a few times. When that happens, we lose the context you'd have added and it affects the pace.\"",
+            "\"I wanted to mention it directly rather than let it build. Is everything okay, or is there something we could adjust?\"",
+            "Colleague appreciates the directness. Problem gets addressed."
+          ]
+        },
+        "mistakeIs": "A",
+        "explanation": "Person A avoided, then exploded. The accusation put the colleague on the defensive and made the issue about character rather than behaviour. Person B used the observation-impact-request structure, stayed curious rather than accusatory, and gave the colleague somewhere to go. Same issue, completely different outcome."
+      },
+      {
+        "type": "reflection",
+        "prompt": "What's a conversation you've been avoiding? What are you actually afraid will happen if you have it? Now ask yourself honestly: is that fear more likely than the alternative, which is that nothing changes and you keep carrying it?",
+        "placeholder": "E.g. I need to talk to my manager about my workload but I keep telling myself it's not the right time. The right time is never going to just appear..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "Identify one conversation you've been putting off. You don't have to have it today. But write down what you'd say using the three-part structure: observation, impact, request. Getting it out of your head and onto paper often removes most of the dread.",
+        "timeEstimate": "5 minutes"
+      }
+    ],
+    "createdAt": "2026-03-31T22:32:29.842Z",
+    "date": "2026-04-06",
+    "estimatedMinutes": 7,
+    "subtitle": "The conversations you keep avoiding are the ones you most need to have.",
+    "title": "The Cost of Avoidance",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
+    "xp": 70
+  },
+  {
+    "_id": "69cc4b7f8c3f7cfe910cb5ef",
+    "lessonId": "lesson-9",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "William James, the father of American psychology, wrote this in 1892: \"The greatest revolution of our generation is the discovery that human beings, by changing the inner attitudes of their minds, can change the outer aspects of their lives.\"\n\nOver a century later, cognitive science has built an entire field on what he intuited: that the way you explain events to yourself, your explanatory style, determines your resilience, your motivation, and ultimately your outcomes, more reliably than the events themselves."
+      },
+      {
+        "type": "text-header",
+        "content": "The two explanatory styles"
+      },
+      {
+        "type": "text",
+        "content": "Psychologist Martin Seligman identified two broad patterns in how people explain setbacks:\n\nPessimistic style: \"This always happens to me\" (permanent), \"Everything is affected\" (pervasive), \"It's my fault\" (personal and fixed).\n\nOptimistic style: \"This happened this time\" (temporary), \"This part of my life is affected\" (specific), \"There were factors involved, and I can respond\" (actionable).\n\nNeither is about ignoring reality. Both are interpretations of the same event. One of them is more accurate most of the time, and one consistently produces better outcomes."
+      },
+      {
+        "type": "multiple-choice",
+        "question": "Which explanatory style does the research consistently link to better resilience and long-term outcomes?",
+        "options": [
+          {
+            "text": "Pessimistic, because it prepares you for the worst",
+            "correct": false,
+            "explanation": "Defensive pessimism has limited use in specific contexts, but as a general explanatory style it predicts worse health, motivation, and performance over time."
+          },
+          {
+            "text": "Optimistic, because it treats setbacks as temporary and specific rather than permanent and pervasive",
+            "correct": true,
+            "explanation": "Correct. Seligman's decades of research show that optimistic explanatory style predicts better health, academic performance, athletic performance, and recovery from setbacks."
+          },
+          {
+            "text": "Neither, because explanatory style has no measurable effect on outcomes",
+            "correct": false,
+            "explanation": "The effect is well-documented. Explanatory style is one of the strongest predictors of resilience in the literature."
+          },
+          {
+            "text": "Whichever matches your natural temperament",
+            "correct": false,
+            "explanation": "The good news is that explanatory style is learnable. It's a skill, not a fixed trait."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "Rewriting the story in real time"
+      },
+      {
+        "type": "text",
+        "content": "When something goes wrong, your brain generates an explanation automatically, usually within seconds. The pessimistic version comes faster because it evolved as a threat-detection system.\n\nThe practice is to catch that first interpretation and interrogate it:\n\n\"Is this permanent, or is it just today?\"\n\"Is everything affected, or just this one area?\"\n\"Is this entirely my fault, or were there other factors?\"\n\nYou're not lying to yourself. You're being more precise. The pessimistic interpretation is usually the lazy one, not the accurate one."
+      },
+      {
+        "type": "spot-mistake",
+        "prompt": "Both people just got critical feedback on a project they worked hard on. Who is responding more usefully?",
+        "personA": {
+          "lines": [
+            "\"I always mess up the important stuff.\"",
+            "\"My instincts are just off. I'm not cut out for this.\"",
+            "\"Even when I try my best it doesn't matter.\"",
+            "Avoids the next project opportunity."
+          ]
+        },
+        "personB": {
+          "lines": [
+            "\"That didn't land the way I wanted. Okay.\"",
+            "\"The framing in section two was weak. That's fixable.\"",
+            "\"I'll ask for one specific note from the reviewer before the next round.\"",
+            "Takes on the next project with the adjustment in mind."
+          ]
+        },
+        "mistakeIs": "A",
+        "explanation": "Person A applied a permanent, pervasive, and personal explanation: always, everything, me. Person B treated it as temporary (this time), specific (section two), and actionable (one clear next step). Same feedback, completely different trajectories."
+      },
+      {
+        "type": "text-header",
+        "content": "A note on toxic positivity"
+      },
+      {
+        "type": "text",
+        "content": "This isn't about pretending things are fine when they aren't. Seligman is explicit on this: optimism without realism is delusion, not resilience.\n\nThe goal is accurate thinking, not cheerful thinking. Sometimes things genuinely are bad, and the honest response is to acknowledge it. The difference is whether you then spiral into permanence and pervasiveness, or whether you stay specific and look for what's actionable."
+      },
+      {
+        "type": "reflection",
+        "prompt": "Think of a recent setback, something at work, in a relationship, or a goal you didn't hit. What story did you tell yourself about it? Was that story permanent, pervasive, or personal in ways that may not have been accurate? What's a more precise version?",
+        "placeholder": "E.g. When I didn't get the promotion I told myself I was bad at my job. But really, the feedback was about one specific skill I could actually develop..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "The next time something goes wrong today, even something small, catch your first explanation. Write it down. Then run it through three questions: Is this permanent or temporary? Is everything affected or just this specific thing? Is this entirely my fault or were there other factors? Write the revised version. Notice the difference in how it feels.",
+        "timeEstimate": "3 minutes"
+      }
+    ],
+    "createdAt": "2026-03-31T22:32:29.842Z",
+    "date": "2026-04-07",
+    "estimatedMinutes": 7,
+    "subtitle": "How the story you tell yourself about setbacks determines everything that comes next.",
+    "title": "Rewrite the Story",
+    "updatedAt": "2026-03-31T22:40:40.685Z",
+    "xp": 70
   }
 ]

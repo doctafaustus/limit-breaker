@@ -109,6 +109,42 @@
   flex-wrap: wrap;
 }
 
+.calGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $space-2;
+  margin-bottom: $space-3;
+}
+
+.calDay {
+  aspect-ratio: 1;
+  border-radius: $radius-sm;
+  border: 1.5px solid $color-border;
+  background: $color-surface;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: $color-text;
+  cursor: pointer;
+  transition: background $duration-normal, border-color $duration-normal;
+
+  &:hover { background: $primary-light; border-color: $primary; color: $primary; }
+}
+
+.calDayPast {
+  color: $color-text-secondary;
+  opacity: 0.5;
+}
+
+.calDayActive {
+  background: $primary;
+  border-color: $primary;
+  color: white;
+  opacity: 1;
+
+  &:hover { background: $primary-dark; border-color: $primary-dark; color: white; }
+}
+
 .divider {
   height: 1px;
   background: $color-border;

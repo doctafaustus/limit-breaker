@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "69cae3a18c3f7cfe910c9aee",
+    "date": "2026-03-30",
+    "word": "Gravitas",
+    "pronunciation": "grav·i·tas",
+    "partOfSpeech": "noun",
+    "definition": "A quality of seriousness, dignity, and weight in a person's manner that naturally commands the respect and attention of others.",
+    "example": "When she paused before answering and held the room's gaze, the gravitas she projected made every word land twice as hard.",
+    "origin": "Latin — literally \"weight\" or \"heaviness\"",
+    "createdAt": "2026-03-30T20:57:02.075Z",
+    "updatedAt": "2026-03-30T20:57:02.075Z",
+    "__v": 0
+  },
+  {
+    "_id": "69cae3a18c3f7cfe910c9aef",
+    "date": "2026-03-31",
+    "word": "Mnemonics",
+    "pronunciation": "neh·mon·ics",
+    "partOfSpeech": "noun",
+    "definition": "A system of patterns, rhymes, images, or associations designed to make information easier to encode into memory and retrieve later.",
+    "example": "He built a mnemonic for every new client's name by linking it to a vivid mental image — and never forgot a single one after that.",
+    "origin": "Greek — from Mnemosyne, the goddess of memory",
+    "createdAt": "2026-03-30T20:57:02.075Z",
+    "updatedAt": "2026-03-30T20:57:02.075Z",
+    "__v": 0
+  },
+  {
+    "_id": "69cae3a18c3f7cfe910c9af0",
+    "date": "2026-04-01",
+    "word": "Equanimity",
+    "pronunciation": "ee·kwuh·nim·i·tee",
+    "partOfSpeech": "noun",
+    "definition": "A calm, composed state of mind that remains stable under pressure or stress — not the absence of feeling, but the ability to stay grounded despite it.",
+    "example": "She delivered the difficult news with such equanimity that the room felt steadied by her composure rather than unsettled by the situation.",
+    "origin": "Latin — aequanimitas, from aequus (\"equal\") + animus (\"mind\")",
+    "createdAt": "2026-03-30T20:57:02.075Z",
+    "updatedAt": "2026-03-30T20:57:02.075Z",
+    "__v": 0
+  },
+  {
+    "_id": "69cae3a18c3f7cfe910c9af1",
+    "date": "2026-04-02",
+    "word": "Laconic",
+    "pronunciation": "luh·kon·ik",
+    "partOfSpeech": "adjective",
+    "definition": "Using very few words to express a great deal — brief, direct, and deliberately spare in language.",
+    "example": "When asked how the negotiation went, his laconic reply — \"We got what we needed\" — told the room everything without explaining anything.",
+    "origin": "Greek — from Lakon, referring to the Spartans of Laconia, famous for their terse speech",
+    "createdAt": "2026-03-30T20:57:02.075Z",
+    "updatedAt": "2026-03-30T20:57:02.075Z",
+    "__v": 0
+  },
+  {
+    "_id": "69cae3a18c3f7cfe910c9af2",
+    "date": "2026-04-03",
+    "word": "Heuristic",
+    "pronunciation": "hyoo·ris·tic",
+    "partOfSpeech": "noun / adjective",
+    "definition": "A practical mental shortcut or rule of thumb that enables faster decision-making — not guaranteed to be perfect, but reliably good enough to navigate complex situations.",
+    "example": "Her heuristic for evaluating content ideas was simple: \"Would I stop scrolling for this?\" — and it cut her planning time in half.",
+    "origin": "Greek — heuriskein, \"to find\" or \"to discover\"",
+    "createdAt": "2026-03-30T20:57:02.075Z",
+    "updatedAt": "2026-03-30T20:57:02.075Z",
+    "__v": 0
+  }
+]

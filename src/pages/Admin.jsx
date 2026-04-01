@@ -36,24 +36,33 @@ export default function Admin() {
       </div>
 
       <div className={styles.sectionTitle}>Simulate Date</div>
-      <div className={styles.btnGroup}>
-        {[1, 2, 3, 4, 5].map(n => (
-          <button
-            key={n}
-            className={[styles.btn, dateOffset === n ? styles.btnActive : styles.btnPrimary].join(' ')}
-            onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: n })}
-          >
-            +{n} Day{n > 1 ? 's' : ''} → {getDateStr(n)}
-          </button>
-        ))}
-        <button
-          className={styles.btn}
-          disabled={dateOffset === 0}
-          onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: 0 })}
-        >
-          ↩ Back to today ({getDateStr(0)})
-        </button>
+      <div className={styles.calGrid}>
+        {Array.from({ length: 30 }, (_, i) => {
+          const aprilDate = new Date(2026, 3, i + 1)
+          const today = new Date()
+          today.setHours(0, 0, 0, 0)
+          const offset = Math.round((aprilDate - today) / 86400000)
+          const label = `${i + 1}`
+          const isActive = dateOffset === offset
+          const isPast = aprilDate < today
+          return (
+            <button
+              key={i}
+              className={[styles.calDay, isActive ? styles.calDayActive : '', isPast ? styles.calDayPast : ''].join(' ')}
+              onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset })}
+            >
+              {label}
+            </button>
+          )
+        })}
       </div>
+      <button
+        className={styles.btn}
+        disabled={dateOffset === 0}
+        onClick={() => dispatch({ type: 'SET_DATE_OFFSET', offset: 0 })}
+      >
+        ↩ Back to today ({getDateStr(0)})
+      </button>
 
       <div className={styles.divider} />
 

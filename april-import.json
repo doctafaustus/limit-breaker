@@ -1,0 +1,186 @@
+[
+  {
+    "lessonId": "lesson-31",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "A surprising number of bad outcomes come from one simple mistake: treating every decision like it deserves the same amount of time.\n\nIt doesn't.\n\nSome decisions are reversible. You can try them, gather information, and change course with limited cost. Others are expensive to unwind. They lock in time, reputation, money, relationships, or strategic direction.\n\nThe problem is that people often do the reverse of what would help them most. They overthink reversible decisions and underthink irreversible ones."
+      },
+      {
+        "type": "text-header",
+        "content": "Two kinds of decisions"
+      },
+      {
+        "type": "text",
+        "content": "Jeff Bezos popularised a useful distinction:\n\nType 1 decisions are one-way doors. Once you walk through them, reversing course is difficult or costly.\n\nType 2 decisions are two-way doors. You can walk through, test, learn, and come back if needed.\n\nThis matters because the right speed is different for each. Type 1 decisions deserve deliberate thought. Type 2 decisions usually deserve speed. Waiting too long on a reversible choice often costs more than choosing imperfectly and learning."
+      },
+      {
+        "type": "multiple-choice",
+        "question": "What is the smartest way to handle a reversible decision?",
+        "options": [
+          {
+            "text": "Delay until you have near-total certainty",
+            "correct": false,
+            "explanation": "This usually creates unnecessary drag. Reversible decisions are often best handled by acting, observing, and adjusting."
+          },
+          {
+            "text": "Treat it like an experiment and move faster",
+            "correct": true,
+            "explanation": "Correct. When the decision is reversible, speed creates learning. You do not need perfect certainty to make a move you can later revise."
+          },
+          {
+            "text": "Avoid making the decision until someone else does first",
+            "correct": false,
+            "explanation": "Borrowing certainty from others often delays learning without reducing much real risk."
+          },
+          {
+            "text": "Use the same careful process you would use for a major life commitment",
+            "correct": false,
+            "explanation": "That is exactly the trap. Not every decision deserves one-way-door levels of seriousness."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "Where people get stuck"
+      },
+      {
+        "type": "text",
+        "content": "Should I try that class? Should I post this idea? Should I test that format? Should I ask for the intro? Should I explore that new direction for a month?\n\nThese are usually two-way doors.\n\nYet people burn huge amounts of energy trying to pre-solve decisions that would teach them more if they simply acted. The hidden cost of overthinking is not just delay. It is lost feedback.\n\nYou cannot think your way to information that only action can produce."
+      },
+      {
+        "type": "spot-mistake",
+        "prompt": "Both people are thinking about starting a small side project. Who is approaching the decision better?",
+        "personA": {
+          "lines": [
+            "Spends six weeks trying to decide if the idea is definitely the right one.",
+            "Researches tools, naming, branding, and long-term positioning.",
+            "Still hasn't published or tested anything.",
+            "Keeps saying they want more clarity before starting."
+          ]
+        },
+        "personB": {
+          "lines": [
+            "Treats the first version as a 30-day experiment.",
+            "Picks a simple format and ships something small within a week.",
+            "Uses real feedback to decide whether to continue, adjust, or stop.",
+            "Learns faster because they acted while the decision was still reversible."
+          ]
+        },
+        "mistakeIs": "A",
+        "explanation": "Person A treated a reversible decision like a permanent one and lost time without gaining meaningful information. Person B recognised it as a two-way door and used action to create clarity."
+      },
+      {
+        "type": "reflection",
+        "prompt": "Think of one decision you've been overthinking lately. Is it actually a one-way door, or is it more reversible than you've been treating it? What information are you waiting to know that you could only learn by doing?",
+        "placeholder": "E.g. I've been thinking about trying a new content format for weeks like it's some huge identity decision, but realistically I could test it for two weeks and learn more than thinking would ever tell me..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "Pick one decision you've been dragging out and label it clearly: one-way door or two-way door. If it's reversible, make the decision today and take the first step. Speed is a strategy when the stakes are recoverable.",
+        "timeEstimate": "5 minutes"
+      }
+    ],
+    "createdAt": "2026-03-30T20:57:01.309Z",
+    "date": "2026-04-29",
+    "estimatedMinutes": 6,
+    "subtitle": "Why you should move faster on choices you can easily reverse.",
+    "title": "The Two-Way Door",
+    "updatedAt": "2026-03-30T20:57:01.309Z",
+    "xp": 60
+  },
+  {
+    "lessonId": "lesson-32",
+    "__v": 0,
+    "blocks": [
+      {
+        "type": "text",
+        "content": "Most people think boundaries are something you set when someone is already doing too much.\n\nBy then, you're often late.\n\nA boundary is not punishment. It's pre-decided clarity about what you will and will not allow, give, accept, or participate in. The real function of a boundary is not to control other people. It is to prevent resentment from quietly building inside you while you act agreeable on the outside."
+      },
+      {
+        "type": "text-header",
+        "content": "Why resentment is usually a boundary problem"
+      },
+      {
+        "type": "text",
+        "content": "Resentment rarely appears out of nowhere. It usually forms when you've said yes too many times after meaning no, stayed available longer than you wanted to, absorbed something that wasn't yours, or hoped someone would infer a limit you never stated.\n\nPeople are often blamed for crossing lines that were never actually visible.\n\nThis is what makes boundaries hard for conflict-avoidant people: they want others to magically sense the limit so they can avoid the discomfort of naming it. But unspoken boundaries are mostly private wishes."
+      },
+      {
+        "type": "multiple-choice",
+        "question": "What is the real purpose of a healthy boundary?",
+        "options": [
+          {
+            "text": "To make other people behave the way you prefer",
+            "correct": false,
+            "explanation": "A boundary is not a tool for controlling other people. It is a statement about what you will do or allow."
+          },
+          {
+            "text": "To prevent hidden resentment by making limits clear earlier",
+            "correct": true,
+            "explanation": "Correct. Healthy boundaries create clarity before resentment has a chance to build."
+          },
+          {
+            "text": "To avoid all difficult interactions",
+            "correct": false,
+            "explanation": "Good boundaries often require difficult interactions, especially at first."
+          },
+          {
+            "text": "To punish people when they disappoint you",
+            "correct": false,
+            "explanation": "Punishment is reactive. Boundaries are proactive."
+          }
+        ]
+      },
+      {
+        "type": "text-header",
+        "content": "A cleaner way to say it"
+      },
+      {
+        "type": "text",
+        "content": "Boundaries do not need a speech. Most of the time they need one clean sentence.\n\n\"I can't do that tonight.\"\n\"I'm not available for calls after 9.\"\n\"I'd rather talk about this tomorrow when I have more bandwidth.\"\n\"I'm happy to help with X, but not Y.\"\n\nNotice what these have in common: no over-explaining, no performance, no hidden anger. Just clear information.\n\nThe more explanation you add, the more you often signal that the boundary itself is negotiable."
+      },
+      {
+        "type": "spot-mistake",
+        "prompt": "Both people are feeling overloaded and need to respond to a last-minute request. Who handles it better?",
+        "personA": {
+          "lines": [
+            "Says yes even though they don't want to.",
+            "Feels irritated the rest of the evening.",
+            "Becomes colder and less responsive afterward.",
+            "Tells themselves the other person should have known it was too much."
+          ]
+        },
+        "personB": {
+          "lines": [
+            "Replies promptly and clearly.",
+            "\"I can't take that on tonight, but I could help tomorrow afternoon.\"",
+            "Sets the limit without hostility or guilt.",
+            "Protects both the relationship and their own energy."
+          ]
+        },
+        "mistakeIs": "A",
+        "explanation": "Person A chose short-term comfort and paid for it in resentment. Person B used a direct boundary, which may feel briefly uncomfortable but prevents a much messier emotional cost later."
+      },
+      {
+        "type": "reflection",
+        "prompt": "Where in your life do you most often create resentment by being unclear: work, dating, family, friendships, or your own schedule? What is one sentence you could say earlier next time instead of waiting until you're already frustrated?",
+        "placeholder": "E.g. I tend to be vague when I want space because I don't want to seem difficult, then I end up irritated that people keep asking for more of me..."
+      },
+      {
+        "type": "daily-action",
+        "headline": "Today's micro-challenge",
+        "instruction": "Write one boundary sentence you know you need more often in your life. Keep it simple and clean, one sentence, no speech attached. You do not have to use it today, but you should be able to.",
+        "timeEstimate": "3 minutes"
+      }
+    ],
+    "createdAt": "2026-03-30T20:57:01.309Z",
+    "date": "2026-04-30",
+    "estimatedMinutes": 6,
+    "subtitle": "Why clear limits protect relationships better than silent resentment does.",
+    "title": "Boundaries Before Resentment",
+    "updatedAt": "2026-03-30T20:57:01.309Z",
+    "xp": 60
+  }
+]
