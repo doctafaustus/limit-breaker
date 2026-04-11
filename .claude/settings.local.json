@@ -5,7 +5,8 @@
       "Bash(node server/seed.js)",
       "Bash(npm i:*)",
       "Bash(python3:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(mongoexport:*)"
     ]
   }
 }
